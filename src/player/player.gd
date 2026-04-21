@@ -34,7 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		_handle_mouse_look(event.relative, PlayerGlobal.player_mouse_state)
 
 func _physics_process(delta: float) -> void:
-	_handle_crouching(delta)
+	#ww_handle_crouching(delta)
 	_handle_movement(delta)
 	_apply_head_bob(delta)
 	
@@ -53,16 +53,17 @@ func _handle_mouse_look(mouse_relative: Vector2, state: PlayerGlobal.PlayerMouse
 		camera.rotate_x(-mouse_relative.y * (0.001 / 20))
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
-func _handle_crouching(delta: float) -> void:
-	var target_scale = 0.5 if Input.is_action_pressed("Crouch") and is_on_floor() else 1.0
-	scale.y = lerp(scale.y, target_scale, CROUCH_INTERPOLATION * delta)
+#func _handle_crouching(delta: float) -> void:
+	#var target_scale = 0.5 if Input.is_action_pressed("Crouch") and is_on_floor() else 1.0
+	#scale.y = lerp(scale.y, target_scale, CROUCH_INTERPOLATION * delta)
 
 func _apply_gravity(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 
 func _handle_movement(delta: float) -> void:
-	speed = CROUCH_SPEED if Input.is_action_pressed("Crouch") else WALK_SPEED
+	#speed = CROUCH_SPEED if Input.is_action_pressed("Crouch") else WALK_SPEED
+	speed = WALK_SPEED
 	
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction = (head.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
