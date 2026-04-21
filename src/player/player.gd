@@ -43,14 +43,14 @@ func _physics_process(delta: float) -> void:
 
 func _handle_mouse_look(mouse_relative: Vector2, state: PlayerGlobal.PlayerMouseState) -> void:
 	if state == PlayerGlobal.PlayerMouseState.NORMAL:
-		head.rotate_y(-mouse_relative.x * SettingsData.DATA["SENSITIVITY"])
-		camera.rotate_x(-mouse_relative.y * SettingsData.DATA["SENSITIVITY"])
+		head.rotate_y(-mouse_relative.x * 0.001)
+		camera.rotate_x(-mouse_relative.y * 0.001)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 	
 	# mouse move slower
 	elif state == PlayerGlobal.PlayerMouseState.SLOW:
-		head.rotate_y(-mouse_relative.x * (SettingsData.DATA["SENSITIVITY"] / 20))
-		camera.rotate_x(-mouse_relative.y * (SettingsData.DATA["SENSITIVITY"] / 20))
+		head.rotate_y(-mouse_relative.x * (0.001 / 20))
+		camera.rotate_x(-mouse_relative.y * (0.001 / 20))
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _handle_crouching(delta: float) -> void:
@@ -100,6 +100,4 @@ func _process(_delta: float) -> void:
 
 func _ready() -> void:
 	PlayerGlobal.player = self
-	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	NoteCloseupLayer.hide()
