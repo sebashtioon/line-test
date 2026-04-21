@@ -57,16 +57,13 @@ var bob_wave_length: float = 0.0
 const BLACK_FADE_DURATION: float = 1.0
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion and !PlayerGlobal.in_ui:
+	if event is InputEventMouseMotion:
 		_handle_mouse_look(event.relative, PlayerGlobal.player_mouse_state)
 
 func _physics_process(delta: float) -> void:
-	if !PlayerGlobal.in_ui and !PlayerGlobal.sleeping and !PlayerGlobal.on_couch:
-		_handle_crouching(delta)
-		_handle_movement(delta)
-		_apply_head_bob(delta)
-	else:
-		_stop_movement(delta)
+	_handle_crouching(delta)
+	_handle_movement(delta)
+	_apply_head_bob(delta)
 	
 	_apply_gravity(delta)
 	move_and_slide()
@@ -134,84 +131,3 @@ func _ready() -> void:
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	NoteCloseupLayer.hide()
-
-func toggle_note_closeup(show_closup : bool, note_id : int = 1) -> void:
-	if show_closup:
-		paper_audio.play()
-		UIGlobal.in_note_closeup = true
-		PlayerGlobal.in_ui = true
-		NoteContent.text = NotesGlobal.NOTE_CLOSUPS[note_id]
-		NoteCloseupLayer.show()
-	else:
-		UIGlobal.in_note_closeup = false
-		PlayerGlobal.in_ui = false
-		NoteCloseupLayer.hide()
-
-func visibilitysetupforsleep():
-	hud_no_effect_layer.hide()
-	mesh.hide()
-
-func sleep() -> void:
-	PlayerGlobal.sleeping = true
-	PlayerGlobal.world.set_bed_can_interact(false)
-	PlayerGlobal.world.breathing_mechanic_pawn.init_timer.start()
-	PlayerGlobal.player_mouse_state = PlayerGlobal.PlayerMouseState.SLOW
-	var tween = get_tree().create_tween()
-	tween.tween_property(sleepuilayer_blackfade, "modulate", Color(1, 1, 1, 1), 1.0).from(Color(1, 1, 1, 0))
-	sleeptransitiontimer.start()
-
-func _on_sleeptransition_timeout() -> void:
-	PlayerGlobal.sleep_camera.make_current()
-	PlayerGlobal.world.paralysis_phase_pawn.START_PHASES()
-	visibilitysetupforsleep()
-	var tween = get_tree().create_tween()
-	tween.tween_interval(1.0)
-	tween.tween_property(sleepuilayer_blackfade, "modulate", Color(1, 1, 1, 0), 1.0).from(Color(1, 1, 1, 1))
-
-func _create_blackfade_tween(from_alpha: float, to_alpha: float, hold_time: float = 0.0) -> Tween:
-	var tween = get_tree().create_tween()
-	tween.tween_property(
-		blackfade_layer_black_fade,
-		"modulate",
-		Color(1, 1, 1, to_alpha),
-		BLACK_FADE_DURATION
-	).from(Color(1, 1, 1, from_alpha))
-	if hold_time > 0.0:
-		tween.tween_interval(hold_time)
-	return tween
-
-func sit_on_couch() -> void:
-	PlayerGlobal.on_couch = true
-	PlayerGlobal.world.set_couch_can_interact(false)
-	PlayerGlobal.couch_camera_mouse_state = PlayerGlobal.PlayerMouseState.NORMAL
-	PlayerGlobal.player_mouse_state = PlayerGlobal.PlayerMouseState.SLOW
-	DraggableBodiesGlobal.interaction_disabled_all = true
-	var tween = _create_blackfade_tween(0.0, 1.0, 1.0)
-	tween.connect("finished", couch_transition)
-
-func couch_transition() -> void:
-	PlayerGlobal.couch_camera.make_current()
-	var tween = _create_blackfade_tween(1.0, 0.0)
-	tween.connect("finished", Callable(allow_couch_exiting))
-
-func exit_couch() -> void:
-	PlayerGlobal.couch_camera_mouse_state = PlayerGlobal.PlayerMouseState.SLOW
-	allow_couch_exiting(false)
-	var tween = _create_blackfade_tween(0.0, 1.0, 1.0)
-	tween.connect("finished", exit_couch_transition)
-
-func exit_couch_transition() -> void:
-	PlayerGlobal.on_couch = false
-	var tween = _create_blackfade_tween(1.0, 0.0)
-	tween.connect("finished", Callable(_enable_couch_interaction))
-	PlayerGlobal.player_mouse_state = PlayerGlobal.PlayerMouseState.NORMAL
-	PlayerGlobal.player.camera.make_current()
-	DraggableBodiesGlobal.interaction_disabled_all = false
-
-
-func _enable_couch_interaction() -> void:
-	PlayerGlobal.world.set_couch_can_interact(true)
-
-func allow_couch_exiting(value : bool = true) -> void:
-	couchhud_layer.visible = value
-	PlayerGlobal.can_exit_couch = value

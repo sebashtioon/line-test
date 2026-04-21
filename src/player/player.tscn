@@ -1,19 +1,6 @@
 [gd_scene format=3 uid="uid://bsljbif1rji7e"]
 
 [ext_resource type="Script" uid="uid://c2p2m8pgho4nd" path="res://src/player/player.gd" id="1_4anbu"]
-[ext_resource type="Texture2D" uid="uid://dpesjsmp6nmqs" path="res://ast/textures/hud/accuracy_gap_meter.png" id="2_cwolq"]
-[ext_resource type="Material" uid="uid://bn2fftbpm7rpw" path="res://res/shader mat/vhs.tres" id="2_rxibo"]
-[ext_resource type="Texture2D" uid="uid://d1nvnc2h6yef0" path="res://ast/textures/hud/breath_interval_meter.png" id="3_2smqc"]
-[ext_resource type="Shader" uid="uid://bqnwwm7jkxpd" path="res://res/shad/canvas/radialblur.gdshader" id="3_8ydov"]
-[ext_resource type="Texture2D" uid="uid://cqtdygrfwgsrk" path="res://ast/textures/hud/crosshair.png" id="3_mf2ua"]
-[ext_resource type="Texture2D" uid="uid://drsy870nrpayg" path="res://ast/textures/input/mouse_scroll_vertical_outline.png" id="4_244u8"]
-[ext_resource type="Script" uid="uid://dpssojwra2tn2" path="res://src/player/rotate_ui_container.gd" id="4_jiejy"]
-[ext_resource type="Material" uid="uid://dfxc85kabcrgj" path="res://res/shader mat/buckshoteffect.tres" id="4_rl62b"]
-[ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="5_5f2sf"]
-[ext_resource type="Texture2D" uid="uid://bmjr7r1lh2o1n" path="res://ast/textures/props/paper/paper_cropped.png" id="7_o822w"]
-[ext_resource type="Texture2D" uid="uid://dbqrcmq0kv2g0" path="res://ast/textures/hud/fail.png" id="7_rl62b"]
-[ext_resource type="FontFile" uid="uid://cc4qg7gpfqgsj" path="res://ast/fonts/baby doll/Baby Doll.otf" id="8_x42xx"]
-[ext_resource type="AudioStream" uid="uid://jtbmjlxo0kgr" path="res://ast/audio/paper.ogg" id="9_l271a"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8ep2"]
 
@@ -24,11 +11,6 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 size = Vector3(0.05, 0.05, 1.52554)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ylhto"]
-shader = ExtResource("3_8ydov")
-shader_parameter/intensity = 7.462000354445
-shader_parameter/falloff = 0.0310000014725
-shader_parameter/samples = 20
-shader_parameter/center = Vector2(0.685, -0.365)
 
 [sub_resource type="Animation" id="Animation_oyld2"]
 resource_name = "RESET"
@@ -278,7 +260,6 @@ offset_left = 1.0
 offset_top = 575.0
 offset_right = 157.0
 offset_bottom = 598.0
-theme = ExtResource("5_5f2sf")
 theme_override_font_sizes/font_size = 14
 text = "[E] to stand up"
 horizontal_alignment = 1
@@ -289,7 +270,6 @@ layer = 10
 
 [node name="VHSEffect" type="ColorRect" parent="head/camera/fx_layer" unique_id=1022563289]
 visible = false
-material = ExtResource("2_rxibo")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -308,7 +288,6 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="BuckshotEffect" type="ColorRect" parent="head/camera/fx_layer" unique_id=1767192952]
-material = ExtResource("4_rl62b")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -363,7 +342,6 @@ layout_mode = 0
 offset_top = -33.0
 offset_right = 40.0
 offset_bottom = 7.0
-texture = ExtResource("2_cwolq")
 expand_mode = 1
 
 [node name="BreathIntervalIcon" type="Control" parent="head/camera/breathingindicator_layer/BreathingIndicator" unique_id=134239768]
@@ -399,7 +377,6 @@ visibility_layer = 4
 layout_mode = 0
 offset_top = -40.0
 offset_right = 40.0
-texture = ExtResource("3_2smqc")
 expand_mode = 1
 
 [node name="FailIcon" type="TextureRect" parent="head/camera/breathingindicator_layer/BreathingIndicator" unique_id=1013680040]
@@ -410,7 +387,6 @@ offset_top = 573.00006
 offset_right = 68.0
 offset_bottom = 613.00006
 scale = Vector2(1.5016135, 1.5016135)
-texture = ExtResource("7_rl62b")
 expand_mode = 1
 
 [node name="hudnofx_layer" type="CanvasLayer" parent="head/camera" unique_id=1730195361]
@@ -428,7 +404,6 @@ offset_right = 27.5
 offset_bottom = 27.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_mf2ua")
 expand_mode = 1
 
 [node name="RotateUIContainer" type="Control" parent="head/camera/hudnofx_layer" unique_id=1430492097]
@@ -439,7 +414,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-script = ExtResource("4_jiejy")
 
 [node name="Icon" type="TextureRect" parent="head/camera/hudnofx_layer/RotateUIContainer" unique_id=2001811862]
 layout_mode = 0
@@ -447,7 +421,6 @@ offset_left = 11.0
 offset_top = 604.0
 offset_right = 43.0
 offset_bottom = 636.0
-texture = ExtResource("4_244u8")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="head/camera/hudnofx_layer/RotateUIContainer" unique_id=2120604313]
@@ -456,7 +429,6 @@ offset_left = 44.0
 offset_top = 609.0
 offset_right = 84.0
 offset_bottom = 632.0
-theme = ExtResource("5_5f2sf")
 theme_override_font_sizes/font_size = 11
 text = "Rotate"
 horizontal_alignment = 1
@@ -468,7 +440,6 @@ offset_left = 44.0
 offset_top = 609.0
 offset_right = 84.0
 offset_bottom = 632.0
-theme = ExtResource("5_5f2sf")
 theme_override_font_sizes/font_size = 11
 text = "Rotate"
 horizontal_alignment = 1
@@ -504,7 +475,6 @@ offset_right = 1628.0
 offset_bottom = 1954.0
 rotation = 0.015676692
 scale = Vector2(0.26921183, 0.26921183)
-texture = ExtResource("7_o822w")
 
 [node name="NoteContent" type="Label" parent="head/camera/notecloseup_layer/MainLayer/Paper" unique_id=1038135223]
 modulate = Color(0, 0, 0, 1)
@@ -514,7 +484,6 @@ offset_top = 89.14911
 offset_right = 1192.8582
 offset_bottom = 1767.1494
 theme_override_constants/line_spacing = 30
-theme_override_fonts/font = ExtResource("8_x42xx")
 theme_override_font_sizes/font_size = 56
 text = "[text]"
 
@@ -532,7 +501,6 @@ offset_right = 39.5
 offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = ExtResource("5_5f2sf")
 text = "[E] Exit"
 
 [node name="sleepui_layer" type="CanvasLayer" parent="head/camera" unique_id=654494885]
@@ -584,7 +552,6 @@ color = Color(0, 0, 0, 1)
 [node name="audio" type="Node" parent="." unique_id=1389909550]
 
 [node name="paper" type="AudioStreamPlayer" parent="audio" unique_id=1546956703]
-stream = ExtResource("9_l271a")
 
 [node name="timers" type="Timer" parent="." unique_id=1932572910]
 
