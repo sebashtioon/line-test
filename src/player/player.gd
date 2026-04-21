@@ -1,31 +1,5 @@
 extends CharacterBody3D
 
-@export var DragInteractionPosition: Node3D
-@export var NoteCloseupLayer : CanvasLayer
-@export var NoteContent : Label
-
-@export_group("audio")
-@export var paper_audio : AudioStreamPlayer
-
-@export_group("timers")
-@export var sleeptransitiontimer : Timer
-
-@export_group("ui")
-@export var note_content: Label
-@export_subgroup("canvaslayers")
-@export var hud_no_effect_layer : CanvasLayer
-@export_subgroup("sleepuilayer")
-@export var sleepuilayer_blackfade : ColorRect
-@export_subgroup("breathing indicator")
-@export var breath_interval_icon : Control
-@export var accuracy_gap_icon : Control
-@export var breath_interval_anim : AnimationPlayer
-@export var accuracy_gap_anim : AnimationPlayer
-@export var fail_icon : TextureRect
-@export_subgroup("other")
-@export var blackfade_layer_black_fade: ColorRect
-@export var couchhud_layer: Control
-
 
 @export_group("body parts")
 @export var head: Node3D
@@ -33,7 +7,7 @@ extends CharacterBody3D
 @export var mesh : MeshInstance3D
 
 @export_group("visual")
-@export var FOV: float = 70.0
+@export var fov : float = 70.0
 @export var crosshair_size: Vector2 = Vector2(12, 12)
 
 @export_group("movement")
@@ -54,7 +28,6 @@ extends CharacterBody3D
 
 var speed: float
 var bob_wave_length: float = 0.0
-const BLACK_FADE_DURATION: float = 1.0
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
@@ -123,8 +96,7 @@ func _headbob(time: float) -> Vector3:
 	return Vector3(0, sin(time * BOB_FREQ) * BOB_AMP, 0)
 
 func _process(_delta: float) -> void:
-	PlayerGlobal.drag_interaction_player_position = DragInteractionPosition.global_position
-	camera.fov = FOV
+	camera.fov = fov
 
 func _ready() -> void:
 	PlayerGlobal.player = self
