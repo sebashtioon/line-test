@@ -19,7 +19,7 @@ background_mode = 2
 sky = SubResource("Sky_3s6yk")
 tonemap_mode = 2
 volumetric_fog_enabled = true
-volumetric_fog_density = 0.6177
+volumetric_fog_density = 0.48
 volumetric_fog_albedo = Color(0.07150052, 0.07150052, 0.07150052, 1)
 volumetric_fog_emission_energy = 49.0
 volumetric_fog_anisotropy = -0.2
@@ -45,14 +45,70 @@ environment = SubResource("Environment_ab7mr")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 light_color = Color(0, 0, 0, 1)
 
-[node name="floor" type="MeshInstance3D" parent="." unique_id=1270133708]
-transform = Transform3D(28.890003, 0, 0, 0, 1, 0, 0, 0, 27.284588, 0, 0, 0)
+[node name="floor1" type="MeshInstance3D" parent="." unique_id=1270133708]
+transform = Transform3D(1244.0197, 0, 0, 0, 1, 0, 0, 0, 1532.0901, 0, 0, 0)
 mesh = SubResource("BoxMesh_3eh75")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="floor" unique_id=560058693]
+[node name="StaticBody3D" type="StaticBody3D" parent="floor1" unique_id=560058693]
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D" unique_id=1700358122]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor1/StaticBody3D" unique_id=1700358122]
+visible = false
+shape = SubResource("ConcavePolygonShape3D_3s6yk")
+
+[node name="floor6" type="MeshInstance3D" parent="." unique_id=2073751737]
+transform = Transform3D(1244.0197, 0, 0, 0, 1, 0, 0, 0, 1532.0901, 0, 748.75775, 0)
+mesh = SubResource("BoxMesh_3eh75")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor6" unique_id=1794924645]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor6/StaticBody3D" unique_id=210011936]
+visible = false
+shape = SubResource("ConcavePolygonShape3D_3s6yk")
+
+[node name="floor2" type="MeshInstance3D" parent="." unique_id=1923949307]
+transform = Transform3D(1244.0198, 0, 0, 0, -4.371139e-08, 1532.0901, 0, -1, -6.6969784e-05, 0, 0, -563.67316)
+mesh = SubResource("BoxMesh_3eh75")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor2" unique_id=536761133]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor2/StaticBody3D" unique_id=1496356713]
+visible = false
+shape = SubResource("ConcavePolygonShape3D_3s6yk")
+
+[node name="floor3" type="MeshInstance3D" parent="." unique_id=508517544]
+transform = Transform3D(1244.0198, 0, 0, 0, -4.371139e-08, 1532.0901, 0, -1, -6.6969784e-05, 0, 0, 430.1952)
+mesh = SubResource("BoxMesh_3eh75")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor3" unique_id=88408312]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor3/StaticBody3D" unique_id=438317319]
+visible = false
+shape = SubResource("ConcavePolygonShape3D_3s6yk")
+
+[node name="floor4" type="MeshInstance3D" parent="." unique_id=1806485907]
+transform = Transform3D(-5.437783e-05, 1, 6.6969784e-05, 0, -4.371139e-08, 1532.0901, 1244.0198, 4.371139e-08, 8.37042e-12, 496.93417, 0, -66.73896)
+mesh = SubResource("BoxMesh_3eh75")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor4" unique_id=143649816]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor4/StaticBody3D" unique_id=1210010790]
+visible = false
+shape = SubResource("ConcavePolygonShape3D_3s6yk")
+
+[node name="floor5" type="MeshInstance3D" parent="." unique_id=1263489437]
+transform = Transform3D(-5.437783e-05, 1, 6.6969784e-05, 0, -4.371139e-08, 1532.0901, 1244.0198, 4.371139e-08, 8.37042e-12, -496.93417, 0, -66.739006)
+mesh = SubResource("BoxMesh_3eh75")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="floor5" unique_id=2078609890]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor5/StaticBody3D" unique_id=1472270191]
+visible = false
 shape = SubResource("ConcavePolygonShape3D_3s6yk")
 
 [node name="player" parent="." unique_id=838546913 instance=ExtResource("2_3s6yk")]
@@ -62,17 +118,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4598112, 0.68530583, 3.981
 transform = Transform3D(0.4498767, 0, 0, 0, 0.4498767, 0, 0, 0, 0.4498767, 0, 0.625074, 0)
 
 [node name="ceiling_light" parent="." unique_id=1217644434 instance=ExtResource("4_djufw")]
-transform = Transform3D(0.85151106, 0, 0, 0, 1, 0, 0, 0, 0.85151106, 0.027900338, 4.403095, -0.028167576)
+transform = Transform3D(0.85151106, 0, 0, 0, 1, 0, 0, 0, 0.85151106, 0, 4.403, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ceiling_light" unique_id=1726031505]
-transform = Transform3D(1.1743829, 0, 0, 0, 1, 0, 0, 0, 1.1743829, -0.02861798, -0.6947758, 0.02307153)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02861798, -0.6947758, 0.02307153)
 light_color = Color(1, 1, 0.9254902, 1)
 light_energy = 0.766
 light_volumetric_fog_energy = 12.321
 omni_attenuation = 2.045
 
 [node name="SpotLight3D" type="SpotLight3D" parent="ceiling_light" unique_id=224247411]
-transform = Transform3D(1.1743829, 0, 0, 0, -4.371139e-08, 1, 0, -1.1743829, -5.133391e-08, -0.009724984, 0.914762, -0.021198254)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.009724984, 0.914762, -0.021198254)
 light_color = Color(1, 1, 0.8666667, 1)
 light_energy = 0.257
 light_indirect_energy = 3.573
