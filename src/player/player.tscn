@@ -17,7 +17,7 @@ script = ExtResource("1_4anbu")
 head = NodePath("head")
 camera = NodePath("head/camera")
 mesh = NodePath("mesh")
-fov = 50.0
+fov = 65.0
 WALK_SPEED = 1.8
 BOB_AMP = 0.05
 

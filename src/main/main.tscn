@@ -20,8 +20,9 @@ sky = SubResource("Sky_3s6yk")
 tonemap_mode = 2
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.6177
-volumetric_fog_albedo = Color(0.08208982, 0.082089834, 0.08208982, 1)
+volumetric_fog_albedo = Color(0.07150052, 0.07150052, 0.07150052, 1)
 volumetric_fog_emission_energy = 49.0
+volumetric_fog_anisotropy = -0.2
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_djufw"]
 albedo_color = Color(0.020174578, 0.020174576, 0.020174574, 1)
@@ -42,6 +43,7 @@ environment = SubResource("Environment_ab7mr")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="env" unique_id=1651218042]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+light_color = Color(0, 0, 0, 1)
 
 [node name="floor" type="MeshInstance3D" parent="." unique_id=1270133708]
 transform = Transform3D(28.890003, 0, 0, 0, 1, 0, 0, 0, 27.284588, 0, 0, 0)
@@ -60,4 +62,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4598112, 0.68530583, 3.981
 transform = Transform3D(0.4498767, 0, 0, 0, 0.4498767, 0, 0, 0, 0.4498767, 0, 0.625074, 0)
 
 [node name="ceiling_light" parent="." unique_id=1217644434 instance=ExtResource("4_djufw")]
-transform = Transform3D(0.85151106, 0, 0, 0, 1, 0, 0, 0, 0.85151106, 0.024368525, 4.403095, -0.028167576)
+transform = Transform3D(0.85151106, 0, 0, 0, 1, 0, 0, 0, 0.85151106, 0.027900338, 4.403095, -0.028167576)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="ceiling_light" unique_id=1726031505]
+transform = Transform3D(1.1743829, 0, 0, 0, 1, 0, 0, 0, 1.1743829, -0.02861798, -0.6947758, 0.02307153)
+light_color = Color(1, 1, 0.9254902, 1)
+light_energy = 0.766
+light_volumetric_fog_energy = 12.321
+omni_attenuation = 2.045
+
+[node name="SpotLight3D" type="SpotLight3D" parent="ceiling_light" unique_id=224247411]
+transform = Transform3D(1.1743829, 0, 0, 0, -4.371139e-08, 1, 0, -1.1743829, -5.133391e-08, -0.009724984, 0.914762, -0.021198254)
+light_color = Color(1, 1, 0.8666667, 1)
+light_energy = 0.257
+light_indirect_energy = 3.573
+light_volumetric_fog_energy = 3.55
+shadow_bias = 0.482
+spot_range = 13.886
+spot_attenuation = -4.96
+spot_angle = 17.7
+spot_angle_attenuation = 84.44943
