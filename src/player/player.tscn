@@ -40,3 +40,13 @@ current = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="head/camera/RaycastMimic" unique_id=2090937215]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.737769)
 shape = SubResource("BoxShape3D_4anbu")
+
+[node name="effectlayer" type="CanvasLayer" parent="head/camera" unique_id=45059322]
+layer = 20
+
+[node name="psx" type="ColorRect" parent="head/camera/effectlayer" unique_id=1057374478]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
