@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bsljbif1rji7e"]
 
 [ext_resource type="Script" uid="uid://c2p2m8pgho4nd" path="res://src/player/player.gd" id="1_4anbu"]
+[ext_resource type="Material" uid="uid://dfxc85kabcrgj" path="res://buckshoteffect.tres" id="2_rxibo"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8ep2"]
 
@@ -44,9 +45,11 @@ shape = SubResource("BoxShape3D_4anbu")
 [node name="effectlayer" type="CanvasLayer" parent="head/camera" unique_id=45059322]
 layer = 20
 
-[node name="psx" type="ColorRect" parent="head/camera/effectlayer" unique_id=1057374478]
+[node name="buckshoteffect" type="ColorRect" parent="head/camera/effectlayer" unique_id=1057374478]
+material = ExtResource("2_rxibo")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
