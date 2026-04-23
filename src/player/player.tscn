@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bsljbif1rji7e"]
 
 [ext_resource type="Script" uid="uid://c2p2m8pgho4nd" path="res://src/player/player.gd" id="1_4anbu"]
-[ext_resource type="Material" uid="uid://dfxc85kabcrgj" path="res://buckshoteffect.tres" id="2_rxibo"]
+[ext_resource type="Material" path="res://buckshoteffect.tres" id="2_rxibo"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_e8ep2"]
 
