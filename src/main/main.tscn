@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://src/player/player.tscn" id="2_3s6yk"]
 [ext_resource type="PackedScene" uid="uid://bsvx7uhvigx7t" path="res://ast/actors/furniture/vintage_table.tscn" id="3_ab7mr"]
 [ext_resource type="PackedScene" uid="uid://bmcsua0jmiucp" path="res://ast/actors/architectural/room lighting/ceiling_light.tscn" id="4_djufw"]
+[ext_resource type="Material" path="res://buckshoteffect.tres" id="5_jkpqq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3eh75"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -112,7 +113,7 @@ visible = false
 shape = SubResource("ConcavePolygonShape3D_3s6yk")
 
 [node name="player" parent="." unique_id=838546913 instance=ExtResource("2_3s6yk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4598112, 0.68530583, 3.9811134)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4598112, 0.68530583, 8.601427)
 
 [node name="vintage_table" parent="." unique_id=405293067 instance=ExtResource("3_ab7mr")]
 transform = Transform3D(0.4498767, 0, 0, 0, 0.4498767, 0, 0, 0, 0.4498767, 0, 0.625074, 0)
@@ -138,3 +139,20 @@ spot_range = 13.886
 spot_attenuation = -4.96
 spot_angle = 17.7
 spot_angle_attenuation = 84.44943
+
+[node name="mainmenu_camera" type="Camera3D" parent="." unique_id=498681138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4852066, 1.7737075, 1.3754022)
+current = true
+fov = 51.3
+
+[node name="effectlayer" type="CanvasLayer" parent="mainmenu_camera" unique_id=1999761846]
+layer = 20
+
+[node name="buckshoteffect" type="ColorRect" parent="mainmenu_camera/effectlayer" unique_id=533255278]
+material = ExtResource("5_jkpqq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
