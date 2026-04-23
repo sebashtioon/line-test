@@ -37,6 +37,25 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [node name="world" type="Node3D" unique_id=1303824382]
 script = ExtResource("1_3eh75")
 
+[node name="mainmenu" type="Node3D" parent="." unique_id=1638429392]
+
+[node name="mainmenu_camera" type="Camera3D" parent="mainmenu" unique_id=498681138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4852066, 1.7737075, 1.3754022)
+current = true
+fov = 51.3
+
+[node name="effectlayer" type="CanvasLayer" parent="mainmenu/mainmenu_camera" unique_id=1999761846]
+layer = 20
+
+[node name="buckshoteffect" type="ColorRect" parent="mainmenu/mainmenu_camera/effectlayer" unique_id=533255278]
+material = ExtResource("5_jkpqq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
 [node name="env" type="Node3D" parent="." unique_id=1697233957]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="env" unique_id=1770960716]
@@ -139,20 +158,3 @@ spot_range = 13.886
 spot_attenuation = -4.96
 spot_angle = 17.7
 spot_angle_attenuation = 84.44943
-
-[node name="mainmenu_camera" type="Camera3D" parent="." unique_id=498681138]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4852066, 1.7737075, 1.3754022)
-current = true
-fov = 51.3
-
-[node name="effectlayer" type="CanvasLayer" parent="mainmenu_camera" unique_id=1999761846]
-layer = 20
-
-[node name="buckshoteffect" type="ColorRect" parent="mainmenu_camera/effectlayer" unique_id=533255278]
-material = ExtResource("5_jkpqq")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
