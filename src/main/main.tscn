@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bsvx7uhvigx7t" path="res://ast/actors/furniture/vintage_table.tscn" id="3_ab7mr"]
 [ext_resource type="FontFile" uid="uid://kmy63pqbn44x" path="res://res/fonts/inter/Inter_18pt-Medium.ttf" id="3_jqarl"]
 [ext_resource type="PackedScene" uid="uid://bmcsua0jmiucp" path="res://ast/actors/architectural/room lighting/ceiling_light.tscn" id="4_djufw"]
-[ext_resource type="Material" path="res://buckshoteffect.tres" id="5_jkpqq"]
+[ext_resource type="Material" uid="uid://dfxc85kabcrgj" path="res://res/shad mat/buckshoteffect.tres" id="5_jkpqq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3eh75"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -58,10 +58,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Label3D" type="Label3D" parent="mainmenu" unique_id=1565586961]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70676804, 1.3537819, -1.4821343)
+[node name="title" type="Label3D" parent="mainmenu" unique_id=1565586961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7205845, 1.655793, -1.4821343)
 text = "line test"
 font = ExtResource("3_jqarl")
+font_size = 68
 
 [node name="env" type="Node3D" parent="." unique_id=1697233957]
 
