@@ -1,11 +1,11 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://dfxc85kabcrgj"]
 
-[ext_resource type="Shader" uid="uid://c31w0jiotmltv" path="res://buckshoteffect.gdshader" id="1_l0wla"]
+[ext_resource type="Shader" uid="uid://c31w0jiotmltv" path="res://res/shad/buckshoteffect.gdshader" id="1_l0wla"]
 
 [resource]
 shader = ExtResource("1_l0wla")
 shader_parameter/exposure = 1.0
-shader_parameter/contrast = 1.0280000250799999
+shader_parameter/contrast = 1.02800002508
 shader_parameter/saturation = 0.5690000270275
 shader_parameter/enable_pixelate = true
 shader_parameter/pixel_factor = 3.000000095
