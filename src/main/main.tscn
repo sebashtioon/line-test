@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://src/player/player.tscn" id="2_3s6yk"]
 [ext_resource type="PackedScene" uid="uid://bsvx7uhvigx7t" path="res://ast/actors/furniture/vintage_table.tscn" id="3_ab7mr"]
 [ext_resource type="PackedScene" uid="uid://bmcsua0jmiucp" path="res://ast/actors/architectural/room lighting/ceiling_light.tscn" id="4_djufw"]
+[ext_resource type="PackedScene" uid="uid://bett0b7c8kim6" path="res://ast/models/props/phone/phone.blend" id="5_jkpqq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3eh75"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -138,3 +139,6 @@ spot_range = 13.886
 spot_attenuation = -4.96
 spot_angle = 17.7
 spot_angle_attenuation = 84.44943
+
+[node name="phone2" parent="." unique_id=1520583983 instance=ExtResource("5_jkpqq")]
+transform = Transform3D(0.033073187, 0, -0.33164334, 0, 0.33328834, 0, 0.33164334, 0, 0.033073187, 0, 1.75, 0)
