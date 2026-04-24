@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="line test"
+config/version="1.0"
 run/main_scene="uid://dc16kvdwom4wc"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
@@ -20,9 +21,9 @@ config/icon="res://icon.svg"
 PlayerGlobal="*uid://eyywqev7vh3l"
 Debug="*uid://d267jijitqcah"
 
-[editor_plugins]
+[display]
 
-enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
+window/stretch/mode="canvas_items"
 
 [input]
 
