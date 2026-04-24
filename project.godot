@@ -25,10 +25,6 @@ Debug="*uid://d267jijitqcah"
 
 window/stretch/mode="canvas_items"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
-
 [input]
 
 move_forward={
