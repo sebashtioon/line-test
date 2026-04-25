@@ -6,5 +6,4 @@ extends Node3D
 
 
 func _ready() -> void:
-	pass
-	#mainmenu_camera.make_current()
+	mainmenu_camera.make_current()

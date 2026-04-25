@@ -49,18 +49,21 @@ script = ExtResource("2_frqgp")
 layer = 100
 
 [node name="fade" type="ColorRect" parent="gamemanager/fadelayer" unique_id=173335860]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="mainmenu" type="Node3D" parent="." unique_id=1638429392]
 
 [node name="mainmenu_camera" type="Camera3D" parent="mainmenu" unique_id=498681138]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4852066, 1.7737075, 1.3754022)
-fov = 51.3
+transform = Transform3D(1, 0, 0, 0, 0.99475116, 0.102323785, 0, -0.102323785, 0.99475116, 0.09628427, 1.790286, 0.765222)
+current = true
+fov = 35.0
 
 [node name="effectlayer" type="CanvasLayer" parent="mainmenu/mainmenu_camera" unique_id=1999761846]
 layer = 20
@@ -75,10 +78,10 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="title" type="Label3D" parent="mainmenu" unique_id=1565586961]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7205845, 1.655793, -1.4821343)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15747976, 1.8553228, -1.4821343)
 text = "line test"
 font = ExtResource("3_jqarl")
-font_size = 68
+font_size = 26
 
 [node name="env" type="Node3D" parent="." unique_id=1697233957]
 
