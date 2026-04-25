@@ -4,4 +4,5 @@ extends Node3D
 
 
 func _ready() -> void:
-	mainmenu_camera.make_current()
+	pass
+	#mainmenu_camera.make_current()
