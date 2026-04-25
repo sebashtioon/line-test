@@ -4,10 +4,6 @@ enum FadeState {INVISIBLE, FADING, VISIBLE}
 var current_fade_state : FadeState
 enum FadeType {IN, OUT}
 
-func _ready() -> void:
-	pass
-
-
 func fadeCanvasItem(canvas_item : CanvasItem, method_to_call : Callable, fade_in : float = 1.0, fade_out : float = 1.0, hold : float = 1.0):
 	var tween = get_tree().create_tween()
 	var finish_callable = Callable(self, "finishFade")
