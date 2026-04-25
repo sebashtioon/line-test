@@ -17,6 +17,6 @@ func fadeCanvasItem(canvas_item : CanvasItem, method_to_call : Callable, fade_in
 
 func finishFade(canvas_item : CanvasItem, method_to_call : Callable, fade_out : float = 1.0, hold : float = 1.0):
 	var tween = get_tree().create_tween()
-	
+	method_to_call.call() # whatever we wanted to run while the screen is hidden
 	tween.tween_interval(hold)
 	tween.tween_property(canvas_item, "modulate:a", 0.0, fade_out).from(1.0)
