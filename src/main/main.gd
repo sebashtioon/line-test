@@ -1,15 +1,10 @@
 extends Node3D
 
-@export var mainmenu_camera: Camera3D
+@export var mainmenu_camera : Camera3D
+@export var gamemanager : Node3D
+
 
 
 func _ready() -> void:
 	pass
 	#mainmenu_camera.make_current()
-
-
-func goto_mainmenu() -> void:
-	pass
-
-func goto_game() -> void:
-	pass
