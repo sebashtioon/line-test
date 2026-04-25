@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d2p1sbxud4ajc" path="res://src/main/main.gd" id="1_3eh75"]
 [ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://src/player/player.tscn" id="2_3s6yk"]
+[ext_resource type="Script" uid="uid://c4csim0nstceu" path="res://src/main/gamemanager.gd" id="2_frqgp"]
 [ext_resource type="PackedScene" uid="uid://bsvx7uhvigx7t" path="res://ast/actors/furniture/vintage_table.tscn" id="3_ab7mr"]
 [ext_resource type="FontFile" uid="uid://kmy63pqbn44x" path="res://res/fonts/inter/Inter_18pt-Medium.ttf" id="3_jqarl"]
 [ext_resource type="PackedScene" uid="uid://bmcsua0jmiucp" path="res://ast/actors/architectural/room lighting/ceiling_light.tscn" id="4_djufw"]
@@ -36,9 +37,24 @@ material = SubResource("StandardMaterial3D_djufw")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3s6yk"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera")]
+[node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera", "gamemanager")]
 script = ExtResource("1_3eh75")
 mainmenu_camera = NodePath("mainmenu/mainmenu_camera")
+gamemanager = NodePath("gamemanager")
+
+[node name="gamemanager" type="Node3D" parent="." unique_id=1525698677]
+script = ExtResource("2_frqgp")
+
+[node name="fadelayer" type="CanvasLayer" parent="gamemanager" unique_id=2036415039]
+layer = 100
+
+[node name="fade" type="ColorRect" parent="gamemanager/fadelayer" unique_id=173335860]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="mainmenu" type="Node3D" parent="." unique_id=1638429392]
 
