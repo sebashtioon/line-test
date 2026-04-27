@@ -1,7 +1,6 @@
 [gd_scene format=4 uid="uid://bvlu7083perrc"]
 
 [ext_resource type="Script" uid="uid://do412trdkmyfe" path="res://ast/actors/props/phone/phone.gd" id="1_oi6va"]
-[ext_resource type="Texture2D" uid="uid://moxhwbip2y1x" path="res://ast/models/props/phone/textures/phone_label.png" id="2_e4ksg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhdhg"]
 resource_name = "phone_color"
@@ -261,8 +260,3 @@ mesh = SubResource("ArrayMesh_j0ti7")
 [node name="dialstuff" type="MeshInstance3D" parent="." unique_id=151710820]
 transform = Transform3D(-5.0773844e-05, 0.18462777, -0.214165, 4.035421e-05, 0.21416508, 0.18462773, 0.2827615, 2.622678e-06, -6.4794476e-05, 0.20701313, -0.520254, -0.0006934793)
 mesh = SubResource("ArrayMesh_s68fc")
-
-[node name="label" type="Decal" parent="dialstuff" unique_id=470120356]
-transform = Transform3D(-3.5366907, 0.00050429994, -0.00063538854, -3.246621e-05, 2.6786013, 2.3092577, 0.000810653, 2.309174, -2.678702, -0.021455092, 0.25225186, 0.059086442)
-size = Vector3(0.20103455, 0.19580078, 0.15090942)
-texture_albedo = ExtResource("2_e4ksg")

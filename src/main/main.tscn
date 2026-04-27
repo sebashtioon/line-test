@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://kmy63pqbn44x" path="res://res/fonts/inter/Inter_18pt-Medium.ttf" id="3_jqarl"]
 [ext_resource type="PackedScene" uid="uid://bmcsua0jmiucp" path="res://ast/actors/architectural/room lighting/ceiling_light.tscn" id="4_djufw"]
 [ext_resource type="Material" uid="uid://dfxc85kabcrgj" path="res://res/shad mat/buckshoteffect.tres" id="5_jkpqq"]
-[ext_resource type="PackedScene" uid="uid://bett0b7c8kim6" path="res://ast/models/props/phone/phone.blend" id="6_phone"]
+[ext_resource type="PackedScene" uid="uid://bvlu7083perrc" path="res://ast/actors/props/phone/phone.tscn" id="8_frqgp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3eh75"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -186,5 +186,5 @@ spot_attenuation = -4.96
 spot_angle = 17.7
 spot_angle_attenuation = 84.44943
 
-[node name="phone2" parent="." unique_id=1520583983 instance=ExtResource("6_phone")]
-transform = Transform3D(0.033073187, 0, -0.33164334, 0, 0.33328834, 0, 0.33164334, 0, 0.033073187, 0, 1.75, 0)
+[node name="phone" parent="." unique_id=966887196 instance=ExtResource("8_frqgp")]
+transform = Transform3D(0.03307319, 0, -0.33164334, 0, 0.33328834, 0, 0.33164334, 0, 0.03307319, 0, 1.75, 0)
