@@ -17,4 +17,8 @@ storyboard
 4. phone is still ringing
 5. player intrigued to pick up phone
 6. player picks up phone
-7. 
+
+- some static noises play from the phone to set the creepy tone
+- phone audio plays mostly in the ear that its being held in (probably right ear) for extra immersion
+- 
+- 
