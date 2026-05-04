@@ -19,6 +19,7 @@ storyboard
 6. player picks up phone
 
 - some static noises play from the phone to set the creepy tone
-- phone audio plays mostly in the ear that its being held in (probably right ear) for extra immersion
+- phone audio plays mostly in the ear that the phone being held in (probably right ear) for extra immersion
+- a deep voice with bitcrusher and low quality starts talking, with a mini dialogue box to go with it
 - 
 - 
