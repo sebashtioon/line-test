@@ -8,6 +8,15 @@ for hackclub horizons :)
 storyboard
 
 
+## game
+- player picks up phone, voice tells them that this is a dream and everything they see isnt real
+- 
+
+
+
+
+## sequence (DREAM SEQUENCE - SVDDEN DEATH REFERENCE????? WTF)
+
 1. fade in -> player is some distance from the phone but can still see it on the table to some extent
 1.5. light flickers a bit
 2. phone is ringing
@@ -27,4 +36,5 @@ voice dialogue
 
 - some glitchy static noises and also some dial tones (maybe like 5-10 seconds)
 
-2. "
+2. "what you are seeing isnt real"
+3. "
