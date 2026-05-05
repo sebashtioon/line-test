@@ -10,6 +10,7 @@ storyboard
 
 ## game
 - player picks up phone, voice tells them that this is a dream and everything they see isnt real
+- voice tells them their gonna take a sequence of tests. nothing much. wont take long
 - 
 
 
