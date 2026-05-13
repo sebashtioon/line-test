@@ -7,12 +7,26 @@
 [ext_resource type="AudioStream" uid="uid://jtycym11f6lj" path="res://ast/audio/sfx/bitcrush ambience/bitcrush ambience.wav" id="2_km7bn"]
 [ext_resource type="PackedScene" uid="uid://bsvx7uhvigx7t" path="res://ast/actors/furniture/vintage_table.tscn" id="3_ab7mr"]
 [ext_resource type="FontFile" uid="uid://kmy63pqbn44x" path="res://res/fonts/inter/Inter_18pt-Medium.ttf" id="3_jqarl"]
+[ext_resource type="AudioStream" uid="uid://drckoul7c217u" path="res://ast/audio/voicelines/start/start_002.wav" id="3_km7bn"]
 [ext_resource type="PackedScene" uid="uid://bmcsua0jmiucp" path="res://ast/actors/architectural/room lighting/ceiling_light.tscn" id="4_djufw"]
+[ext_resource type="FontFile" uid="uid://bgxm24vckb7vf" path="res://res/fonts/vhs/vhs-vcr-osd.ttf" id="4_erw1m"]
 [ext_resource type="Material" uid="uid://dfxc85kabcrgj" path="res://res/shad mat/buckshoteffect.tres" id="5_jkpqq"]
 [ext_resource type="PackedScene" uid="uid://bett0b7c8kim6" path="res://ast/models/props/phone/phone.blend" id="6_phone"]
 
 [sub_resource type="Animation" id="Animation_km7bn"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gamesequence/voicelinesubtitles/main/subtitles:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_frqgp"]
 resource_name = "main"
@@ -28,10 +42,26 @@ tracks/0/keys = {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": ExtResource("2_2nke2")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_km7bn")
 }],
-"times": PackedFloat32Array(2.9)
+"times": PackedFloat32Array(2.9, 4.9333334)
 }
 tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gamesequence/voicelinesubtitles/main/subtitles:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 2.9333334, 2.9666667, 4.5333333, 4.9666667, 6.366667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false, true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2nke2"]
 _data = {
@@ -88,6 +118,39 @@ bus = &"phone only voiceline"
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_2nke2")
 autoplay = &"main"
+
+[node name="voicelinesubtitles" type="CanvasLayer" parent="gamesequence" unique_id=2117418948]
+layer = 21
+
+[node name="main" type="Control" parent="gamesequence/voicelinesubtitles" unique_id=787808956]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="subtitles" type="Label" parent="gamesequence/voicelinesubtitles/main" unique_id=547377990]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.0
+offset_top = 218.0
+offset_right = 236.0
+offset_bottom = 278.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_erw1m")
+theme_override_font_sizes/font_size = 17
+text = "this is a line test."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="gamemanager" type="Node3D" parent="." unique_id=1525698677]
 script = ExtResource("2_frqgp")
