@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dc16kvdwom4wc"]
 
 [ext_resource type="Script" uid="uid://d2p1sbxud4ajc" path="res://src/main/main.gd" id="1_3eh75"]
+[ext_resource type="AudioStream" uid="uid://k3apuqryjhbn" path="res://ast/audio/voicelines/start/start_001.wav" id="2_2nke2"]
 [ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://src/player/player.tscn" id="2_3s6yk"]
 [ext_resource type="Script" uid="uid://c4csim0nstceu" path="res://src/main/gamemanager.gd" id="2_frqgp"]
 [ext_resource type="PackedScene" uid="uid://bsvx7uhvigx7t" path="res://ast/actors/furniture/vintage_table.tscn" id="3_ab7mr"]
@@ -51,6 +52,11 @@ mainmenu_camera = NodePath("mainmenu/mainmenu_camera")
 gamemanager = NodePath("gamemanager")
 
 [node name="gamesequence" type="Node3D" parent="." unique_id=1315925528]
+
+[node name="audio" type="Node3D" parent="gamesequence" unique_id=474692527]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="gamesequence/audio" unique_id=2127913279]
+stream = ExtResource("2_2nke2")
 
 [node name="sequencestart" type="AnimationPlayer" parent="gamesequence" unique_id=1469364018]
 root_node = NodePath("../..")
