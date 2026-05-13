@@ -6,7 +6,9 @@
 [ext_resource type="Script" uid="uid://c4csim0nstceu" path="res://src/main/gamemanager.gd" id="2_frqgp"]
 [ext_resource type="PackedScene" uid="uid://bsvx7uhvigx7t" path="res://ast/actors/furniture/vintage_table.tscn" id="3_ab7mr"]
 [ext_resource type="FontFile" uid="uid://kmy63pqbn44x" path="res://res/fonts/inter/Inter_18pt-Medium.ttf" id="3_jqarl"]
+[ext_resource type="AudioStream" uid="uid://drckoul7c217u" path="res://ast/audio/voicelines/start/start_002.wav" id="3_km7bn"]
 [ext_resource type="PackedScene" uid="uid://bmcsua0jmiucp" path="res://ast/actors/architectural/room lighting/ceiling_light.tscn" id="4_djufw"]
+[ext_resource type="AudioStream" uid="uid://cjic3kqyfs05e" path="res://ast/audio/voicelines/start/start_003.wav" id="4_erw1m"]
 [ext_resource type="Material" uid="uid://dfxc85kabcrgj" path="res://res/shad mat/buckshoteffect.tres" id="5_jkpqq"]
 [ext_resource type="PackedScene" uid="uid://bett0b7c8kim6" path="res://ast/models/props/phone/phone.blend" id="6_phone"]
 
@@ -55,8 +57,19 @@ gamemanager = NodePath("gamemanager")
 
 [node name="audio" type="Node3D" parent="gamesequence" unique_id=474692527]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="gamesequence/audio" unique_id=2127913279]
+[node name="ambience" type="AudioStreamPlayer" parent="gamesequence/audio" unique_id=833100406]
+
+[node name="start_001" type="AudioStreamPlayer" parent="gamesequence/audio" unique_id=2127913279]
 stream = ExtResource("2_2nke2")
+bus = &"phone only voiceline"
+
+[node name="start_002" type="AudioStreamPlayer" parent="gamesequence/audio" unique_id=177800420]
+stream = ExtResource("3_km7bn")
+bus = &"phone only voiceline"
+
+[node name="start_003" type="AudioStreamPlayer" parent="gamesequence/audio" unique_id=1877674504]
+stream = ExtResource("4_erw1m")
+bus = &"phone only voiceline"
 
 [node name="sequencestart" type="AnimationPlayer" parent="gamesequence" unique_id=1469364018]
 root_node = NodePath("../..")

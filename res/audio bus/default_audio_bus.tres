@@ -3,6 +3,14 @@
 [sub_resource type="AudioEffectEQ21" id="AudioEffectEQ21_j3pel"]
 resource_name = "EQ21"
 
+[sub_resource type="AudioEffectPanner" id="AudioEffectPanner_23ebu"]
+resource_name = "Panner"
+pan = 0.67
+
+[sub_resource type="AudioEffectHighPassFilter" id="AudioEffectHighPassFilter_23ebu"]
+resource_name = "HighPassFilter"
+cutoff_hz = 300.0
+
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectEQ21_j3pel")
 bus/0/effect/0/enabled = false
@@ -36,3 +44,7 @@ bus/5/mute = false
 bus/5/bypass_fx = false
 bus/5/volume_db = 0.0
 bus/5/send = &"Master"
+bus/5/effect/0/effect = SubResource("AudioEffectPanner_23ebu")
+bus/5/effect/0/enabled = true
+bus/5/effect/1/effect = SubResource("AudioEffectHighPassFilter_23ebu")
+bus/5/effect/1/enabled = true
