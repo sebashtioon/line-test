@@ -16,6 +16,10 @@ run/main_scene="uid://dc16kvdwom4wc"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout=""
+
 [autoload]
 
 PlayerGlobal="*uid://eyywqev7vh3l"
