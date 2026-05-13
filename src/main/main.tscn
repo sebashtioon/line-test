@@ -50,12 +50,14 @@ script = ExtResource("1_3eh75")
 mainmenu_camera = NodePath("mainmenu/mainmenu_camera")
 gamemanager = NodePath("gamemanager")
 
-[node name="gamemanager" type="Node3D" parent="." unique_id=1525698677]
-script = ExtResource("2_frqgp")
+[node name="gamesequence" type="Node3D" parent="." unique_id=1315925528]
 
-[node name="sequence" type="AnimationPlayer" parent="gamemanager" unique_id=1469364018]
+[node name="sequencestart" type="AnimationPlayer" parent="gamesequence" unique_id=1469364018]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_2nke2")
+
+[node name="gamemanager" type="Node3D" parent="." unique_id=1525698677]
+script = ExtResource("2_frqgp")
 
 [node name="fadelayer" type="CanvasLayer" parent="gamemanager" unique_id=2036415039]
 layer = 100
