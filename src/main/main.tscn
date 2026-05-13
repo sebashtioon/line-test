@@ -76,7 +76,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="mainmenu_camera" type="Camera3D" parent="mainmenu" unique_id=498681138]
 transform = Transform3D(1, 0, 0, 0, 0.99475116, 0.102323785, 0, -0.102323785, 0.99475116, 0.09628427, 1.790286, 0.765222)
-current = true
 fov = 35.0
 
 [node name="effectlayer" type="CanvasLayer" parent="mainmenu/mainmenu_camera" unique_id=1999761846]
