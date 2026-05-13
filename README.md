@@ -3,6 +3,8 @@ please standby
 
 for hackclub horizons :)
 
+> ai was used, but only for resolving merge conflicts in godot scene files that would have taken me hours otherwise for no reason whatsoever
+
 ---
 
 storyboard
