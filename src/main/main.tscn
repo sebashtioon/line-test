@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dc16kvdwom4wc"]
 
 [ext_resource type="Script" uid="uid://d2p1sbxud4ajc" path="res://src/main/main.gd" id="1_3eh75"]
+[ext_resource type="AudioStream" uid="uid://k3apuqryjhbn" path="res://ast/audio/voicelines/start/start_001.wav" id="2_2nke2"]
 [ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://src/player/player.tscn" id="2_3s6yk"]
 [ext_resource type="Script" uid="uid://c4csim0nstceu" path="res://src/main/gamemanager.gd" id="2_frqgp"]
 [ext_resource type="PackedScene" uid="uid://bsvx7uhvigx7t" path="res://ast/actors/furniture/vintage_table.tscn" id="3_ab7mr"]
@@ -28,8 +29,12 @@ tracks/0/path = NodePath("gamesequence/audio/phonevoiceline")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"clips": [],
-"times": PackedFloat32Array()
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_2nke2")
+}],
+"times": PackedFloat32Array(1.3333334)
 }
 tracks/0/use_blend = true
 
