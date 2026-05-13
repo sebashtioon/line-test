@@ -9,6 +9,14 @@
 [ext_resource type="Material" uid="uid://dfxc85kabcrgj" path="res://res/shad mat/buckshoteffect.tres" id="5_jkpqq"]
 [ext_resource type="PackedScene" uid="uid://bett0b7c8kim6" path="res://ast/models/props/phone/phone.blend" id="6_phone"]
 
+[sub_resource type="Animation" id="Animation_frqgp"]
+resource_name = "main"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2nke2"]
+_data = {
+&"main": SubResource("Animation_frqgp")
+}
+
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3eh75"]
 sky_top_color = Color(0, 0, 0, 1)
 sky_horizon_color = Color(0, 0, 0, 1)
@@ -44,6 +52,10 @@ gamemanager = NodePath("gamemanager")
 
 [node name="gamemanager" type="Node3D" parent="." unique_id=1525698677]
 script = ExtResource("2_frqgp")
+
+[node name="sequence" type="AnimationPlayer" parent="gamemanager" unique_id=1469364018]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_2nke2")
 
 [node name="fadelayer" type="CanvasLayer" parent="gamemanager" unique_id=2036415039]
 layer = 100
