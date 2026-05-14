@@ -3,7 +3,13 @@ please standby
 
 for hackclub horizons :)
 
-> disclaimer: copilot *was* used once, but only for resolving merge conflicts in godot scene files that would have taken me hours otherwise for no reason whatsoever
+> disclaimer: copilot *was* used once, but only for resolving merge conflicts in godot scene files that would have taken me hours otherwise for no reason whatsoever. i was just saving time :P
+
+
+---
+
+school pc lapse code:
+soldier neglect tomato nasty flip now small empty ring limb they jacket
 
 ---
 

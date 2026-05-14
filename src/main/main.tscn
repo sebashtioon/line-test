@@ -1,19 +1,103 @@
 [gd_scene format=3 uid="uid://dc16kvdwom4wc"]
 
 [ext_resource type="Script" uid="uid://d2p1sbxud4ajc" path="res://src/main/main.gd" id="1_3eh75"]
+[ext_resource type="AudioStream" uid="uid://k3apuqryjhbn" path="res://ast/audio/voicelines/start/start_001.wav" id="2_2nke2"]
 [ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://src/player/player.tscn" id="2_3s6yk"]
 [ext_resource type="Script" uid="uid://c4csim0nstceu" path="res://src/main/gamemanager.gd" id="2_frqgp"]
+[ext_resource type="AudioStream" uid="uid://jtycym11f6lj" path="res://ast/audio/sfx/bitcrush ambience/bitcrush ambience.wav" id="2_km7bn"]
 [ext_resource type="PackedScene" uid="uid://bsvx7uhvigx7t" path="res://ast/actors/furniture/vintage_table.tscn" id="3_ab7mr"]
 [ext_resource type="FontFile" uid="uid://kmy63pqbn44x" path="res://res/fonts/inter/Inter_18pt-Medium.ttf" id="3_jqarl"]
+[ext_resource type="AudioStream" uid="uid://drckoul7c217u" path="res://ast/audio/voicelines/start/start_002.wav" id="3_km7bn"]
 [ext_resource type="PackedScene" uid="uid://bmcsua0jmiucp" path="res://ast/actors/architectural/room lighting/ceiling_light.tscn" id="4_djufw"]
+[ext_resource type="FontFile" uid="uid://bgxm24vckb7vf" path="res://res/fonts/vhs/vhs-vcr-osd.ttf" id="4_erw1m"]
 [ext_resource type="Material" uid="uid://dfxc85kabcrgj" path="res://res/shad mat/buckshoteffect.tres" id="5_jkpqq"]
 [ext_resource type="PackedScene" uid="uid://bett0b7c8kim6" path="res://ast/models/props/phone/phone.blend" id="6_phone"]
 
+[sub_resource type="Animation" id="Animation_w0wra"]
+resource_name = "main"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ibsor"]
+_data = {
+&"main": SubResource("Animation_w0wra")
+}
+
+[sub_resource type="Animation" id="Animation_km7bn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gamesequence/voicelinesubtitles/main/subtitles:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gamesequence/voicelinesubtitles/main/subtitles:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["this is a line test."]
+}
+
 [sub_resource type="Animation" id="Animation_frqgp"]
 resource_name = "main"
+length = 100.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gamesequence/audio/phonevoiceline")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_2nke2")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_km7bn")
+}],
+"times": PackedFloat32Array(2.9, 4.9333334)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gamesequence/voicelinesubtitles/main/subtitles:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 2.9333334, 2.9666667, 4.5333333, 4.9666667, 6.366667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("gamesequence/voicelinesubtitles/main/subtitles:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.8333333, 4.788212),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["this is a line test.", "please standby."]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2nke2"]
 _data = {
+&"RESET": SubResource("Animation_km7bn"),
 &"main": SubResource("Animation_frqgp")
 }
 
@@ -50,12 +134,61 @@ script = ExtResource("1_3eh75")
 mainmenu_camera = NodePath("mainmenu/mainmenu_camera")
 gamemanager = NodePath("gamemanager")
 
-[node name="gamemanager" type="Node3D" parent="." unique_id=1525698677]
-script = ExtResource("2_frqgp")
+[node name="gamesequence" type="Node3D" parent="." unique_id=1315925528]
 
-[node name="sequence" type="AnimationPlayer" parent="gamemanager" unique_id=1469364018]
+[node name="audio" type="Node3D" parent="gamesequence" unique_id=474692527]
+
+[node name="ambience" type="AudioStreamPlayer" parent="gamesequence/audio" unique_id=833100406]
+stream = ExtResource("2_km7bn")
+volume_db = -6.991
+autoplay = true
+
+[node name="phonevoiceline" type="AudioStreamPlayer" parent="gamesequence/audio" unique_id=2124377767]
+bus = &"phone only voiceline"
+
+[node name="phoneringsequence" type="AnimationPlayer" parent="gamesequence" unique_id=1570054906]
+libraries/ = SubResource("AnimationLibrary_ibsor")
+
+[node name="sequencestart" type="AnimationPlayer" parent="gamesequence" unique_id=1469364018]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_2nke2")
+autoplay = &"main"
+
+[node name="voicelinesubtitles" type="CanvasLayer" parent="gamesequence" unique_id=2117418948]
+layer = 21
+
+[node name="main" type="Control" parent="gamesequence/voicelinesubtitles" unique_id=787808956]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="subtitles" type="Label" parent="gamesequence/voicelinesubtitles/main" unique_id=547377990]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.0
+offset_top = 218.0
+offset_right = 236.0
+offset_bottom = 278.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("4_erw1m")
+theme_override_font_sizes/font_size = 17
+text = "this is a line test."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="gamemanager" type="Node3D" parent="." unique_id=1525698677]
+script = ExtResource("2_frqgp")
 
 [node name="fadelayer" type="CanvasLayer" parent="gamemanager" unique_id=2036415039]
 layer = 100
@@ -73,8 +206,7 @@ color = Color(0, 0, 0, 1)
 [node name="mainmenu" type="Node3D" parent="." unique_id=1638429392]
 
 [node name="mainmenu_camera" type="Camera3D" parent="mainmenu" unique_id=498681138]
-transform = Transform3D(1, 0, 0, 0, 0.99475116, 0.102323785, 0, -0.102323785, 0.99475116, 0.09628427, 1.790286, 0.765222)
-current = true
+transform = Transform3D(1, 0, 0, 0, 0.9947028, 0.10279253, 0, -0.10279253, 0.9947028, 0.01878357, 1.8050171, 0.8591677)
 fov = 35.0
 
 [node name="effectlayer" type="CanvasLayer" parent="mainmenu/mainmenu_camera" unique_id=1999761846]
