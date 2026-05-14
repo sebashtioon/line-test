@@ -13,6 +13,14 @@
 [ext_resource type="Material" uid="uid://dfxc85kabcrgj" path="res://res/shad mat/buckshoteffect.tres" id="5_jkpqq"]
 [ext_resource type="PackedScene" uid="uid://bett0b7c8kim6" path="res://ast/models/props/phone/phone.blend" id="6_phone"]
 
+[sub_resource type="Animation" id="Animation_w0wra"]
+resource_name = "main"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ibsor"]
+_data = {
+&"main": SubResource("Animation_w0wra")
+}
+
 [sub_resource type="Animation" id="Animation_km7bn"]
 length = 0.001
 tracks/0/type = "value"
@@ -137,6 +145,9 @@ autoplay = true
 
 [node name="phonevoiceline" type="AudioStreamPlayer" parent="gamesequence/audio" unique_id=2124377767]
 bus = &"phone only voiceline"
+
+[node name="phoneringsequence" type="AnimationPlayer" parent="gamesequence" unique_id=1570054906]
+libraries/ = SubResource("AnimationLibrary_ibsor")
 
 [node name="sequencestart" type="AnimationPlayer" parent="gamesequence" unique_id=1469364018]
 root_node = NodePath("../..")
