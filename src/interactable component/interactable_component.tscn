@@ -14,11 +14,8 @@ size = Vector3(7, 5, 7)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
 size = Vector3(0.460693, 0.741821, 0.463135)
 
-[node name="InteractableComponent" type="Node3D" unique_id=1973211502 node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
+[node name="InteractableComponent" type="Node3D" unique_id=1973211502]
 script = ExtResource("1_lutt7")
-Contents_Node = NodePath("Contents")
-UI_Sprite_Node = NodePath("Contents/UI")
-SubViewport_Node = NodePath("Contents/UI/SubViewport")
 ActionToPress = SubResource("InputEventAction_75gw0")
 
 [node name="Contents" type="Node3D" parent="." unique_id=2114968064]
