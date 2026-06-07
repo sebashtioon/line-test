@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://do412trdkmyfe" path="res://ast/actors/props/phone/phone.gd" id="1_oi6va"]
 [ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable component/interactable_component.gd" id="2_e4ksg"]
+[ext_resource type="FontFile" uid="uid://bgxm24vckb7vf" path="res://res/fonts/vhs/vhs-vcr-osd.ttf" id="3_n145v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhdhg"]
 resource_name = "phone_color"
@@ -284,7 +285,7 @@ ActionToPress = SubResource("InputEventAction_75gw0")
 [node name="Contents" type="Node3D" parent="interactablecomponent" unique_id=2114968064]
 
 [node name="UI" type="Sprite3D" parent="interactablecomponent/Contents" unique_id=897521712]
-transform = Transform3D(0.7808622, 0, 0, 0, 0.7808622, 0, 0, 0, 0.7808622, 0, 0, 0)
+transform = Transform3D(0.3552947, 0, 0, 0, 0.3552947, 0, 0, 0, 0.3552947, 0, 0.7279382, 0)
 billboard = 1
 no_depth_test = true
 render_priority = 1
@@ -300,8 +301,9 @@ offset_left = 500.0
 offset_top = 500.0
 offset_right = 629.0
 offset_bottom = 646.0
+theme_override_fonts/font = ExtResource("3_n145v")
 theme_override_font_sizes/font_size = 106
-text = "[E]"
+text = "E"
 horizontal_alignment = 1
 vertical_alignment = 1
 
