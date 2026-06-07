@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://do412trdkmyfe" path="res://ast/actors/props/phone/phone.gd" id="1_oi6va"]
 [ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable component/interactable_component.gd" id="2_e4ksg"]
-[ext_resource type="FontFile" uid="uid://bgxm24vckb7vf" path="res://res/fonts/vhs/vhs-vcr-osd.ttf" id="3_n145v"]
+[ext_resource type="FontFile" uid="uid://b7gfys1o8ewi" path="res://res/fonts/vhs/VCR_OSD_MONO_1.001.ttf" id="3_n145v"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fhdhg"]
 resource_name = "phone_color"
@@ -255,6 +255,8 @@ size = Vector3(1.298767, 0.7466125, 1.1645813)
 
 [node name="phone" type="Node3D" unique_id=966887196]
 script = ExtResource("1_oi6va")
+
+[node name="ringanimation" type="AnimationPlayer" parent="." unique_id=176956991]
 
 [node name="stand" type="MeshInstance3D" parent="." unique_id=645460906]
 mesh = SubResource("ArrayMesh_p4v4m")
