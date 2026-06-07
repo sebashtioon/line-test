@@ -11,6 +11,16 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 [sub_resource type="BoxShape3D" id="BoxShape3D_4anbu"]
 size = Vector3(0.05, 0.05, 1.52554)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxibo"]
+transparency = 1
+albedo_color = Color(0.025363795, 0.025363805, 0.02536378, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_rxibo"]
+lightmap_size_hint = Vector2i(17, 9)
+material = SubResource("StandardMaterial3D_rxibo")
+radial_segments = 4
+rings = 6
+
 [node name="player" type="CharacterBody3D" unique_id=838546913 node_paths=PackedStringArray("head", "camera", "mesh") groups=["PlayerBody"]]
 collision_layer = 2
 script = ExtResource("1_4anbu")
@@ -53,3 +63,28 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="uneffectlayer" type="CanvasLayer" parent="head/camera" unique_id=478681963]
+layer = 21
+
+[node name="crosshair" type="Control" parent="head/camera/uneffectlayer" unique_id=1571480462]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.4, 0.4)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="head/camera/uneffectlayer/crosshair" unique_id=1850260157]
+position = Vector2(5, 4.9999995)
+scale = Vector2(10, 10)
+mesh = SubResource("SphereMesh_rxibo")

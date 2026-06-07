@@ -152,7 +152,6 @@ libraries/ = SubResource("AnimationLibrary_ibsor")
 [node name="sequencestart" type="AnimationPlayer" parent="gamesequence" unique_id=1469364018]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_2nke2")
-autoplay = &"main"
 
 [node name="voicelinesubtitles" type="CanvasLayer" parent="gamesequence" unique_id=2117418948]
 layer = 21
@@ -223,6 +222,7 @@ mouse_filter = 2
 
 [node name="title" type="Label3D" parent="mainmenu" unique_id=1565586961]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15747976, 1.8553228, -1.4821343)
+visible = false
 text = "line test"
 font = ExtResource("3_jqarl")
 font_size = 26
