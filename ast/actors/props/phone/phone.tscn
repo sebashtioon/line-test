@@ -241,7 +241,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_18ca3")
 
 [sub_resource type="InputEventAction" id="InputEventAction_75gw0"]
-action = &"Interact"
+action = &"interact"
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_n145v"]
 viewport_path = NodePath("interactablecomponent/Contents/UI/SubViewport")
@@ -284,7 +284,7 @@ ActionToPress = SubResource("InputEventAction_75gw0")
 [node name="Contents" type="Node3D" parent="interactablecomponent" unique_id=2114968064]
 
 [node name="UI" type="Sprite3D" parent="interactablecomponent/Contents" unique_id=897521712]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, -1.435614)
+transform = Transform3D(0.7808622, 0, 0, 0, 0.7808622, 0, 0, 0, 0.7808622, 0, 0, 0)
 billboard = 1
 no_depth_test = true
 render_priority = 1
@@ -306,6 +306,9 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PlayerAreaBox" type="Area3D" parent="interactablecomponent/Contents" unique_id=1043785681]
+collision_layer = 4
+collision_mask = 2
+priority = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="interactablecomponent/Contents/PlayerAreaBox" unique_id=1552512058]
 shape = SubResource("BoxShape3D_nyf0v")

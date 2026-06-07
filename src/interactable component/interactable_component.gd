@@ -31,21 +31,17 @@ func _unhandled_input(_event: InputEvent) -> void:
 			action_triggered.emit()
 
 func _on_player_area_box_body_entered(body: Node3D) -> void:
-	if body.is_in_group(&"PlayerBody"):
-		print("goog")
+	if body.is_in_group(&"player_body"):
 		player_area_box_active = true
 
 func _on_player_area_box_body_exited(body: Node3D) -> void:
-	if body.is_in_group(&"PlayerBody"):
-		print("goog2")
+	if body.is_in_group(&"player_body"):
 		player_area_box_active = false
 
 func _on_mimic_raycast_box_area_entered(area: Area3D) -> void:
 	if area.is_in_group(&"raycast_mimic"):
-		print("goog3")
 		mimic_raycast_box_active = true
 
 func _on_mimic_raycast_box_area_exited(area: Area3D) -> void:
 	if area.is_in_group(&"raycast_mimic"):
-		print("goog4")
 		mimic_raycast_box_active = false
