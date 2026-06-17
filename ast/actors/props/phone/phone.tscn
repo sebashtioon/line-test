@@ -52,17 +52,6 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/1/use_blend = true
-tracks/2/type = "audio"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AudioStreamPlayer")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"clips": [],
-"times": PackedFloat32Array()
-}
-tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3wawl"]
 _data = {
@@ -319,11 +308,16 @@ size = Vector3(7, 5, 7)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
 size = Vector3(1.298767, 0.7466125, 1.1645813)
 
-[node name="phone" type="Node3D" unique_id=966887196]
+[node name="phone" type="Node3D" unique_id=966887196 node_paths=PackedStringArray("ringanimation")]
 script = ExtResource("1_oi6va")
+ringanimation = NodePath("ringanimation")
 
 [node name="ringanimation" type="AnimationPlayer" parent="." unique_id=176956991]
 libraries/ = SubResource("AnimationLibrary_3wawl")
+
+[node name="phonering" type="AudioStreamPlayer3D" parent="." unique_id=1725016411]
+unit_size = 3.0
+bus = &"sfx"
 
 [node name="stand" type="MeshInstance3D" parent="." unique_id=645460906]
 mesh = SubResource("ArrayMesh_p4v4m")
@@ -343,9 +337,6 @@ mesh = SubResource("ArrayMesh_j0ti7")
 [node name="dialstuff" type="MeshInstance3D" parent="." unique_id=151710820]
 transform = Transform3D(-5.0773844e-05, 0.18462777, -0.214165, 4.035421e-05, 0.21416508, 0.18462773, 0.2827615, 2.622678e-06, -6.4794476e-05, 0.20701313, -0.520254, -0.0006934793)
 mesh = SubResource("ArrayMesh_s68fc")
-
-[node name="phonering" type="AudioStreamPlayer3D" parent="." unique_id=1725016411]
-bus = &"sfx"
 
 [node name="interactablecomponent" type="Node3D" parent="." unique_id=1973211502 node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
 script = ExtResource("2_e4ksg")
@@ -392,8 +383,6 @@ shape = SubResource("BoxShape3D_nyf0v")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="interactablecomponent/Contents/MimicRaycastBox" unique_id=1294726771]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04391475, -0.42503363, -0.004623413)
 shape = SubResource("BoxShape3D_lutt7")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1501536393]
 
 [connection signal="body_entered" from="interactablecomponent/Contents/PlayerAreaBox" to="interactablecomponent" method="_on_player_area_box_body_entered"]
 [connection signal="body_exited" from="interactablecomponent/Contents/PlayerAreaBox" to="interactablecomponent" method="_on_player_area_box_body_exited"]
