@@ -1,14 +1,72 @@
 [gd_scene format=4 uid="uid://bvlu7083perrc"]
 
 [ext_resource type="Script" uid="uid://do412trdkmyfe" path="res://ast/actors/props/phone/phone.gd" id="1_oi6va"]
+[ext_resource type="AudioStream" uid="uid://drfgvbtemt5fn" path="res://ast/audio/sfx/phonering/phonering.mp3" id="2_3wawl"]
 [ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable component/interactable_component.gd" id="2_e4ksg"]
 [ext_resource type="FontFile" uid="uid://b7gfys1o8ewi" path="res://res/fonts/vhs/VCR_OSD_MONO_1.001.ttf" id="3_n145v"]
 
+[sub_resource type="Animation" id="Animation_y2xet"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("phone:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.1415925, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_n145v"]
 resource_name = "main"
+length = 5.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("phone:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.030202884, 0.066549934, 0.101965815, 0.13874729, 0.17153144, 0.2078785, 0.24329437, 0.28007585, 0.31606716, 0.35241422, 0.38783008, 0.42461157, 0.45588544, 0.49223247, 0.5276483, 0.5644299, 0.597214, 0.633561, 0.6689769, 0.70575845, 0.74174976, 0.7780968, 0.8135127, 0.8502941, 0.8942238, 0.93057084, 0.9659867, 1.0027683, 1.0355524, 1.0718994, 1.1073153, 1.1440969, 1.180088, 1.2164352, 1.2518511, 1.2886325, 1.3199064, 1.3562534, 1.3916693, 1.4284508, 1.4612349, 1.497582, 1.5329978, 1.5697794, 1.6057707, 1.6421177, 1.6775336, 1.714315, 1.7500993, 1.7864463, 1.8218622, 1.8586438, 1.8914279, 1.9277749, 1.9631908, 1.9999723, 2.0359635, 2.072311, 2.1077266, 2.144508, 2.1757817, 2.212129, 2.2475448, 2.2843266, 2.3171105, 2.3534575, 2.3888736, 2.425655, 2.461646, 2.4979935, 2.533409, 2.5701904, 2.6078079, 2.6441548, 2.679571, 2.7163522, 2.7523434, 2.7886908, 2.8241065, 2.8608878),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 3.1415925, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(-0.08726646, 3.1415927, 0), Vector3(0.08726646, 3.1415927, 0), Vector3(0, 3.1415927, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("phonering")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_3wawl")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3wawl"]
 _data = {
+&"RESET": SubResource("Animation_y2xet"),
 &"main": SubResource("Animation_n145v")
 }
 
@@ -275,7 +333,7 @@ transform = Transform3D(0.14839368, 0, 0, 0, 0.14839368, 0, 0, 0, 0.36135435, -0
 mesh = SubResource("ArrayMesh_dssad")
 
 [node name="phone" type="MeshInstance3D" parent="." unique_id=733693623]
-transform = Transform3D(-0.13896358, 0, 2.0982917e-08, 0, 0.13896358, 0, -2.0982917e-08, 0, -0.13896358, -0.25334278, -0.15828711, -0.0024721622)
+transform = Transform3D(-0.13896357, 0, 2.0982917e-08, 0, 0.13896358, 0, -2.0982915e-08, 0, -0.13896358, -0.25334278, -0.15828711, -0.0024721622)
 mesh = SubResource("ArrayMesh_vvrpl")
 
 [node name="tickerthing" type="MeshInstance3D" parent="." unique_id=367295809]
@@ -285,6 +343,9 @@ mesh = SubResource("ArrayMesh_j0ti7")
 [node name="dialstuff" type="MeshInstance3D" parent="." unique_id=151710820]
 transform = Transform3D(-5.0773844e-05, 0.18462777, -0.214165, 4.035421e-05, 0.21416508, 0.18462773, 0.2827615, 2.622678e-06, -6.4794476e-05, 0.20701313, -0.520254, -0.0006934793)
 mesh = SubResource("ArrayMesh_s68fc")
+
+[node name="phonering" type="AudioStreamPlayer3D" parent="." unique_id=1725016411]
+bus = &"sfx"
 
 [node name="interactablecomponent" type="Node3D" parent="." unique_id=1973211502 node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
 script = ExtResource("2_e4ksg")
@@ -331,6 +392,8 @@ shape = SubResource("BoxShape3D_nyf0v")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="interactablecomponent/Contents/MimicRaycastBox" unique_id=1294726771]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04391475, -0.42503363, -0.004623413)
 shape = SubResource("BoxShape3D_lutt7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1501536393]
 
 [connection signal="body_entered" from="interactablecomponent/Contents/PlayerAreaBox" to="interactablecomponent" method="_on_player_area_box_body_entered"]
 [connection signal="body_exited" from="interactablecomponent/Contents/PlayerAreaBox" to="interactablecomponent" method="_on_player_area_box_body_exited"]
