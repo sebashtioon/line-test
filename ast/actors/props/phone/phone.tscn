@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://drfgvbtemt5fn" path="res://ast/audio/sfx/phonering/phonering.mp3" id="2_3wawl"]
 [ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable component/interactable_component.gd" id="2_e4ksg"]
 [ext_resource type="FontFile" uid="uid://b7gfys1o8ewi" path="res://res/fonts/vhs/VCR_OSD_MONO_1.001.ttf" id="3_n145v"]
+[ext_resource type="AudioStream" uid="uid://cec2akiefy7gh" path="res://ast/audio/sfx/phonepickup/phonepickup.mp3" id="3_y2xet"]
 
 [sub_resource type="Animation" id="Animation_y2xet"]
 length = 0.001
@@ -308,10 +309,11 @@ size = Vector3(7, 5, 7)
 [sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
 size = Vector3(1.298767, 0.7466125, 1.1645813)
 
-[node name="phone" type="Node3D" unique_id=966887196 node_paths=PackedStringArray("ringanimation", "phone")]
+[node name="phone" type="Node3D" unique_id=966887196 node_paths=PackedStringArray("ringanimation", "phone", "phonepickup")]
 script = ExtResource("1_oi6va")
 ringanimation = NodePath("ringanimation")
 phone = NodePath("phone")
+phonepickup = NodePath("phonepickup")
 
 [node name="ringanimation" type="AnimationPlayer" parent="." unique_id=176956991]
 libraries/ = SubResource("AnimationLibrary_3wawl")
@@ -321,6 +323,7 @@ unit_size = 3.0
 bus = &"sfx"
 
 [node name="phonepickup" type="AudioStreamPlayer3D" parent="." unique_id=751391885]
+stream = ExtResource("3_y2xet")
 unit_size = 3.0
 bus = &"sfx"
 
