@@ -69,7 +69,7 @@ tracks/1/path = NodePath("gamesequence/voicelinesubtitles/main/subtitles:visible
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.033333335, 2.9333334, 2.9666667, 4.5333333, 4.9666667, 6.366667),
+"times": PackedFloat32Array(0.033333335, 2.9333334, 2.9666667, 4.266667, 4.7000003, 5.9),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [false, false, true, false, true, false]
@@ -81,7 +81,7 @@ tracks/2/path = NodePath("gamesequence/voicelinesubtitles/main/subtitles:text")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2.8333333, 4.788212),
+"times": PackedFloat32Array(2.8333333, 4.5215454),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": ["this is a line test.", "please standby."]
