@@ -14,14 +14,6 @@
 [ext_resource type="Material" uid="uid://dfxc85kabcrgj" path="res://res/shad mat/buckshoteffect.tres" id="5_jkpqq"]
 [ext_resource type="PackedScene" uid="uid://bvlu7083perrc" path="res://ast/actors/props/phone/phone.tscn" id="8_frqgp"]
 
-[sub_resource type="Animation" id="Animation_w0wra"]
-resource_name = "main"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ibsor"]
-_data = {
-&"main": SubResource("Animation_w0wra")
-}
-
 [sub_resource type="Animation" id="Animation_km7bn"]
 length = 0.001
 tracks/0/type = "value"
@@ -134,13 +126,15 @@ material = SubResource("StandardMaterial3D_djufw")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3s6yk"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_hc2u7"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_ibsor"]
 viewport_path = NodePath("interactablecomponent/Contents/UI/SubViewport")
 
-[node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera", "gamemanager")]
+[node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera", "gamemanager", "gamesequence", "sequencestart")]
 script = ExtResource("1_3eh75")
 mainmenu_camera = NodePath("mainmenu/mainmenu_camera")
 gamemanager = NodePath("gamemanager")
+gamesequence = NodePath("gamesequence")
+sequencestart = NodePath("gamesequence/sequencestart")
 
 [node name="gamesequence" type="Node3D" parent="." unique_id=1315925528]
 
@@ -153,9 +147,6 @@ autoplay = true
 
 [node name="phonevoiceline" type="AudioStreamPlayer" parent="gamesequence/audio" unique_id=2124377767]
 bus = &"phone only voiceline"
-
-[node name="phoneringsequence" type="AnimationPlayer" parent="gamesequence" unique_id=1570054906]
-libraries/ = SubResource("AnimationLibrary_ibsor")
 
 [node name="sequencestart" type="AnimationPlayer" parent="gamesequence" unique_id=1469364018]
 root_node = NodePath("../..")
@@ -342,6 +333,6 @@ spot_angle_attenuation = 84.44943
 transform = Transform3D(0.03307319, 0, -0.33164334, 0, 0.33328834, 0, 0.33164334, 0, 0.03307319, 0, 1.75, 0)
 
 [node name="UI" parent="phone/interactablecomponent/Contents" parent_id_path=PackedInt32Array(966887196, 2114968064) index="0" unique_id=897521712]
-texture = SubResource("ViewportTexture_hc2u7")
+texture = SubResource("ViewportTexture_ibsor")
 
 [editable path="phone"]
