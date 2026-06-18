@@ -19,6 +19,7 @@
 [ext_resource type="Shader" uid="uid://cmxv0c12li22s" path="res://res/shad/chromeabb.gdshader" id="10_2jinp"]
 [ext_resource type="FontFile" uid="uid://b7gfys1o8ewi" path="res://res/fonts/vhs/VCR_OSD_MONO_1.001.ttf" id="10_6iek0"]
 [ext_resource type="AudioStream" uid="uid://bqnht4d0kq3es" path="res://ast/audio/voicelines/start/start_004.wav" id="10_v0ijp"]
+[ext_resource type="PackedScene" uid="uid://c70rol60wtjgl" path="res://ast/actors/architectural/door/door.tscn" id="20_v0ijp"]
 
 [sub_resource type="Animation" id="Animation_km7bn"]
 length = 0.001
@@ -186,12 +187,12 @@ tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("gamesequence/voicelinesubtitles/main/subtitles:text")
-tracks/1/interp = 0
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(2.8333333, 4.5215454, 8.454879, 25.7, 29.5, 31.8, 33.7),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": ["this is a line test.", "please standby.", "{ ??? }", "hello, and welcome on the line.", "we are so pleased to have you", "you must listen carefully", "no information will be repeated."]
 }
 tracks/2/type = "audio"
@@ -205,8 +206,12 @@ tracks/2/keys = {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": ExtResource("3_hc2u7")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_hc2u7")
 }],
-"times": PackedFloat32Array(22.9)
+"times": PackedFloat32Array(22.9, 36.3)
 }
 tracks/2/use_blend = true
 tracks/3/type = "audio"
@@ -338,6 +343,9 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_6iek0"]
 viewport_path = NodePath("interactablecomponent/Contents/UI/SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_nevsn"]
+viewport_path = NodePath("HingePivot/InteractableComponent/Contents/UI/SubViewport")
 
 [node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera", "gamemanager", "gamesequence", "sequencestart")]
 script = ExtResource("1_3eh75")
@@ -564,4 +572,21 @@ transform = Transform3D(0.03307319, 0, -0.33164334, 0, 0.33328834, 0, 0.33164334
 [node name="UI" parent="phone/interactablecomponent/Contents" parent_id_path=PackedInt32Array(966887196, 2114968064) index="0" unique_id=897521712]
 texture = SubResource("ViewportTexture_6iek0")
 
+[node name="door" parent="." unique_id=791941259 instance=ExtResource("20_v0ijp")]
+transform = Transform3D(-0.496, 0, -7.489392e-08, 0, 0.496, 0, 7.489392e-08, 0, -0.496, -7.9290085, 1.7903446, 1.5273142)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="door" unique_id=586363562]
+transform = Transform3D(2.0161293, -1.9895197e-13, -8.4703295e-21, 0, -8.8127805e-08, 2.0161293, -1.9895197e-13, -2.0161293, -8.8127805e-08, 0.54046917, 9.480104, 1.299875)
+light_energy = 1.345
+light_indirect_energy = 0.342
+light_volumetric_fog_energy = 2.365
+spot_range = 6.5
+spot_attenuation = -2.05
+spot_angle = 24.66
+spot_angle_attenuation = 1.1486968
+
+[node name="UI" parent="door/HingePivot/InteractableComponent/Contents" parent_id_path=PackedInt32Array(791941259, 804594136) index="0" unique_id=1926649370]
+texture = SubResource("ViewportTexture_nevsn")
+
 [editable path="phone"]
+[editable path="door"]
