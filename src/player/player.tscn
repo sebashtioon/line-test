@@ -51,6 +51,9 @@ shadow_mesh = SubResource("ArrayMesh_hx8ny")
 [sub_resource type="BoxShape3D" id="BoxShape3D_4anbu"]
 size = Vector3(0.05, 0.05, 1.52554)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_rxibo"]
+size = Vector3(0.05, 0.05, 16.010048)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rxibo"]
 transparency = 1
 albedo_color = Color(0.025363795, 0.025363805, 0.02536378, 1)
@@ -100,6 +103,12 @@ mesh = SubResource("ArrayMesh_vvrpl")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="head/camera/RaycastMimic" unique_id=2090937215]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.737769)
 shape = SubResource("BoxShape3D_4anbu")
+
+[node name="RaycastMimicAdjustable" type="Area3D" parent="head/camera" unique_id=93207846 groups=["raycast_mimic_adjustable"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="head/camera/RaycastMimicAdjustable" unique_id=970130377]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.9800234)
+shape = SubResource("BoxShape3D_rxibo")
 
 [node name="effectlayer" type="CanvasLayer" parent="head/camera" unique_id=45059322]
 layer = 20
