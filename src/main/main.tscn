@@ -358,6 +358,9 @@ viewport_path = NodePath("interactablecomponent/Contents/UI/SubViewport")
 [sub_resource type="ViewportTexture" id="ViewportTexture_suhym"]
 viewport_path = NodePath("HingePivot/InteractableComponent/Contents/UI/SubViewport")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_sb4vr"]
+size = Vector3(8.588623, 8.448303, 9.421997)
+
 [node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera", "gamemanager", "gamesequence", "sequencestart")]
 script = ExtResource("1_3eh75")
 mainmenu_camera = NodePath("mainmenu/mainmenu_camera")
@@ -595,7 +598,7 @@ transform = Transform3D(-0.496, 0, -7.489392e-08, 0, 0.496, 0, 7.489392e-08, 0, 
 texture = SubResource("ViewportTexture_suhym")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="door" unique_id=586363562]
-transform = Transform3D(2.0161293, -1.9895197e-13, -8.4703295e-21, 0, -8.8127805e-08, 2.0161293, -1.9895197e-13, -2.0161293, -8.8127805e-08, 0.54046917, 9.480104, 1.299875)
+transform = Transform3D(1, -9.8680165e-14, -4.3134472e-21, 0, -4.371139e-08, 1, -9.8680165e-14, -1, -4.371139e-08, 0.5404711, 9.480106, 1.2998751)
 light_energy = 1.345
 light_indirect_energy = 0.342
 light_volumetric_fog_energy = 2.365
@@ -603,6 +606,15 @@ spot_range = 6.5
 spot_attenuation = -2.05
 spot_angle = 24.66
 spot_angle_attenuation = 1.1486968
+
+[node name="playerlook_notifier" type="Area3D" parent="door" unique_id=457275568]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/playerlook_notifier" unique_id=812114814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2681723, 0.7241516, 1.2109967)
+shape = SubResource("BoxShape3D_sb4vr")
+
+[connection signal="area_entered" from="door/playerlook_notifier" to="gamesequence" method="_on_door_look"]
 
 [editable path="phone"]
 [editable path="door"]
