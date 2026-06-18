@@ -359,7 +359,7 @@ viewport_path = NodePath("interactablecomponent/Contents/UI/SubViewport")
 viewport_path = NodePath("HingePivot/InteractableComponent/Contents/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sb4vr"]
-size = Vector3(8.588623, 8.448303, 9.421997)
+size = Vector3(8.530212, 8.448303, 7.463852)
 
 [node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera", "gamemanager", "gamesequence", "sequencestart")]
 script = ExtResource("1_3eh75")
@@ -611,7 +611,7 @@ spot_angle_attenuation = 1.1486968
 transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="door/playerlook_notifier" unique_id=812114814]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2681723, 0.7241516, 1.2109967)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2973871, 0.7241516, 1.2963306)
 shape = SubResource("BoxShape3D_sb4vr")
 
 [connection signal="area_entered" from="door/playerlook_notifier" to="gamesequence" method="_on_door_look"]

@@ -16,5 +16,5 @@ func spawn_door() -> void:
 	door_spawned__start = true
 
 func _on_door_look(area: Area3D) -> void:
-	if area.is_in_group(&"raycast_mimic") and door_spawned__start:
+	if area.is_in_group(&"raycast_mimic_adjustable") and door_spawned__start:
 		print("nice")
