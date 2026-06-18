@@ -71,10 +71,7 @@ fov = 65.0
 WALK_SPEED = 1.8
 BOB_AMP = 0.05
 phone = NodePath("head/camera/phone")
-door_spawn = NodePath("door_spawn")
-
-[node name="door_spawn" type="Marker3D" parent="." unique_id=1033552926]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3936176, 8.318975)
+door_spawn = NodePath("head/door_spawn")
 
 [node name="mesh" type="MeshInstance3D" parent="." unique_id=2041292677]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -87,6 +84,9 @@ shape = SubResource("ConvexPolygonShape3D_ocuv0")
 
 [node name="head" type="Node3D" parent="." unique_id=1777356075]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66439, 0)
+
+[node name="door_spawn" type="Marker3D" parent="head" unique_id=1033552926]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27077234, 8.318975)
 
 [node name="camera" type="Camera3D" parent="head" unique_id=699068989]
 current = true

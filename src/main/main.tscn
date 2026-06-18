@@ -352,10 +352,10 @@ material = SubResource("StandardMaterial3D_djufw")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3s6yk"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_v0ijp"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nevsn"]
 viewport_path = NodePath("interactablecomponent/Contents/UI/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_nevsn"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_suhym"]
 viewport_path = NodePath("HingePivot/InteractableComponent/Contents/UI/SubViewport")
 
 [node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera", "gamemanager", "gamesequence", "sequencestart")]
@@ -426,7 +426,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="gamesequence/voicelinesubtitles/main" unique_id=174345099]
+[node name="chromeabb" type="ColorRect" parent="gamesequence/voicelinesubtitles/main" unique_id=174345099]
+visible = false
 material = SubResource("ShaderMaterial_2jinp")
 layout_mode = 1
 anchors_preset = 15
@@ -460,6 +461,7 @@ fov = 35.0
 
 [node name="effectlayer" type="CanvasLayer" parent="mainmenu/mainmenu_camera" unique_id=1999761846]
 layer = 20
+visible = false
 
 [node name="buckshoteffect" type="ColorRect" parent="mainmenu/mainmenu_camera/effectlayer" unique_id=533255278]
 material = ExtResource("5_jkpqq")
@@ -584,13 +586,13 @@ spot_angle_attenuation = 84.44943
 transform = Transform3D(0.03307319, 0, -0.33164334, 0, 0.33328834, 0, 0.33164334, 0, 0.03307319, 0, 1.75, 0)
 
 [node name="UI" parent="phone/interactablecomponent/Contents" parent_id_path=PackedInt32Array(966887196, 2114968064) index="0" unique_id=897521712]
-texture = SubResource("ViewportTexture_v0ijp")
+texture = SubResource("ViewportTexture_nevsn")
 
 [node name="door" parent="." unique_id=791941259 instance=ExtResource("20_v0ijp")]
 transform = Transform3D(-0.496, 0, -7.489392e-08, 0, 0.496, 0, 7.489392e-08, 0, -0.496, -7.9290085, 1.7903446, 1.5273142)
 
 [node name="UI" parent="door/HingePivot/InteractableComponent/Contents" parent_id_path=PackedInt32Array(791941259, 804594136) index="0" unique_id=1926649370]
-texture = SubResource("ViewportTexture_nevsn")
+texture = SubResource("ViewportTexture_suhym")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="door" unique_id=586363562]
 transform = Transform3D(2.0161293, -1.9895197e-13, -8.4703295e-21, 0, -8.8127805e-08, 2.0161293, -1.9895197e-13, -2.0161293, -8.8127805e-08, 0.54046917, 9.480104, 1.299875)
@@ -604,3 +606,4 @@ spot_angle_attenuation = 1.1486968
 
 [editable path="phone"]
 [editable path="door"]
+[editable path="door/ceiling_light"]
