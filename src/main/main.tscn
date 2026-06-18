@@ -11,8 +11,11 @@
 [ext_resource type="FontFile" uid="uid://kmy63pqbn44x" path="res://res/fonts/inter/Inter_18pt-Medium.ttf" id="3_jqarl"]
 [ext_resource type="PackedScene" uid="uid://bmcsua0jmiucp" path="res://ast/actors/architectural/room lighting/ceiling_light.tscn" id="4_djufw"]
 [ext_resource type="FontFile" uid="uid://bgxm24vckb7vf" path="res://res/fonts/vhs/vhs-vcr-osd.ttf" id="4_erw1m"]
+[ext_resource type="AudioStream" uid="uid://dqey77hyyscsd" path="res://ast/audio/sfx/easalert/easalert.mp3" id="5_hc2u7"]
 [ext_resource type="Material" uid="uid://dfxc85kabcrgj" path="res://res/shad mat/buckshoteffect.tres" id="5_jkpqq"]
+[ext_resource type="AudioStream" uid="uid://0lp5yayordgd" path="res://ast/audio/voicelines/start/start_002.wav" id="7_4tqcc"]
 [ext_resource type="PackedScene" uid="uid://bvlu7083perrc" path="res://ast/actors/props/phone/phone.tscn" id="8_frqgp"]
+[ext_resource type="AudioStream" uid="uid://cjawnlviloeqq" path="res://ast/audio/voicelines/start/iwanttocheese.wav" id="8_nqfqj"]
 
 [sub_resource type="Animation" id="Animation_km7bn"]
 length = 0.001
@@ -44,6 +47,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_frqgp"]
 resource_name = "main"
 length = 100.0
+step = 0.1
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -59,8 +63,120 @@ tracks/0/keys = {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": ExtResource("2_2nke2")
+}, {
+"end_offset": 20.419773,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.419773,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.419773,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.219814,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.219814,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.419773,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.219814,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.219814,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.419773,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.219814,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.219814,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.219814,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.219814,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.219814,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.219814,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.419773,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.219814,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.419773,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.419773,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.419773,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.419773,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.419773,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.419773,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.419773,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.419773,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.419773,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.419773,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
+}, {
+"end_offset": 20.419773,
+"start_offset": 0.7710662,
+"stream": ExtResource("5_hc2u7")
 }],
-"times": PackedFloat32Array(0.26666668, 2.9)
+"times": PackedFloat32Array(0.26666668, 2.9, 8.700001, 8.9, 9.700001, 9.9, 10.3, 10.899999, 11.099999, 11.700002, 12.099999, 12.500001, 13.500001, 14.099999, 14.500001, 14.899999, 15.899999, 16.3, 16.5, 16.899998, 17.3, 17.5, 17.699997, 17.899998, 18.3, 18.699997, 19.099998, 19.3, 19.5, 19.899998)
 }
 tracks/0/use_blend = true
 tracks/1/type = "value"
@@ -102,6 +218,56 @@ tracks/3/keys = {
 "times": PackedFloat32Array(10.633333)
 }
 tracks/3/use_blend = true
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("gamesequence/audio/phonevoiceline")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 1.4316652,
+"start_offset": 2.2182524,
+"stream": ExtResource("7_4tqcc")
+}, {
+"end_offset": 1.4316652,
+"start_offset": 2.2182524,
+"stream": ExtResource("7_4tqcc")
+}, {
+"end_offset": 1.4316652,
+"start_offset": 2.2182524,
+"stream": ExtResource("7_4tqcc")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_nqfqj")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_nqfqj")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_nqfqj")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_nqfqj")
+}],
+"times": PackedFloat32Array(6.7072296, 6.8, 6.9, 8.6, 11.9, 15.4, 18)
+}
+tracks/4/use_blend = true
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("gamesequence/audio/phonevoiceline")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [],
+"times": PackedFloat32Array()
+}
+tracks/5/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2nke2"]
 _data = {
@@ -157,7 +323,7 @@ volume_db = -6.991
 autoplay = true
 
 [node name="phonevoiceline" type="AudioStreamPlayer" parent="gamesequence/audio" unique_id=2124377767]
-max_polyphony = 5
+max_polyphony = 50000
 bus = &"phone only voiceline"
 
 [node name="rustlingclick" type="AudioStreamPlayer3D" parent="gamesequence/audio" unique_id=1776149936]
