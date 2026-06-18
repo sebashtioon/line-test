@@ -8,8 +8,6 @@ extends Node3D
 func _ready() -> void:
 	ringanimation.play(&"main")
 
-
-
 func _on_phone_pickup() -> void:
 	phone.visible = false # set model phone mesh to invis
 	PlayerGlobal.player.phone.visible = true # phone on player head visible

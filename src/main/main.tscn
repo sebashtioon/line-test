@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://c4csim0nstceu" path="res://src/main/gamemanager.gd" id="2_frqgp"]
 [ext_resource type="AudioStream" uid="uid://jtycym11f6lj" path="res://ast/audio/sfx/bitcrush ambience/bitcrush ambience.wav" id="2_km7bn"]
 [ext_resource type="PackedScene" uid="uid://bsvx7uhvigx7t" path="res://ast/actors/furniture/vintage_table.tscn" id="3_ab7mr"]
+[ext_resource type="AudioStream" uid="uid://bj7seppubahnn" path="res://ast/audio/sfx/rustlingclick/rustlingclick.mp3" id="3_hc2u7"]
 [ext_resource type="AudioStream" uid="uid://c1uol2fdpkm8i" path="res://ast/audio/sfx/easalert/longtone/easalert_longtone.mp3" id="3_ibsor"]
 [ext_resource type="FontFile" uid="uid://kmy63pqbn44x" path="res://res/fonts/inter/Inter_18pt-Medium.ttf" id="3_jqarl"]
 [ext_resource type="PackedScene" uid="uid://bmcsua0jmiucp" path="res://ast/actors/architectural/room lighting/ceiling_light.tscn" id="4_djufw"]
@@ -86,6 +87,21 @@ tracks/2/keys = {
 "update": 1,
 "values": ["this is a line test.", "please standby."]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("gamesequence/audio/rustlingclick")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("3_hc2u7")
+}],
+"times": PackedFloat32Array(10.633333)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2nke2"]
 _data = {
@@ -141,7 +157,13 @@ volume_db = -6.991
 autoplay = true
 
 [node name="phonevoiceline" type="AudioStreamPlayer" parent="gamesequence/audio" unique_id=2124377767]
+max_polyphony = 5
 bus = &"phone only voiceline"
+
+[node name="rustlingclick" type="AudioStreamPlayer3D" parent="gamesequence/audio" unique_id=1776149936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.748547, 0.5199661, -2.4146218)
+unit_size = 3.5
+bus = &"sfx"
 
 [node name="sequencestart" type="AnimationPlayer" parent="gamesequence" unique_id=1469364018]
 root_node = NodePath("../..")
