@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/easalert.mp3-24e810ddce0ecd800c5fe9bcc06913df
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
