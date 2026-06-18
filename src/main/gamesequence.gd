@@ -10,7 +10,6 @@ func reset_flags(to_start : bool = true) -> void:
 	if to_start:
 		door_spawned__start = false
 
-
 func spawn_door() -> void:
 	door.position.x = PlayerGlobal.player.door_spawn.global_position.x
 	door.position.z = PlayerGlobal.player.door_spawn.global_position.z
