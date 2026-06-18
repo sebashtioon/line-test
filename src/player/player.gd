@@ -26,6 +26,9 @@ extends CharacterBody3D
 @export var BOB_AMP: float = 0.08
 @export var BOB_SMOOTHING_SPEED: float = 3.0
 
+@export_group("other")
+@export var phone: MeshInstance3D
+
 var speed: float
 var bob_wave_length: float = 0.0
 
@@ -102,3 +105,5 @@ func _process(_delta: float) -> void:
 func _ready() -> void:
 	PlayerGlobal.player = self
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	phone.visible = false

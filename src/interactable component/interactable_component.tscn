@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dbmsf23ymvvw2"]
+
+[ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable component/interactable_component.gd" id="1_lutt7"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_75gw0"]
+action = &"Interact"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lutt7"]
+viewport_path = NodePath("Contents/UI/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nyf0v"]
+size = Vector3(7, 5, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
+size = Vector3(0.460693, 0.741821, 0.463135)
+
+[node name="interactablecomponent" type="Node3D" unique_id=1973211502 node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
+script = ExtResource("1_lutt7")
+Contents_Node = NodePath("Contents")
+UI_Sprite_Node = NodePath("Contents/UI")
+SubViewport_Node = NodePath("Contents/UI/SubViewport")
+ActionToPress = SubResource("InputEventAction_75gw0")
+
+[node name="Contents" type="Node3D" parent="." unique_id=2114968064]
+
+[node name="UI" type="Sprite3D" parent="Contents" unique_id=897521712]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+billboard = 1
+no_depth_test = true
+render_priority = 1
+texture = SubResource("ViewportTexture_lutt7")
+
+[node name="SubViewport" type="SubViewport" parent="Contents/UI" unique_id=1051459148]
+transparent_bg = true
+gui_disable_input = true
+size = Vector2i(1150, 1150)
+
+[node name="Key" type="Label" parent="Contents/UI/SubViewport" unique_id=1902280346]
+offset_left = 500.0
+offset_top = 500.0
+offset_right = 629.0
+offset_bottom = 646.0
+theme_override_font_sizes/font_size = 106
+text = "[E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerAreaBox" type="Area3D" parent="Contents" unique_id=1043785681]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Contents/PlayerAreaBox" unique_id=1552512058]
+shape = SubResource("BoxShape3D_nyf0v")
+
+[node name="MimicRaycastBox" type="Area3D" parent="Contents" unique_id=660343027]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Contents/MimicRaycastBox" unique_id=1294726771]
+shape = SubResource("BoxShape3D_lutt7")
+
+[connection signal="body_entered" from="Contents/PlayerAreaBox" to="." method="_on_player_area_box_body_entered"]
+[connection signal="body_exited" from="Contents/PlayerAreaBox" to="." method="_on_player_area_box_body_exited"]
+[connection signal="area_entered" from="Contents/MimicRaycastBox" to="." method="_on_mimic_raycast_box_area_entered"]
+[connection signal="area_exited" from="Contents/MimicRaycastBox" to="." method="_on_mimic_raycast_box_area_exited"]

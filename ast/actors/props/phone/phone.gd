@@ -1,11 +1,19 @@
 extends Node3D
 
+@export var ringanimation: AnimationPlayer
+@export var phone: MeshInstance3D
+@export var phonepickup: AudioStreamPlayer3D
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	pass # Replace with function body.
+	ringanimation.play(&"main")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_phone_pickup() -> void:
+	phone.visible = false # set model phone mesh to invis
+	PlayerGlobal.player.phone.visible = true # phone on player head visible
+	
+	phonepickup.play()
+	ringanimation.stop()
+	
+	await get_tree().create_timer(1.0).timeout
+	PlayerGlobal.world.sequencestart.play(&"main")
