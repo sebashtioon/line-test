@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgbh6pbaquvl7"
-path.s3tc="res://.godot/imported/door_color.png-b6098b63de0b70738c554c6ebedfc49f.s3tc.ctex"
+path.s3tc="res://.godot/imported/door_color.png-08094d8f5e3490a44f8fcdb26e303448.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://ast/textures/architectural/door/door_color.png"
-dest_files=["res://.godot/imported/door_color.png-b6098b63de0b70738c554c6ebedfc49f.s3tc.ctex"]
+source_file="res://ast/textures/door/door_color.png"
+dest_files=["res://.godot/imported/door_color.png-08094d8f5e3490a44f8fcdb26e303448.s3tc.ctex"]
 
 [params]
 
