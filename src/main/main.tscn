@@ -215,7 +215,7 @@ tracks/3/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("3_hc2u7")
 }],
-"times": PackedFloat32Array(10.633333)
+"times": PackedFloat32Array(22.9)
 }
 tracks/3/use_blend = true
 tracks/4/type = "audio"
@@ -328,7 +328,10 @@ bus = &"phone only voiceline"
 
 [node name="rustlingclick" type="AudioStreamPlayer3D" parent="gamesequence/audio" unique_id=1776149936]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.748547, 0.5199661, -2.4146218)
+volume_db = 23.068
 unit_size = 3.5
+pitch_scale = 1.92
+panning_strength = 1.55
 bus = &"sfx"
 
 [node name="sequencestart" type="AnimationPlayer" parent="gamesequence" unique_id=1469364018]
