@@ -1,6 +1,6 @@
 [gd_resource type="ArrayMesh" format=4 uid="uid://ck6j76xp8mgf6"]
 
-[ext_resource type="Texture2D" uid="uid://cgbh6pbaquvl7" path="res://ast/textures/architectural/door/door_color.png" id="1_hwtvn"]
+[ext_resource type="Texture2D" uid="uid://cgbh6pbaquvl7" path="res://ast/textures/door/door_color.png" id="1_hwtvn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pogoh"]
 resource_name = "Main_Door_Color"

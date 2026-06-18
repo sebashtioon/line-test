@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c70rol60wtjgl"]
 
 [ext_resource type="Script" uid="uid://ccf6pplan8jqd" path="res://ast/actors/architectural/door/door.gd" id="1_k3daa"]
-[ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="3_uboid"]
-[ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="4_fjkwi"]
+[ext_resource type="FontFile" uid="uid://b7gfys1o8ewi" path="res://res/fonts/vhs/VCR_OSD_MONO_1.001.ttf" id="3_j0t27"]
+[ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable component/interactable_component.gd" id="3_uboid"]
 [ext_resource type="ArrayMesh" uid="uid://ck6j76xp8mgf6" path="res://res/mesh/arr/door_array_mesh.tres" id="4_uboid"]
 
 [sub_resource type="Animation" id="Animation_fjkwi"]
@@ -44,7 +44,7 @@ _data = {
 }
 
 [sub_resource type="InputEventAction" id="InputEventAction_75gw0"]
-action = &"Interact"
+action = &"interact"
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_j0t27"]
 viewport_path = NodePath("HingePivot/InteractableComponent/Contents/UI/SubViewport")
@@ -92,12 +92,14 @@ gui_disable_input = true
 size = Vector2i(1150, 1150)
 
 [node name="Key" type="Label" parent="HingePivot/InteractableComponent/Contents/UI/SubViewport" unique_id=1792570985]
-offset_left = 500.0
+offset_left = 407.695
 offset_top = 500.0
-offset_right = 629.0
-offset_bottom = 646.0
-theme = ExtResource("4_fjkwi")
-theme_override_font_sizes/font_size = 106
+offset_right = 776.6953
+offset_bottom = 685.0
+scale = Vector2(0.71, 0.71)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("3_j0t27")
+theme_override_font_sizes/font_size = 210
 text = "[E]"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -113,7 +115,7 @@ shape = SubResource("BoxShape3D_igycb")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00362378, 0.0137178, 0)
 shape = SubResource("BoxShape3D_lutt7")
 
-[node name="Cube" type="MeshInstance3D" parent="HingePivot" unique_id=333538006]
+[node name="mesh" type="MeshInstance3D" parent="HingePivot" unique_id=333538006]
 transform = Transform3D(1.335, 0, 0, 0, -4.37114e-09, -2.585, 0, 0.1, -1.12994e-07, 0.000100374, 0, 0)
 mesh = ExtResource("4_uboid")
 
