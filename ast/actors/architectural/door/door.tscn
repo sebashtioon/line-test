@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://c70rol60wtjgl"]
+
+[ext_resource type="Script" uid="uid://ccf6pplan8jqd" path="res://ast/actors/architectural/door/door.gd" id="1_k3daa"]
+[ext_resource type="Script" uid="uid://cabvjkvkoh7b8" path="res://src/interactable_component/interactable_component.gd" id="3_uboid"]
+[ext_resource type="Theme" uid="uid://dor86n6is4l5j" path="res://res/themes/default.tres" id="4_fjkwi"]
+[ext_resource type="ArrayMesh" uid="uid://ck6j76xp8mgf6" path="res://res/mesh/arr/door_array_mesh.tres" id="4_uboid"]
+
+[sub_resource type="Animation" id="Animation_fjkwi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HingePivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uboid"]
+resource_name = "main"
+length = 0.8
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HingePivot:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fjkwi"]
+_data = {
+&"RESET": SubResource("Animation_fjkwi"),
+&"main": SubResource("Animation_uboid")
+}
+
+[sub_resource type="InputEventAction" id="InputEventAction_75gw0"]
+action = &"Interact"
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_j0t27"]
+viewport_path = NodePath("HingePivot/InteractableComponent/Contents/UI/SubViewport")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_igycb"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lutt7"]
+size = Vector3(2.69585, 5.22647, 0.463135)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uboid"]
+size = Vector3(2.71497, 5.22467, 0.307129)
+
+[node name="door" type="Node3D" unique_id=791941259 node_paths=PackedStringArray("DoorAnimation", "HingePivot")]
+script = ExtResource("1_k3daa")
+DoorAnimation = NodePath("door_animation")
+HingePivot = NodePath("HingePivot")
+
+[node name="door_animation" type="AnimationPlayer" parent="." unique_id=1600128161]
+libraries/ = SubResource("AnimationLibrary_fjkwi")
+
+[node name="HingePivot" type="Node3D" parent="." unique_id=1188546004]
+transform = Transform3D(-3.6199901e-06, 0, 1, 0, 1, 0, -1, 0, -3.6199901e-06, 1.3349, 0, 0)
+
+[node name="InteractableComponent" type="Node3D" parent="HingePivot" unique_id=1211877947 node_paths=PackedStringArray("Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3349, 0, 0)
+script = ExtResource("3_uboid")
+Contents_Node = NodePath("Contents")
+UI_Sprite_Node = NodePath("Contents/UI")
+SubViewport_Node = NodePath("Contents/UI/SubViewport")
+ActionToPress = SubResource("InputEventAction_75gw0")
+
+[node name="Contents" type="Node3D" parent="HingePivot/InteractableComponent" unique_id=804594136]
+
+[node name="UI" type="Sprite3D" parent="HingePivot/InteractableComponent/Contents" unique_id=1926649370]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+billboard = 1
+no_depth_test = true
+render_priority = 1
+texture = SubResource("ViewportTexture_j0t27")
+
+[node name="SubViewport" type="SubViewport" parent="HingePivot/InteractableComponent/Contents/UI" unique_id=1753739830]
+transparent_bg = true
+gui_disable_input = true
+size = Vector2i(1150, 1150)
+
+[node name="Key" type="Label" parent="HingePivot/InteractableComponent/Contents/UI/SubViewport" unique_id=1792570985]
+offset_left = 500.0
+offset_top = 500.0
+offset_right = 629.0
+offset_bottom = 646.0
+theme = ExtResource("4_fjkwi")
+theme_override_font_sizes/font_size = 106
+text = "[E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerAreaBox" type="Area3D" parent="HingePivot/InteractableComponent/Contents" unique_id=753173334]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HingePivot/InteractableComponent/Contents/PlayerAreaBox" unique_id=2023540297]
+shape = SubResource("BoxShape3D_igycb")
+
+[node name="MimicRaycastBox" type="Area3D" parent="HingePivot/InteractableComponent/Contents" unique_id=1942289700]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HingePivot/InteractableComponent/Contents/MimicRaycastBox" unique_id=305031048]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00362378, 0.0137178, 0)
+shape = SubResource("BoxShape3D_lutt7")
+
+[node name="Cube" type="MeshInstance3D" parent="HingePivot" unique_id=333538006]
+transform = Transform3D(1.335, 0, 0, 0, -4.37114e-09, -2.585, 0, 0.1, -1.12994e-07, 0.000100374, 0, 0)
+mesh = ExtResource("4_uboid")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="HingePivot" unique_id=1882435383]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HingePivot/StaticBody3D" unique_id=870498307]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34296, 0.0108337, 0.00708008)
+shape = SubResource("BoxShape3D_uboid")
+
+[connection signal="action_triggered" from="HingePivot/InteractableComponent" to="." method="_door_triggered"]
+[connection signal="body_entered" from="HingePivot/InteractableComponent/Contents/PlayerAreaBox" to="HingePivot/InteractableComponent" method="_on_player_area_box_body_entered"]
+[connection signal="body_exited" from="HingePivot/InteractableComponent/Contents/PlayerAreaBox" to="HingePivot/InteractableComponent" method="_on_player_area_box_body_exited"]
+[connection signal="area_entered" from="HingePivot/InteractableComponent/Contents/MimicRaycastBox" to="HingePivot/InteractableComponent" method="_on_mimic_raycast_box_area_entered"]
+[connection signal="area_exited" from="HingePivot/InteractableComponent/Contents/MimicRaycastBox" to="HingePivot/InteractableComponent" method="_on_mimic_raycast_box_area_exited"]
