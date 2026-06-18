@@ -28,6 +28,7 @@ extends CharacterBody3D
 
 @export_group("other")
 @export var phone: MeshInstance3D
+@export var door_spawn: Marker3D
 
 var speed: float
 var bob_wave_length: float = 0.0
