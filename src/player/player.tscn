@@ -72,6 +72,9 @@ WALK_SPEED = 1.8
 BOB_AMP = 0.05
 phone = NodePath("head/camera/phone")
 
+[node name="door spawn" type="Marker3D" parent="." unique_id=1033552926]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3936176, 8.318975)
+
 [node name="mesh" type="MeshInstance3D" parent="." unique_id=2041292677]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 visible = false

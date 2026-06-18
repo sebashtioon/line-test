@@ -285,7 +285,7 @@ tracks/4/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("10_v0ijp")
 }],
-"times": PackedFloat32Array(26.422514, 26.7, 38.3, 41.3, 45.6, 53.2)
+"times": PackedFloat32Array(26.422514, 26.7, 38.3, 41.1, 45.399998, 51)
 }
 tracks/4/use_blend = true
 tracks/5/type = "value"
