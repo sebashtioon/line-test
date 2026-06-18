@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://bvlu7083perrc" path="res://ast/actors/props/phone/phone.tscn" id="8_frqgp"]
 [ext_resource type="AudioStream" uid="uid://cjawnlviloeqq" path="res://ast/audio/voicelines/start/iwanttocheese.wav" id="8_nqfqj"]
 [ext_resource type="Shader" uid="uid://cmxv0c12li22s" path="res://res/shad/chromeabb.gdshader" id="10_2jinp"]
+[ext_resource type="FontFile" uid="uid://b7gfys1o8ewi" path="res://res/fonts/vhs/VCR_OSD_MONO_1.001.ttf" id="10_6iek0"]
+[ext_resource type="AudioStream" uid="uid://bqnht4d0kq3es" path="res://ast/audio/voicelines/start/start_004.wav" id="10_v0ijp"]
 
 [sub_resource type="Animation" id="Animation_km7bn"]
 length = 0.001
@@ -31,6 +33,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": ["this is a line test."]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gamesequence/voicelinesubtitles/main/subtitles:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_frqgp"]
@@ -172,13 +186,13 @@ tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("gamesequence/voicelinesubtitles/main/subtitles:text")
-tracks/1/interp = 1
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(2.8333333, 4.5215454, 8.454879),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(2.8333333, 4.5215454, 8.454879, 25.7, 29.5, 31.8, 33.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": ["this is a line test.", "please standby.", "[???]"]
+"values": ["this is a line test.", "please standby.", "{ ??? }", "hello, and welcome on the line.", "we are so pleased to have you", "you must listen carefully", "no information will be repeated."]
 }
 tracks/2/type = "audio"
 tracks/2/imported = false
@@ -250,13 +264,37 @@ tracks/4/keys = {
 "start_offset": 0.0,
 "stream": ExtResource("6_hmxxs")
 }, {
-"end_offset": 0.032783985,
+"end_offset": 8.675419,
 "start_offset": 9.015639,
 "stream": ExtResource("6_hmxxs")
+}, {
+"end_offset": 4.9895687,
+"start_offset": 10.993556,
+"stream": ExtResource("6_hmxxs")
+}, {
+"end_offset": 0.032783985,
+"start_offset": 14.870645,
+"stream": ExtResource("6_hmxxs")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("10_v0ijp")
 }],
-"times": PackedFloat32Array(26.422514, 26.7, 38.3)
+"times": PackedFloat32Array(26.422514, 26.7, 38.3, 41.3, 45.6, 53.2)
 }
 tracks/4/use_blend = true
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("gamesequence/voicelinesubtitles/main/subtitles:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3.2, 4.4, 4.7, 6.1, 8.7, 20.3, 27, 29.4, 29.6, 31.699999, 31.9, 33.6, 33.800003, 35.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true, false, true, false, true, false, true, false, true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2nke2"]
 _data = {
@@ -344,12 +382,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="subtitles" type="Label" parent="gamesequence/voicelinesubtitles/main" unique_id=1751496192]
-layout_mode = 0
-offset_right = 134.0
-offset_bottom = 81.0
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -251.5
+offset_top = -152.0
+offset_right = 251.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("10_6iek0")
+theme_override_font_sizes/font_size = 25
 text = "this is a line test."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="gamesequence/voicelinesubtitles/main" unique_id=174345099]
 material = SubResource("ShaderMaterial_2jinp")
