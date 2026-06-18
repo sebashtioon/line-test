@@ -2,7 +2,6 @@ extends Node3D
 
 @export var door: Node3D
 
-
 # flags
 var door_spawned__start : bool = false
 
