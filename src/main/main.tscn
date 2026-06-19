@@ -70,10 +70,10 @@ material = SubResource("StandardMaterial3D_djufw")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3s6yk"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_nevsn"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_4tqcc"]
 viewport_path = NodePath("interactablecomponent/Contents/UI/SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_suhym"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nqfqj"]
 viewport_path = NodePath("HingePivot/InteractableComponent/Contents/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sb4vr"]
@@ -148,7 +148,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("10_6iek0")
 theme_override_font_sizes/font_size = 25
-text = "and we shall begin the tests."
+text = "this is a line test."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -313,13 +313,16 @@ spot_angle_attenuation = 84.44943
 transform = Transform3D(0.03307319, 0, -0.33164334, 0, 0.33328834, 0, 0.33164334, 0, 0.03307319, 0, 1.75, 0)
 
 [node name="UI" parent="phone/interactablecomponent/Contents" parent_id_path=PackedInt32Array(966887196, 2114968064) index="0" unique_id=897521712]
-texture = SubResource("ViewportTexture_nevsn")
+texture = SubResource("ViewportTexture_4tqcc")
 
 [node name="door" parent="." unique_id=791941259 instance=ExtResource("20_v0ijp")]
-transform = Transform3D(-0.496, 0, -7.489392e-08, 0, 0.496, 0, 7.489392e-08, 0, -0.496, -7.9290085, 1.7903446, 1.5273142)
+transform = Transform3D(0.49600005, 0, 3.1532227e-08, 0, 0.49600005, 0, -3.1532227e-08, 0, 0.49600005, -9.121008, 1.7903446, 0.336277)
 
 [node name="UI" parent="door/HingePivot/InteractableComponent/Contents" parent_id_path=PackedInt32Array(791941259, 804594136) index="0" unique_id=1926649370]
-texture = SubResource("ViewportTexture_suhym")
+texture = SubResource("ViewportTexture_nqfqj")
+
+[node name="ceiling_light" parent="door" index="2" unique_id=1217644434]
+transform = Transform3D(0.8515111, 0, -7.1054274e-15, 0, 1.0000001, 0, 7.1054274e-15, 0, 0.8515111, 2.836811, 5.032473, 1.2085106)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="door" unique_id=586363562]
 transform = Transform3D(1, -9.8680165e-14, -4.3134472e-21, 0, -4.371139e-08, 1, -9.8680165e-14, -1, -4.371139e-08, 0.5404711, 9.480106, 1.2998751)

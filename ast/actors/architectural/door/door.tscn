@@ -47,7 +47,7 @@ _data = {
 [sub_resource type="InputEventAction" id="InputEventAction_75gw0"]
 action = &"interact"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_j0t27"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_23ebu"]
 viewport_path = NodePath("HingePivot/InteractableComponent/Contents/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_igycb"]
@@ -59,10 +59,15 @@ size = Vector3(2.69585, 5.22647, 0.463135)
 [sub_resource type="BoxShape3D" id="BoxShape3D_uboid"]
 size = Vector3(2.71497, 5.22467, 0.307129)
 
-[node name="door" type="Node3D" unique_id=791941259 node_paths=PackedStringArray("DoorAnimation", "HingePivot")]
+[node name="door" type="Node3D" unique_id=791941259 node_paths=PackedStringArray("DoorAnimation", "HingePivot", "debounce")]
 script = ExtResource("1_k3daa")
 DoorAnimation = NodePath("door_animation")
 HingePivot = NodePath("HingePivot")
+debounce = NodePath("debounce")
+
+[node name="debounce" type="Timer" parent="." unique_id=1606770625]
+wait_time = 0.81
+one_shot = true
 
 [node name="door_animation" type="AnimationPlayer" parent="." unique_id=1600128161]
 libraries/ = SubResource("AnimationLibrary_fjkwi")
@@ -85,7 +90,7 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 billboard = 1
 no_depth_test = true
 render_priority = 1
-texture = SubResource("ViewportTexture_j0t27")
+texture = SubResource("ViewportTexture_23ebu")
 
 [node name="SubViewport" type="SubViewport" parent="HingePivot/InteractableComponent/Contents/UI" unique_id=1753739830]
 transparent_bg = true
@@ -106,6 +111,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PlayerAreaBox" type="Area3D" parent="HingePivot/InteractableComponent/Contents" unique_id=753173334]
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HingePivot/InteractableComponent/Contents/PlayerAreaBox" unique_id=2023540297]
 shape = SubResource("BoxShape3D_igycb")
@@ -129,7 +135,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34296, 0.0108337, 0.007080
 shape = SubResource("BoxShape3D_uboid")
 
 [node name="ceiling_light" parent="." unique_id=1217644434 instance=ExtResource("5_cxh2a")]
-transform = Transform3D(0.85151106, 0, 0, 0, 1, 0, 0, 0, 0.85151106, 0.94130373, 5.0324726, 1.354142)
+transform = Transform3D(0.85151106, 0, 0, 0, 1, 0, 0, 0, 0.85151106, 0.021663189, 5.0324726, -1.542769)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ceiling_light" unique_id=1688464250]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02861798, -0.6947758, 0.02307153)
@@ -138,6 +144,7 @@ light_energy = 0.766
 light_volumetric_fog_energy = 12.321
 omni_attenuation = 2.045
 
+[connection signal="timeout" from="debounce" to="." method="_on_debounce_timeout"]
 [connection signal="action_triggered" from="HingePivot/InteractableComponent" to="." method="_door_triggered"]
 [connection signal="body_entered" from="HingePivot/InteractableComponent/Contents/PlayerAreaBox" to="HingePivot/InteractableComponent" method="_on_player_area_box_body_entered"]
 [connection signal="body_exited" from="HingePivot/InteractableComponent/Contents/PlayerAreaBox" to="HingePivot/InteractableComponent" method="_on_player_area_box_body_exited"]

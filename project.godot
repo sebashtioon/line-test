@@ -33,6 +33,12 @@ window/stretch/mode="canvas_items"
 
 enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg")
 
+[global_group]
+
+player_body=""
+raycast_mimic=""
+raycast_mimic_adjustable=""
+
 [input]
 
 move_forward={
