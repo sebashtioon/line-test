@@ -135,7 +135,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34296, 0.0108337, 0.007080
 shape = SubResource("BoxShape3D_uboid")
 
 [node name="ceiling_light" parent="." unique_id=1217644434 instance=ExtResource("5_cxh2a")]
-transform = Transform3D(0.85151106, 0, 0, 0, 1, 0, 0, 0, 0.85151106, 0.021663189, 5.0324726, -1.542769)
+transform = Transform3D(0.85151106, 0, 0, 0, 1, 0, 0, 0, 0.85151106, 2.7268062, 5.0324726, 1.3047497)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ceiling_light" unique_id=1688464250]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02861798, -0.6947758, 0.02307153)

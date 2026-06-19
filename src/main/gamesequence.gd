@@ -15,7 +15,7 @@ func reset_flags(to_start : bool = true) -> void:
 func spawn_door() -> void:
 	door.position.x = PlayerGlobal.player.door_spawn.global_position.x
 	door.position.z = PlayerGlobal.player.door_spawn.global_position.z
-	door.rotation_degrees.y = PlayerGlobal.player.door_spawn.global_rotation_degrees.y - 90
+	door.rotation_degrees.y = PlayerGlobal.player.door_spawn.global_rotation_degrees.y + 90
 	door_spawned__start = true
 
 func _on_door_look(area: Area3D) -> void:

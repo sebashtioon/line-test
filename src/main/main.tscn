@@ -321,8 +321,8 @@ transform = Transform3D(0.49600005, 0, 3.1532227e-08, 0, 0.49600005, 0, -3.15322
 [node name="UI" parent="door/HingePivot/InteractableComponent/Contents" parent_id_path=PackedInt32Array(791941259, 804594136) index="0" unique_id=1926649370]
 texture = SubResource("ViewportTexture_nqfqj")
 
-[node name="ceiling_light" parent="door" index="2" unique_id=1217644434]
-transform = Transform3D(0.8515111, 0, -7.1054274e-15, 0, 1.0000001, 0, 7.1054274e-15, 0, 0.8515111, 2.836811, 5.032473, 1.2085106)
+[node name="ceiling_light" parent="door" index="3" unique_id=1217644434]
+transform = Transform3D(0.8515111, 0, -1.0658141e-14, 0, 1.0000001, 0, 1.0658141e-14, 0, 0.8515111, 2.7268062, 5.0324726, 1.3047497)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="door" unique_id=586363562]
 transform = Transform3D(1, -9.8680165e-14, -4.3134472e-21, 0, -4.371139e-08, 1, -9.8680165e-14, -1, -4.371139e-08, 0.5404711, 9.480106, 1.2998751)
