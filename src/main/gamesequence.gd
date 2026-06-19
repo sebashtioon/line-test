@@ -1,5 +1,8 @@
 extends Node3D
 
+@export var sequencestart: AnimationPlayer
+@export var sequence_2: AnimationPlayer
+
 @export var door: Node3D
 
 # flags
@@ -17,4 +20,4 @@ func spawn_door() -> void:
 
 func _on_door_look(area: Area3D) -> void:
 	if area.is_in_group(&"raycast_mimic_adjustable") and door_spawned__start:
-		print("nice")
+		pass

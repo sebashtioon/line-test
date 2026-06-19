@@ -59,15 +59,16 @@ viewport_path = NodePath("HingePivot/InteractableComponent/Contents/UI/SubViewpo
 [sub_resource type="BoxShape3D" id="BoxShape3D_sb4vr"]
 size = Vector3(8.530212, 8.448303, 7.463852)
 
-[node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera", "gamemanager", "gamesequence", "sequencestart")]
+[node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera", "gamemanager", "gamesequence")]
 script = ExtResource("1_3eh75")
 mainmenu_camera = NodePath("mainmenu/mainmenu_camera")
 gamemanager = NodePath("gamemanager")
 gamesequence = NodePath("gamesequence")
-sequencestart = NodePath("gamesequence/sequencestart")
 
-[node name="gamesequence" type="Node3D" parent="." unique_id=1315925528 node_paths=PackedStringArray("door")]
+[node name="gamesequence" type="Node3D" parent="." unique_id=1315925528 node_paths=PackedStringArray("sequencestart", "sequence_2", "door")]
 script = ExtResource("2_nevsn")
+sequencestart = NodePath("sequencestart")
+sequence_2 = NodePath("sequence_2")
 door = NodePath("../door")
 
 [node name="audio" type="Node3D" parent="gamesequence" unique_id=474692527]
