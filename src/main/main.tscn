@@ -16,6 +16,26 @@
 [ext_resource type="FontFile" uid="uid://b7gfys1o8ewi" path="res://res/fonts/vhs/VCR_OSD_MONO_1.001.ttf" id="10_6iek0"]
 [ext_resource type="PackedScene" uid="uid://c70rol60wtjgl" path="res://ast/actors/architectural/door/door.tscn" id="20_v0ijp"]
 
+[sub_resource type="Animation" id="Animation_4tqcc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gamesequence/voicelinesubtitles/main/subtitles:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nqfqj"]
+_data = {
+&"RESET": SubResource("Animation_4tqcc")
+}
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2jinp"]
 shader = ExtResource("10_2jinp")
 shader_parameter/r_displacement = Vector2(3, 0)
@@ -96,6 +116,7 @@ libraries/sequencestart = ExtResource("4_hc2u7")
 
 [node name="sequence_2" type="AnimationPlayer" parent="gamesequence" unique_id=143687034]
 root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_nqfqj")
 libraries/sequence_2 = ExtResource("5_4tqcc")
 
 [node name="voicelinesubtitles" type="CanvasLayer" parent="gamesequence" unique_id=2117418948]
@@ -127,7 +148,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("10_6iek0")
 theme_override_font_sizes/font_size = 25
-text = "go through the door."
+text = "and we shall begin the tests."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2

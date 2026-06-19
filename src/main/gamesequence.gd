@@ -20,4 +20,4 @@ func spawn_door() -> void:
 
 func _on_door_look(area: Area3D) -> void:
 	if area.is_in_group(&"raycast_mimic_adjustable") and door_spawned__start:
-		pass
+		sequence_2.play(&"sequence_2/main")
