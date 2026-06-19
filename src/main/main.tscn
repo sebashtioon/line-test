@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://kmy63pqbn44x" path="res://res/fonts/inter/Inter_18pt-Medium.ttf" id="3_jqarl"]
 [ext_resource type="PackedScene" uid="uid://bmcsua0jmiucp" path="res://ast/actors/architectural/room lighting/ceiling_light.tscn" id="4_djufw"]
 [ext_resource type="AnimationLibrary" uid="uid://cmf6g0yyluke4" path="res://res/anim lib/sequencestart.res" id="4_hc2u7"]
+[ext_resource type="AnimationLibrary" uid="uid://w72ysy7l6ed2" path="res://res/anim lib/sequence_2.res" id="5_4tqcc"]
 [ext_resource type="Material" uid="uid://dfxc85kabcrgj" path="res://res/shad mat/buckshoteffect.tres" id="5_jkpqq"]
 [ext_resource type="PackedScene" uid="uid://bvlu7083perrc" path="res://ast/actors/props/phone/phone.tscn" id="8_frqgp"]
 [ext_resource type="Shader" uid="uid://cmxv0c12li22s" path="res://res/shad/chromeabb.gdshader" id="10_2jinp"]
@@ -91,6 +92,10 @@ bus = &"sfx"
 [node name="sequencestart" type="AnimationPlayer" parent="gamesequence" unique_id=1263333454]
 root_node = NodePath("../..")
 libraries/sequencestart = ExtResource("4_hc2u7")
+
+[node name="sequence_2" type="AnimationPlayer" parent="gamesequence" unique_id=143687034]
+root_node = NodePath("../..")
+libraries/sequence_2 = ExtResource("5_4tqcc")
 
 [node name="voicelinesubtitles" type="CanvasLayer" parent="gamesequence" unique_id=2117418948]
 layer = 21
