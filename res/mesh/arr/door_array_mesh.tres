@@ -9,9 +9,8 @@ albedo_color = Color(0.461128, 0.329684, 0.209564, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vveeb"]
 resource_name = "Door_Front"
-cull_mode = 2
+shading_mode = 0
 albedo_texture = ExtResource("1_hwtvn")
-roughness = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_233jo"]
 resource_name = "Door_Back"
