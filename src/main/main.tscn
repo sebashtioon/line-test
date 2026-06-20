@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bvlu7083perrc" path="res://ast/actors/props/phone/phone.tscn" id="8_frqgp"]
 [ext_resource type="Shader" uid="uid://cmxv0c12li22s" path="res://res/shad/chromeabb.gdshader" id="10_2jinp"]
 [ext_resource type="FontFile" uid="uid://b7gfys1o8ewi" path="res://res/fonts/vhs/VCR_OSD_MONO_1.001.ttf" id="10_6iek0"]
+[ext_resource type="PackedScene" uid="uid://dkse8fs5a0g6c" path="res://ast/models/architectural/door/doorframes.blend" id="16_nqfqj"]
 [ext_resource type="PackedScene" uid="uid://c70rol60wtjgl" path="res://ast/actors/architectural/door/door.tscn" id="20_v0ijp"]
 
 [sub_resource type="Animation" id="Animation_4tqcc"]
@@ -72,13 +73,6 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_4tqcc"]
 viewport_path = NodePath("interactablecomponent/Contents/UI/SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4tqcc"]
-shading_mode = 0
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_8xryq"]
-material = SubResource("StandardMaterial3D_4tqcc")
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_nqfqj"]
 viewport_path = NodePath("HingePivot/InteractableComponent/Contents/UI/SubViewport")
@@ -327,17 +321,8 @@ transform = Transform3D(0.49600005, 0, 3.1532227e-08, 0, 0.49600005, 0, -3.15322
 
 [node name="passageway" type="Node3D" parent="door" unique_id=1614667180]
 
-[node name="wall" type="MeshInstance3D" parent="door/passageway" unique_id=501430462]
-transform = Transform3D(5.2974977, 0, 4.440892e-15, 0, 7.881748, 0, 5.684342e-14, 0, 0.18426397, -1.2108688, -1.3570342, -0.09299976)
-mesh = SubResource("BoxMesh_8xryq")
-
-[node name="wall2" type="MeshInstance3D" parent="door/passageway" unique_id=419149332]
-transform = Transform3D(5.2974973, 0, 8.881784e-15, 0, 7.8817477, 0, 5.684342e-14, 0, 0.1842639, -1.211, -1.357, 2.762)
-mesh = SubResource("BoxMesh_8xryq")
-
-[node name="wall3" type="MeshInstance3D" parent="door/passageway" unique_id=1350814417]
-transform = Transform3D(5.297, 1.9326203e-07, 5.1131123e-16, 0, -1.3288262e-07, 0.184, 3.3674635e-07, -3.04, -8.042895e-09, -1.211, 2.663, 1.334)
-mesh = SubResource("BoxMesh_8xryq")
+[node name="doorframes" parent="door/passageway" unique_id=1622723435 instance=ExtResource("16_nqfqj")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.335228, 0, 1.3357415)
 
 [node name="UI" parent="door/HingePivot/InteractableComponent/Contents" parent_id_path=PackedInt32Array(791941259, 804594136) index="0" unique_id=1926649370]
 texture = SubResource("ViewportTexture_nqfqj")
