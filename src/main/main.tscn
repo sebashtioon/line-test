@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bvlu7083perrc" path="res://ast/actors/props/phone/phone.tscn" id="8_frqgp"]
 [ext_resource type="Shader" uid="uid://cmxv0c12li22s" path="res://res/shad/chromeabb.gdshader" id="10_2jinp"]
 [ext_resource type="FontFile" uid="uid://b7gfys1o8ewi" path="res://res/fonts/vhs/VCR_OSD_MONO_1.001.ttf" id="10_6iek0"]
-[ext_resource type="Script" uid="uid://ccf6pplan8jqd" path="res://ast/actors/architectural/door/door.gd" id="15_2jinp"]
+[ext_resource type="Script" uid="uid://ba71ih35122vw" path="res://ast/actors/architectural/door/variant/door_mainroom.gd" id="15_hmxxs"]
 [ext_resource type="Script" uid="uid://cq28gveptb3t6" path="res://src/interactable component/variant/interactable_component_mainroom_door.gd" id="16_2jinp"]
 [ext_resource type="Texture2D" uid="uid://cgbh6pbaquvl7" path="res://ast/textures/door/door_color.png" id="16_hmxxs"]
 
@@ -596,12 +596,13 @@ transform = Transform3D(0.03307319, 0, -0.33164334, 0, 0.33328834, 0, 0.33164334
 [node name="UI" parent="phone/interactablecomponent/Contents" parent_id_path=PackedInt32Array(966887196, 2114968064) index="0" unique_id=897521712]
 texture = SubResource("ViewportTexture_hmxxs")
 
-[node name="door" type="Node3D" parent="." unique_id=791941259 node_paths=PackedStringArray("DoorAnimation", "HingePivot", "debounce")]
+[node name="door" type="Node3D" parent="." unique_id=791941259 node_paths=PackedStringArray("DoorAnimation", "HingePivot", "debounce", "mesh")]
 transform = Transform3D(0.49600005, 0, 3.1532227e-08, 0, 0.49600005, 0, -3.1532227e-08, 0, 0.49600005, -9.121008, 1.7903446, 0.336277)
-script = ExtResource("15_2jinp")
+script = ExtResource("15_hmxxs")
 DoorAnimation = NodePath("door_animation")
 HingePivot = NodePath("HingePivot")
 debounce = NodePath("debounce")
+mesh = NodePath("HingePivot/mesh")
 
 [node name="debounce" type="Timer" parent="door" unique_id=1606770625]
 wait_time = 0.81
@@ -663,7 +664,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00362378, 0.0137178, 0)
 shape = SubResource("BoxShape3D_lutt7")
 
 [node name="mesh" type="MeshInstance3D" parent="door/HingePivot" unique_id=333538006]
-transform = Transform3D(1.335, 0, 0, 0, -4.371139e-09, -2.5850003, 0, 0.1, -1.1299395e-07, 9.918213e-05, 0, -4.7683716e-07)
+transform = Transform3D(1.1561438, -0.049999997, 5.6496976e-08, 0, -4.371139e-09, -2.5850005, 0.66749996, 0.08660253, -9.7855626e-08, 9.924173e-05, 0, 0)
 mesh = SubResource("ArrayMesh_suhym")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="door/HingePivot" unique_id=1882435383]

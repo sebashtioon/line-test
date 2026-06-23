@@ -22,8 +22,6 @@ func _ready() -> void:
 	PlayerGlobal.world = $"."
 
 func _physics_process(_delta: float) -> void:
-	
-	
 	if (player_in_front_of_portal or player_in_portal_room):
 		can_interact_with_door_portal = true
 		door_ui_node.visible = true
