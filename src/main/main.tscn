@@ -177,14 +177,18 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_hmxxs")
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nqfqj"]
+data = PackedVector3Array(-2.585, 0, 0.55, 2.585, 0, -6.0123997, 2.585, 0, 0.55, -2.585, 0, 0.55, -2.585, 0, -6.0123997, 2.585, 0, -6.0123997, -2.5839999, 2.6743, -6.0171, 2.5839999, 2.6750998, 0.5546, 2.586, 2.6748998, -6.0077996, -2.5839999, 2.6743, -6.0171, -2.586, 2.6746, 0.54539996, 2.5839999, 2.6750998, 0.5546, -2.585, 0, -6.0123997, -2.586, 2.6746, 0.54539996, -2.5839999, 2.6743, -6.0171, -2.585, 0, -6.0123997, -2.585, 0, 0.55, -2.586, 2.6746, 0.54539996, 2.585, 0, 0.55, 2.586, 2.6748998, -6.0077996, 2.5839999, 2.6750998, 0.5546, 2.585, 0, 0.55, 2.585, 0, -6.0123997, 2.586, 2.6748998, -6.0077996, 2.585, 0, -6.0123997, -2.5839999, 2.6743, -6.0171, 2.586, 2.6748998, -6.0077996, 2.585, 0, -6.0123997, -2.585, 0, -6.0123997, -2.5839999, 2.6743, -6.0171, -2.585, 0, 0.55, 2.5839999, 2.6750998, 0.5546, -2.586, 2.6745, 0.54539996, -2.585, 0, 0.55, 2.585, 0, 0.55, 2.5839999, 2.6750998, 0.5546)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_sb4vr"]
 size = Vector3(8.530212, 8.448303, 7.463852)
 
-[node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera", "gamemanager", "gamesequence")]
+[node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera", "gamemanager", "gamesequence", "hallway")]
 script = ExtResource("1_3eh75")
 mainmenu_camera = NodePath("mainmenu/mainmenu_camera")
 gamemanager = NodePath("gamemanager")
 gamesequence = NodePath("gamesequence")
+hallway = NodePath("door/passageway/doorframes/hallway")
 
 [node name="gamesequence" type="Node3D" parent="." unique_id=1315925528 node_paths=PackedStringArray("sequencestart", "sequence_2", "door")]
 script = ExtResource("2_nevsn")
@@ -420,7 +424,7 @@ texture = SubResource("ViewportTexture_nqfqj")
 transform = Transform3D(0.49600005, 0, 3.1532227e-08, 0, 0.49600005, 0, -3.1532227e-08, 0, 0.49600005, -9.121008, 1.7903446, 0.336277)
 
 [node name="HingePivot" parent="door" index="2" unique_id=1188546004]
-transform = Transform3D(-3.6199901e-06, 0, 1, 0, 1, 0, -1, 0, -3.6199901e-06, 1.3348999, 0, 1.1920929e-07)
+transform = Transform3D(-3.6199901e-06, 0, 1, 0, 1, 0, -1, 0, -3.6199901e-06, 1.3348999, 0, -4.0322576)
 
 [node name="UI" parent="door/HingePivot/InteractableComponent/Contents" parent_id_path=PackedInt32Array(791941259, 804594136) index="0" unique_id=1926649370]
 texture = SubResource("ViewportTexture_hmxxs")
@@ -433,12 +437,20 @@ transform = Transform3D(0.8515111, 0, -1.0658141e-14, 0, 1.0000001, 0, 1.0658141
 [node name="doorframes" parent="door/passageway" unique_id=1622723435 instance=ExtResource("16_nqfqj")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.335228, 0, 1.3357415)
 
-[node name="hallway" parent="door/passageway/doorframes" index="0" unique_id=1074007177]
+[node name="hallway" parent="door/passageway/doorframes" index="0" unique_id=1042418512]
 mesh = SubResource("ArrayMesh_v0ijp")
 
-[node name="stencil_portal" parent="door/passageway/doorframes" index="1" unique_id=1590992640]
+[node name="stencil_portal" parent="door/passageway/doorframes" index="1" unique_id=1017523994]
 transparency = 1.0
 mesh = SubResource("ArrayMesh_2jinp")
+
+[node name="portalswitchnotifier" type="Area3D" parent="door/passageway/doorframes" unique_id=1959146892]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/passageway/doorframes/portalswitchnotifier" unique_id=90457760]
+transform = Transform3D(1.0587912e-22, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377535, 1.9073486e-06, 0.45000267)
+shape = SubResource("ConcavePolygonShape3D_nqfqj")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="door" unique_id=586363562]
 transform = Transform3D(1, -9.8680165e-14, -4.3134472e-21, 0, -4.371139e-08, 1, -9.8680165e-14, -1, -4.371139e-08, 0.5404711, 9.480106, 1.2998751)
@@ -457,6 +469,8 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2973871, 0.7241516, 1.2963306)
 shape = SubResource("BoxShape3D_sb4vr")
 
+[connection signal="body_entered" from="door/passageway/doorframes/portalswitchnotifier" to="." method="_on_portalswitchnotifier_body_entered"]
+[connection signal="body_exited" from="door/passageway/doorframes/portalswitchnotifier" to="." method="_on_portalswitchnotifier_body_exited"]
 [connection signal="area_entered" from="door/playerlook_notifier" to="gamesequence" method="_on_door_look"]
 
 [editable path="phone"]
