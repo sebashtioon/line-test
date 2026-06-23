@@ -329,6 +329,9 @@ shadow_mesh = SubResource("ArrayMesh_hmxxs")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_nqfqj"]
 data = PackedVector3Array(-2.585, 0, 0.55, 2.585, 0, -6.0123997, 2.585, 0, 0.55, -2.585, 0, 0.55, -2.585, 0, -6.0123997, 2.585, 0, -6.0123997, -2.5839999, 2.6743, -6.0171, 2.5839999, 2.6750998, 0.5546, 2.586, 2.6748998, -6.0077996, -2.5839999, 2.6743, -6.0171, -2.586, 2.6746, 0.54539996, 2.5839999, 2.6750998, 0.5546, -2.585, 0, -6.0123997, -2.586, 2.6746, 0.54539996, -2.5839999, 2.6743, -6.0171, -2.585, 0, -6.0123997, -2.585, 0, 0.55, -2.586, 2.6746, 0.54539996, 2.585, 0, 0.55, 2.586, 2.6748998, -6.0077996, 2.5839999, 2.6750998, 0.5546, 2.585, 0, 0.55, 2.585, 0, -6.0123997, 2.586, 2.6748998, -6.0077996, 2.585, 0, -6.0123997, -2.5839999, 2.6743, -6.0171, 2.586, 2.6748998, -6.0077996, 2.585, 0, -6.0123997, -2.585, 0, -6.0123997, -2.5839999, 2.6743, -6.0171, -2.585, 0, 0.55, 2.5839999, 2.6750998, 0.5546, -2.586, 2.6745, 0.54539996, -2.585, 0, 0.55, 2.585, 0, 0.55, 2.5839999, 2.6750998, 0.5546)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_8xryq"]
+size = Vector3(2.479538, 5.0160522, 1)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_sb4vr"]
 size = Vector3(8.530212, 8.448303, 7.463852)
 
@@ -613,6 +616,20 @@ collision_mask = 2
 transform = Transform3D(1.0587912e-22, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377535, 1.9073486e-06, 0.45000267)
 shape = SubResource("ConcavePolygonShape3D_nqfqj")
 
+[node name="playernotoutsideportalnotifier" type="Area3D" parent="door/passageway/doorframes" unique_id=2100152859]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/passageway/doorframes/playernotoutsideportalnotifier" unique_id=1567010938]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.102790594, -0.09408593, -0.78175926)
+shape = SubResource("BoxShape3D_8xryq")
+
+[node name="playeroutsideportalnotifier" type="Area3D" parent="door/passageway/doorframes" unique_id=1800737391]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/passageway/doorframes/playeroutsideportalnotifier" unique_id=379754460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.102790594, -0.09408593, -0.78175926)
+shape = SubResource("BoxShape3D_8xryq")
+
 [node name="SpotLight3D" type="SpotLight3D" parent="door" unique_id=586363562]
 transform = Transform3D(1, -9.8680165e-14, -4.3134472e-21, 0, -4.371139e-08, 1, -9.8680165e-14, -1, -4.371139e-08, 0.5404711, 9.480106, 1.2998751)
 light_energy = 1.345
@@ -632,6 +649,8 @@ shape = SubResource("BoxShape3D_sb4vr")
 
 [connection signal="body_entered" from="door/passageway/doorframes/portalswitchnotifier" to="." method="_on_portalswitchnotifier_body_entered"]
 [connection signal="body_exited" from="door/passageway/doorframes/portalswitchnotifier" to="." method="_on_portalswitchnotifier_body_exited"]
+[connection signal="body_entered" from="door/passageway/doorframes/playernotoutsideportalnotifier" to="." method="_on_playernotoutsideportalnotifier_body_entered"]
+[connection signal="body_exited" from="door/passageway/doorframes/playernotoutsideportalnotifier" to="." method="_on_playernotoutsideportalnotifier_body_exited"]
 [connection signal="area_entered" from="door/playerlook_notifier" to="gamesequence" method="_on_door_look"]
 
 [editable path="phone"]
