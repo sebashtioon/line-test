@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bvlu7083perrc" path="res://ast/actors/props/phone/phone.tscn" id="8_frqgp"]
 [ext_resource type="Shader" uid="uid://cmxv0c12li22s" path="res://res/shad/chromeabb.gdshader" id="10_2jinp"]
 [ext_resource type="FontFile" uid="uid://b7gfys1o8ewi" path="res://res/fonts/vhs/VCR_OSD_MONO_1.001.ttf" id="10_6iek0"]
+[ext_resource type="Texture2D" uid="uid://cgbh6pbaquvl7" path="res://ast/textures/door/door_color.png" id="16_hmxxs"]
 [ext_resource type="PackedScene" uid="uid://dkse8fs5a0g6c" path="res://ast/models/architectural/door/doorframes.blend" id="16_nqfqj"]
 [ext_resource type="PackedScene" uid="uid://c70rol60wtjgl" path="res://ast/actors/architectural/door/door.tscn" id="20_v0ijp"]
 
@@ -74,8 +75,156 @@ data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0
 [sub_resource type="ViewportTexture" id="ViewportTexture_nqfqj"]
 viewport_path = NodePath("interactablecomponent/Contents/UI/SubViewport")
 
+[sub_resource type="Animation" id="Animation_hmxxs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HingePivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.0471976, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2jinp"]
+resource_name = "main"
+length = 0.8
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HingePivot:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.0471976, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6iek0"]
+_data = {
+&"RESET": SubResource("Animation_hmxxs"),
+&"main": SubResource("Animation_2jinp")
+}
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_hmxxs"]
 viewport_path = NodePath("HingePivot/InteractableComponent/Contents/UI/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2jinp"]
+resource_name = "Main_Door_Color"
+render_priority = 2
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.461128, 0.329684, 0.209564, 1)
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6iek0"]
+resource_name = "Door_Front"
+render_priority = 2
+transparency = 1
+shading_mode = 0
+albedo_texture = ExtResource("16_hmxxs")
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 2
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hmxxs"]
+load_path = "res://.godot/imported/door_color.png-08094d8f5e3490a44f8fcdb26e303448.s3tc.ctex"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0ijp"]
+resource_name = "Door_Back"
+render_priority = 2
+transparency = 1
+cull_mode = 2
+shading_mode = 0
+albedo_texture = SubResource("CompressedTexture2D_hmxxs")
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_nevsn"]
+_surfaces = [{
+"aabb": AABB(-2, -1, -0.999999, 2, 2, 2),
+"format": 34896613377,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAAAAIAAwAFAAEABAACAAYAAwAHAAUABwAEAAYABwAGAAUA"),
+"name": "Main_Door_Color",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("AAAAAP//AAAAAP//AAAAAAAA/////wAAAAAAAAAAAAD//wAA//8AAP////8AAAAA////////AAD//wAAAAAAAA==")
+}, {
+"aabb": AABB(-2, 1, -0.999999, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Door_Front",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAAAAAAAAAAAA//8AAAAAAAAAAAAA//8AAP//AAA=")
+}, {
+"aabb": AABB(-2, -1, -0.999999, 2, 1e-05, 2),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "Door_Back",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAAAAD//wAA//8AAP//AAAAAAAAAAAAAP//AAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_suhym"]
+resource_name = "door_Cube_001"
+_surfaces = [{
+"aabb": AABB(-2, -1, -0.999999, 2, 2, 2),
+"attribute_data": PackedByteArray("/1////+f/7//n////1//v/9f/7//n/9//5//v/9f/3//X/9//5//P/+f/3//X/8//1//P/+fAAD/n/8//18AAA=="),
+"format": 34896613399,
+"index_count": 24,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0A"),
+"material": SubResource("StandardMaterial3D_2jinp"),
+"name": "Main_Door_Color",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 16,
+"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAA/////1TVAAAAAAAAVNUAAAAAAAD///////8AAP//AAD//wAA/////wAAAAD/////AAAAAFTV////////VNX/////AABU1f//AAD//1TV//8AAP///78AAP//////v/////////+/AAAAAP///79U1VTVVNVU1VTVVNVU1VTV/7//v/+//7//v/+//7//v6oqqiqqKqoqqiqqKqoqqir/////////////////////")
+}, {
+"aabb": AABB(-2, 1, -0.999999, 2, 1e-05, 2),
+"attribute_data": PackedByteArray("/f8AAAEA/v8CAAAA+//7/w=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_6iek0"),
+"name": "Door_Front",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAAAA/78AAAAA////vwAAAAAAAP+///8AAP///7////9/////f////3////9/")
+}, {
+"aabb": AABB(-2, -1, -0.999999, 2, 1e-05, 2),
+"attribute_data": PackedByteArray("AAAAAP///////wAAAAD//w=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_v0ijp"),
+"name": "Door_Back",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAAAAAAA/z///wAA////P///AAAAAP8/AAAAAP///z8AAP9/AAD/fwAA/38AAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_nevsn")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nqfqj"]
 resource_name = "void"
@@ -183,12 +332,13 @@ data = PackedVector3Array(-2.585, 0, 0.55, 2.585, 0, -6.0123997, 2.585, 0, 0.55,
 [sub_resource type="BoxShape3D" id="BoxShape3D_sb4vr"]
 size = Vector3(8.530212, 8.448303, 7.463852)
 
-[node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera", "gamemanager", "gamesequence", "hallway")]
+[node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera", "gamemanager", "gamesequence", "hallway", "door_mesh")]
 script = ExtResource("1_3eh75")
 mainmenu_camera = NodePath("mainmenu/mainmenu_camera")
 gamemanager = NodePath("gamemanager")
 gamesequence = NodePath("gamesequence")
 hallway = NodePath("door/passageway/doorframes/hallway")
+door_mesh = NodePath("door/HingePivot/mesh")
 
 [node name="gamesequence" type="Node3D" parent="." unique_id=1315925528 node_paths=PackedStringArray("sequencestart", "sequence_2", "door")]
 script = ExtResource("2_nevsn")
@@ -423,11 +573,21 @@ texture = SubResource("ViewportTexture_nqfqj")
 [node name="door" parent="." unique_id=791941259 instance=ExtResource("20_v0ijp")]
 transform = Transform3D(0.49600005, 0, 3.1532227e-08, 0, 0.49600005, 0, -3.1532227e-08, 0, 0.49600005, -9.121008, 1.7903446, 0.336277)
 
+[node name="door_animation" parent="door" index="1" unique_id=1600128161]
+libraries/ = SubResource("AnimationLibrary_6iek0")
+
 [node name="HingePivot" parent="door" index="2" unique_id=1188546004]
-transform = Transform3D(-3.6199901e-06, 0, 1, 0, 1, 0, -1, 0, -3.6199901e-06, 1.3348999, 0, -4.0322576)
+transform = Transform3D(0.4999999, 0, 0.8660253, 0, 1, 0, -0.8660253, 0, 0.4999999, 1.3348999, 0, 2.9802322e-07)
 
 [node name="UI" parent="door/HingePivot/InteractableComponent/Contents" parent_id_path=PackedInt32Array(791941259, 804594136) index="0" unique_id=1926649370]
 texture = SubResource("ViewportTexture_hmxxs")
+
+[node name="SubViewport" parent="door/HingePivot/InteractableComponent/Contents/UI" index="0" unique_id=1753739830]
+render_target_update_mode = 4
+
+[node name="mesh" parent="door/HingePivot" index="1" unique_id=333538006]
+transform = Transform3D(1.1561439, 0.05000001, -5.649698e-08, 0, -4.371139e-09, -2.5850003, -0.6675001, 0.08660254, -9.785563e-08, 9.918213e-05, 0, -4.7683716e-07)
+mesh = SubResource("ArrayMesh_suhym")
 
 [node name="ceiling_light" parent="door" index="3" unique_id=1217644434]
 transform = Transform3D(0.8515111, 0, -1.0658141e-14, 0, 1.0000001, 0, 1.0658141e-14, 0, 0.8515111, 2.7268062, 5.0324726, 1.3047497)

@@ -14,7 +14,7 @@ var can_use_door : bool = true
 func _ready() -> void:
 	DOOR_STATE = STARTING_DOOR_STATE
 	if DOOR_STATE == DOOR_STATES.CLOSED:
-		HingePivot.rotation_degrees.y = 90
+		HingePivot.rotation_degrees.y = 60
 	else:
 		HingePivot.rotation_degrees.y = 0
 
