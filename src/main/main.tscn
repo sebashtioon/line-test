@@ -695,8 +695,9 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="door/passageway/doorframes/portalswitchnotifier" unique_id=90457760]
-transform = Transform3D(1.0587912e-22, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377535, 1.9073486e-06, 0.45000267)
+transform = Transform3D(3.1763736e-22, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377535, 1.9073486e-06, 0.7368202)
 shape = SubResource("ConcavePolygonShape3D_nqfqj")
+debug_color = Color(0.9771114, 0, 0.41031632, 0.41960785)
 
 [node name="playernotoutsideportalnotifier" type="Area3D" parent="door/passageway/doorframes" unique_id=2100152859]
 collision_mask = 2
