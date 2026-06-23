@@ -127,8 +127,7 @@ transform = Transform3D(1.335, 0, 0, 0, -4.37114e-09, -2.585, 0, 0.1, -1.12994e-
 mesh = ExtResource("4_uboid")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="HingePivot" unique_id=1882435383]
-collision_layer = 2
-collision_mask = 5
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HingePivot/StaticBody3D" unique_id=870498307]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34296, 0.0108337, 0.00708008)
