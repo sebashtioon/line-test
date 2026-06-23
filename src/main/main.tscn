@@ -497,7 +497,7 @@ data = PackedVector3Array(-2.585, 0, 0.55, 2.585, 0, -6.0123997, 2.585, 0, 0.55,
 size = Vector3(12.79761, 5.0160522, 5.578354)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8xryq"]
-size = Vector3(2.479538, 5.0160522, 1)
+size = Vector3(1.2775276, 5.0160522, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fgovh"]
 size = Vector3(6.5657806, 5.271118, 0.23303223)
@@ -749,7 +749,7 @@ transform = Transform3D(0.03307319, 0, -0.33164334, 0, 0.33328834, 0, 0.33164334
 texture = SubResource("ViewportTexture_hmxxs")
 
 [node name="door" type="Node3D" parent="." unique_id=791941259 node_paths=PackedStringArray("DoorAnimation", "HingePivot", "debounce", "mesh")]
-transform = Transform3D(0.49600005, 0, 3.1532227e-08, 0, 0.49600005, 0, -3.1532227e-08, 0, 0.49600005, -3.5395045, 1.7903446, 0.336277)
+transform = Transform3D(0.49600005, 0, 3.1532227e-08, 0, 0.49600005, 0, -3.1532227e-08, 0, 0.49600005, -7.2599163, 1.7903446, 0.336277)
 script = ExtResource("15_hmxxs")
 DoorAnimation = NodePath("door_animation")
 HingePivot = NodePath("HingePivot")
@@ -874,7 +874,7 @@ shape = SubResource("BoxShape3D_hmxxs")
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="door/passageway/doorframes/playeroutsideportalnotifier" unique_id=379754460]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.102790594, -0.09408593, -0.78175926)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16240096, -0.09408593, -0.78175926)
 shape = SubResource("BoxShape3D_8xryq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="door/passageway" unique_id=1285936424]
