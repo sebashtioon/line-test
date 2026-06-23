@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://dc16kvdwom4wc"]
+[gd_scene format=3 uid="uid://dc16kvdwom4wc"]
 
 [ext_resource type="Script" uid="uid://d2p1sbxud4ajc" path="res://src/main/main.gd" id="1_3eh75"]
 [ext_resource type="PackedScene" uid="uid://bsljbif1rji7e" path="res://src/player/player.tscn" id="2_3s6yk"]
@@ -71,63 +71,10 @@ material = SubResource("StandardMaterial3D_djufw")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3s6yk"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4tqcc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_nqfqj"]
 viewport_path = NodePath("interactablecomponent/Contents/UI/SubViewport")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nqfqj"]
-render_priority = 1
-transparency = 1
-shading_mode = 0
-albedo_color = Color(0, 0, 0, 1)
-grow = true
-grow_amount = 0.01
-stencil_mode = 3
-stencil_flags = 1
-stencil_compare = 5
-metadata/_stencil_owned = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hmxxs"]
-resource_name = "void"
-next_pass = SubResource("StandardMaterial3D_nqfqj")
-cull_mode = 2
-albedo_color = Color(0, 0, 0, 1)
-metallic = 1.0
-stencil_mode = 1
-stencil_flags = 2
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_2jinp"]
-_surfaces = [{
-"aabb": AABB(-2.5859768, -1.1966392e-07, -6.017061, 5.171953, 2.6751013, 6.5716844),
-"format": 34359742465,
-"index_count": 18,
-"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAAAAQAAwAEAAUABQAEAAYABQAGAAcA"),
-"name": "void",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("lnAlwPh8ADS+zAw/lnAlQPFIPTXkZcDAlnAlQPh8ALS+zAw/lnAlwG2HfTXkZcDApYAlwOorK0CinQs/Z2AlwN4nK0DEi8DAZWAlQNs0K0DK+w0/ooAlQM8wK0D/P8DA")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_6iek0"]
-resource_name = "doorframes_Plane_001"
-_surfaces = [{
-"aabb": AABB(-2.5859768, -1.1966392e-07, -6.017061, 5.171953, 2.6751013, 6.5716844),
-"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAAAAAAIA/"),
-"format": 34359742487,
-"index_count": 18,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkA"),
-"material": SubResource("StandardMaterial3D_hmxxs"),
-"name": "void",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 12,
-"vertex_data": PackedByteArray("lnAlwPh8ADS+zAw/lnAlQPFIPTXkZcDAlnAlQPh8ALS+zAw/lnAlwG2HfTXkZcDAZ2AlwN4nK0DEi8DAZWAlQNs0K0DK+w0/ooAlQM8wK0D/P8DApYAlwOorK0CinQs/lnAlwG2HfTXkZcDApYAlwOorK0CinQs/Z2AlwN4nK0DEi8DAlnAlwPh8ADS+zAw//3///////7//f///////v/9///////+//3///////78CgAMAwP8AwAKAAwDA/wDAAoADAMD/AMACgAMAwP8AwPv//3////8/+///f////z/7//9/////P/v//3////8/")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_2jinp")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_nqfqj"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_hmxxs"]
 viewport_path = NodePath("HingePivot/InteractableComponent/Contents/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sb4vr"]
@@ -367,24 +314,24 @@ spot_angle_attenuation = 84.44943
 transform = Transform3D(0.03307319, 0, -0.33164334, 0, 0.33328834, 0, 0.33164334, 0, 0.03307319, 0, 1.75, 0)
 
 [node name="UI" parent="phone/interactablecomponent/Contents" parent_id_path=PackedInt32Array(966887196, 2114968064) index="0" unique_id=897521712]
-texture = SubResource("ViewportTexture_4tqcc")
+texture = SubResource("ViewportTexture_nqfqj")
 
 [node name="door" parent="." unique_id=791941259 instance=ExtResource("20_v0ijp")]
 transform = Transform3D(0.49600005, 0, 3.1532227e-08, 0, 0.49600005, 0, -3.1532227e-08, 0, 0.49600005, -9.121008, 1.7903446, 0.336277)
+
+[node name="HingePivot" parent="door" index="2" unique_id=1188546004]
+transform = Transform3D(-3.6199901e-06, 0, 1, 0, 1, 0, -1, 0, -3.6199901e-06, 1.3348999, 0, -4.0322576)
+
+[node name="UI" parent="door/HingePivot/InteractableComponent/Contents" parent_id_path=PackedInt32Array(791941259, 804594136) index="0" unique_id=1926649370]
+texture = SubResource("ViewportTexture_hmxxs")
+
+[node name="ceiling_light" parent="door" index="3" unique_id=1217644434]
+transform = Transform3D(0.8515111, 0, -1.0658141e-14, 0, 1.0000001, 0, 1.0658141e-14, 0, 0.8515111, 2.7268062, 5.0324726, 1.3047497)
 
 [node name="passageway" type="Node3D" parent="door" unique_id=1614667180]
 
 [node name="doorframes" parent="door/passageway" unique_id=1622723435 instance=ExtResource("16_nqfqj")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.335228, 0, 1.3357415)
-
-[node name="Plane_001" parent="door/passageway/doorframes" index="0" unique_id=1697502407]
-mesh = SubResource("ArrayMesh_6iek0")
-
-[node name="UI" parent="door/HingePivot/InteractableComponent/Contents" parent_id_path=PackedInt32Array(791941259, 804594136) index="0" unique_id=1926649370]
-texture = SubResource("ViewportTexture_nqfqj")
-
-[node name="ceiling_light" parent="door" index="4" unique_id=1217644434]
-transform = Transform3D(0.8515111, 0, -1.0658141e-14, 0, 1.0000001, 0, 1.0658141e-14, 0, 0.8515111, 2.7268062, 5.0324726, 1.3047497)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="door" unique_id=586363562]
 transform = Transform3D(1, -9.8680165e-14, -4.3134472e-21, 0, -4.371139e-08, 1, -9.8680165e-14, -1, -4.371139e-08, 0.5404711, 9.480106, 1.2998751)
@@ -407,5 +354,5 @@ shape = SubResource("BoxShape3D_sb4vr")
 
 [editable path="phone"]
 [editable path="door"]
-[editable path="door/passageway/doorframes"]
 [editable path="door/ceiling_light"]
+[editable path="door/passageway/doorframes"]
