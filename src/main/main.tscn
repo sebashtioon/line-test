@@ -116,8 +116,8 @@ _data = {
 [sub_resource type="InputEventAction" id="InputEventAction_75gw0"]
 action = &"interact"
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_2jinp"]
-viewport_path = NodePath("HingePivot/InteractableComponent/Contents/UI/SubViewport")
+[sub_resource type="ViewportTexture" id="ViewportTexture_rxibo"]
+viewport_path = NodePath("door/HingePivot/InteractableComponent/Contents/UI/SubViewport")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_igycb"]
 size = Vector3(5, 5, 5)
@@ -621,7 +621,7 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 billboard = 1
 no_depth_test = true
 render_priority = 4
-texture = SubResource("ViewportTexture_2jinp")
+texture = SubResource("ViewportTexture_rxibo")
 
 [node name="SubViewport" type="SubViewport" parent="door/HingePivot/InteractableComponent/Contents/UI" unique_id=1753739830]
 transparent_bg = true
