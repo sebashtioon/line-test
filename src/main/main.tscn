@@ -87,7 +87,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 1.0471976, 0)]
+"values": [Vector3(0, 1.5707964, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_2jinp"]
@@ -104,7 +104,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.8),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 1.0471976, 0)]
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6iek0"]
@@ -577,16 +577,17 @@ transform = Transform3D(0.49600005, 0, 3.1532227e-08, 0, 0.49600005, 0, -3.15322
 libraries/ = SubResource("AnimationLibrary_6iek0")
 
 [node name="HingePivot" parent="door" index="2" unique_id=1188546004]
-transform = Transform3D(0.4999999, 0, 0.8660253, 0, 1, 0, -0.8660253, 0, 0.4999999, 1.3348999, 0, 2.9802322e-07)
+transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, 1.3348999, 0, 3.5762787e-07)
 
 [node name="UI" parent="door/HingePivot/InteractableComponent/Contents" parent_id_path=PackedInt32Array(791941259, 804594136) index="0" unique_id=1926649370]
+render_priority = 4
 texture = SubResource("ViewportTexture_hmxxs")
 
 [node name="SubViewport" parent="door/HingePivot/InteractableComponent/Contents/UI" index="0" unique_id=1753739830]
 render_target_update_mode = 4
 
 [node name="mesh" parent="door/HingePivot" index="1" unique_id=333538006]
-transform = Transform3D(1.1561439, 0.05000001, -5.649698e-08, 0, -4.371139e-09, -2.5850003, -0.6675001, 0.08660254, -9.785563e-08, 9.918213e-05, 0, -4.7683716e-07)
+transform = Transform3D(1.335, 0, 0, 0, -4.371139e-09, -2.5850003, 0, 0.1, -1.1299395e-07, 9.918213e-05, 0, -4.7683716e-07)
 mesh = SubResource("ArrayMesh_suhym")
 
 [node name="ceiling_light" parent="door" index="3" unique_id=1217644434]
