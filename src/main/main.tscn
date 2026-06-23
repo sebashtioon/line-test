@@ -93,13 +93,13 @@ stencil_compare = 2
 _surfaces = [{
 "aabb": AABB(-2.5859768, -1.1966392e-07, -6.017061, 5.171953, 2.6751013, 6.5716844),
 "format": 34359742465,
-"index_count": 18,
-"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAAAAQAAwAEAAUABQAEAAYABQAGAAcA"),
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAgADAAQAAAAFAAEABQAAAAYAAQAHAAMAAQAFAAcABwAEAAMABQAGAAcABwAGAAQA"),
 "name": "void",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 8,
-"vertex_data": PackedByteArray("lnAlwPh8ADS+zAw/lnAlQPFIPTXkZcDAlnAlQPh8ALS+zAw/lnAlwG2HfTXkZcDApYAlwOorK0CinQs/Z2AlwN4nK0DEi8DAZWAlQNs0K0DK+w0/ooAlQM8wK0D/P8DA")
+"vertex_data": PackedByteArray("lnAlwPh8ADS+zAw/lnAlQPFIPTXkZcDAlnAlQPh8ALS+zAw/ooAlQM8wK0D/P8DAZWAlQNs0K0DK+w0/lnAlwG2HfTXkZcDApYAlwOorK0CinQs/Z2AlwN4nK0DEi8DA")
 }]
 blend_shape_mode = 0
 
@@ -107,16 +107,16 @@ blend_shape_mode = 0
 resource_name = "doorframes_Plane_001"
 _surfaces = [{
 "aabb": AABB(-2.5859768, -1.1966392e-07, -6.017061, 5.171953, 2.6751013, 6.5716844),
-"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAAAAAAIA/"),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAAAAAAIA/AACAPwAAgD8AAIA/AACAPwAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAAAAAAIA/AACAPwAAgD8AAAAAAAAAAA=="),
 "format": 34359742487,
-"index_count": 18,
-"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkA"),
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
 "material": SubResource("StandardMaterial3D_nqfqj"),
 "name": "void",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 12,
-"vertex_data": PackedByteArray("lnAlwPh8ADS+zAw/lnAlQPFIPTXkZcDAlnAlQPh8ALS+zAw/lnAlwG2HfTXkZcDAZ2AlwN4nK0DEi8DAZWAlQNs0K0DK+w0/ooAlQM8wK0D/P8DApYAlwOorK0CinQs/lnAlwG2HfTXkZcDApYAlwOorK0CinQs/Z2AlwN4nK0DEi8DAlnAlwPh8ADS+zAw//3///////7//f///////v/9///////+//3///////78CgAMAwP8AwAKAAwDA/wDAAoADAMD/AMACgAMAwP8AwPv//3////8/+///f////z/7//9/////P/v//3////8/")
+"vertex_count": 20,
+"vertex_data": PackedByteArray("lnAlwPh8ADS+zAw/lnAlQPFIPTXkZcDAlnAlQPh8ALS+zAw/lnAlwG2HfTXkZcDAZ2AlwN4nK0DEi8DAZWAlQNs0K0DK+w0/ooAlQM8wK0D/P8DApYAlwOorK0CinQs/lnAlwG2HfTXkZcDApYAlwOorK0CinQs/Z2AlwN4nK0DEi8DAlnAlwPh8ADS+zAw/lnAlQPh8ALS+zAw/ooAlQM8wK0D/P8DAZWAlQNs0K0DK+w0/lnAlQPFIPTXkZcDAlnAlQPFIPTXkZcDAZ2AlwN4nK0DEi8DAooAlQM8wK0D/P8DAlnAlwG2HfTXkZcDA/3///////7//f///////v/9///////+//3///////78CgAMAwP8AwAKAAwDA/wDAAoADAMD/AMACgAMAwP8AwPv//3////8/+///f////z/7//9/////P/v//3////8/AAACgP///z8AAAKA////PwAAAoD///8/AAACgP///z/if/9/3v/+P+J//3/h//8/4n//f97//j/if/9/4f//Pw==")
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_6iek0")
@@ -420,7 +420,7 @@ texture = SubResource("ViewportTexture_nqfqj")
 transform = Transform3D(0.49600005, 0, 3.1532227e-08, 0, 0.49600005, 0, -3.1532227e-08, 0, 0.49600005, -9.121008, 1.7903446, 0.336277)
 
 [node name="HingePivot" parent="door" index="2" unique_id=1188546004]
-transform = Transform3D(-3.6199901e-06, 0, 1, 0, 1, 0, -1, 0, -3.6199901e-06, 1.3348999, 0, -4.0322576)
+transform = Transform3D(-3.6199901e-06, 0, 1, 0, 1, 0, -1, 0, -3.6199901e-06, 1.3348999, 0, 1.1920929e-07)
 
 [node name="UI" parent="door/HingePivot/InteractableComponent/Contents" parent_id_path=PackedInt32Array(791941259, 804594136) index="0" unique_id=1926649370]
 texture = SubResource("ViewportTexture_hmxxs")
@@ -433,10 +433,10 @@ transform = Transform3D(0.8515111, 0, -1.0658141e-14, 0, 1.0000001, 0, 1.0658141
 [node name="doorframes" parent="door/passageway" unique_id=1622723435 instance=ExtResource("16_nqfqj")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.335228, 0, 1.3357415)
 
-[node name="hallway" parent="door/passageway/doorframes" index="0" unique_id=213886512]
+[node name="hallway" parent="door/passageway/doorframes" index="0" unique_id=1074007177]
 mesh = SubResource("ArrayMesh_v0ijp")
 
-[node name="stencil_portal" parent="door/passageway/doorframes" index="1" unique_id=1407172929]
+[node name="stencil_portal" parent="door/passageway/doorframes" index="1" unique_id=1590992640]
 transparency = 1.0
 mesh = SubResource("ArrayMesh_2jinp")
 
