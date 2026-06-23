@@ -18,7 +18,7 @@ func _ready() -> void:
 
 
 func _on_portalswitchnotifier_body_entered(body: Node3D) -> void:
-	if body.is_in_group(&"player_body"):
+	if body.is_in_group(&"player_body") and player_in_front_of_portal:
 		player_in_portal_room = true
 		var mat_hallway = hallway.mesh.surface_get_material(0)
 		mat_hallway.stencil_mode = BaseMaterial3D.StencilMode.STENCIL_MODE_DISABLED
@@ -32,9 +32,8 @@ func _on_portalswitchnotifier_body_entered(body: Node3D) -> void:
 		var door_mat_3 = door_mesh.mesh.surface_get_material(2)
 		door_mat_3.stencil_mode = BaseMaterial3D.StencilMode.STENCIL_MODE_DISABLED
 
-
 func _on_portalswitchnotifier_body_exited(body: Node3D) -> void:
-	if body.is_in_group(&"player_body"):
+	if body.is_in_group(&"player_body") and player_in_front_of_portal:
 		player_in_portal_room = false
 		var mat_hallway = hallway.mesh.surface_get_material(0)
 		mat_hallway.stencil_mode = BaseMaterial3D.StencilMode.STENCIL_MODE_CUSTOM
@@ -62,13 +61,21 @@ func _on_portalswitchnotifier_body_exited(body: Node3D) -> void:
 		door_mat_3.stencil_reference = 1
 
 
+
 func _on_playernotoutsideportalnotifier_body_entered(body: Node3D) -> void:
-	if body.is_in_group(&"player_body"):
-		print("yaya")
+	if body.is_in_group(&"player_body") and !player_in_portal_room:
 		hallway.visible = false
 
-
 func _on_playernotoutsideportalnotifier_body_exited(body: Node3D) -> void:
-	if body.is_in_group(&"player_body"):
-		print("yaya2")
+	if body.is_in_group(&"player_body") and !player_in_portal_room:
 		hallway.visible = true
+
+
+
+func _on_playeroutsideportalnotifier_body_entered(body: Node3D) -> void:
+	if body.is_in_group(&"player_body"):
+		player_in_front_of_portal = true
+
+func _on_playeroutsideportalnotifier_body_exited(body: Node3D) -> void:
+	if body.is_in_group(&"player_body"):
+		player_in_front_of_portal = false
