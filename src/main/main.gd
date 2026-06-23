@@ -7,19 +7,30 @@ extends Node3D
 @export var hallway: MeshInstance3D
 @export var door_mesh: MeshInstance3D
 
+@export var door_ui_node: Node3D
+var can_interact_with_door_portal : bool = false
+
 var player_in_illegal_door_portal_spot : bool = false
 var player_in_portal_room : bool = false
 var player_in_front_of_portal : bool = false
+
 
 
 func _ready() -> void:
 	#mainmenu_camera.make_current()
 	PlayerGlobal.world = $"."
 
+func _physics_process(_delta: float) -> void:
+	if (player_in_front_of_portal or player_in_portal_room) and can_interact_with_door_portal:
+		door_ui_node.visible = true
+	else:
+		door_ui_node.visible = false
+
 
 func _on_portalswitchnotifier_body_entered(body: Node3D) -> void:
 	if body.is_in_group(&"player_body") and player_in_front_of_portal:
 		player_in_portal_room = true
+		print("player in room")
 		var mat_hallway = hallway.mesh.surface_get_material(0)
 		mat_hallway.stencil_mode = BaseMaterial3D.StencilMode.STENCIL_MODE_DISABLED
 		
@@ -35,6 +46,7 @@ func _on_portalswitchnotifier_body_entered(body: Node3D) -> void:
 func _on_portalswitchnotifier_body_exited(body: Node3D) -> void:
 	if body.is_in_group(&"player_body") and player_in_front_of_portal:
 		player_in_portal_room = false
+		print("player not in room")
 		var mat_hallway = hallway.mesh.surface_get_material(0)
 		mat_hallway.stencil_mode = BaseMaterial3D.StencilMode.STENCIL_MODE_CUSTOM
 		mat_hallway.stencil_flags = 1
