@@ -14,6 +14,7 @@ var player_in_illegal_door_portal_spot : bool = false
 var player_in_portal_room : bool = false
 var player_in_front_of_portal : bool = false
 
+@export var hallway_collision: StaticBody3D
 
 
 func _ready() -> void:
@@ -26,9 +27,11 @@ func _physics_process(_delta: float) -> void:
 	if (player_in_front_of_portal or player_in_portal_room):
 		can_interact_with_door_portal = true
 		door_ui_node.visible = true
+		hallway_collision.process_mode = Node.ProcessMode.PROCESS_MODE_INHERIT
 	else:
 		can_interact_with_door_portal = false
 		door_ui_node.visible = false
+		hallway_collision.process_mode = Node.ProcessMode.PROCESS_MODE_DISABLED
 
 
 func _on_portalswitchnotifier_body_entered(body: Node3D) -> void:

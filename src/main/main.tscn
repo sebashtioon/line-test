@@ -347,10 +347,16 @@ size = Vector3(12.79761, 5.0160522, 5.578354)
 [sub_resource type="BoxShape3D" id="BoxShape3D_8xryq"]
 size = Vector3(2.479538, 5.0160522, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_fgovh"]
+size = Vector3(6.5657806, 5.271118, 0.23303223)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2jinp"]
+size = Vector3(4.7025867, 5.271118, 0.23303223)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_sb4vr"]
 size = Vector3(8.530212, 8.448303, 7.463852)
 
-[node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera", "gamemanager", "gamesequence", "hallway", "door_mesh", "door_ui_node")]
+[node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera", "gamemanager", "gamesequence", "hallway", "door_mesh", "door_ui_node", "hallway_collision")]
 script = ExtResource("1_3eh75")
 mainmenu_camera = NodePath("mainmenu/mainmenu_camera")
 gamemanager = NodePath("gamemanager")
@@ -358,6 +364,7 @@ gamesequence = NodePath("gamesequence")
 hallway = NodePath("door/passageway/doorframes/hallway")
 door_mesh = NodePath("door/HingePivot/mesh")
 door_ui_node = NodePath("door/HingePivot/InteractableComponent/Contents/UI")
+hallway_collision = NodePath("door/passageway/StaticBody3D")
 
 [node name="gamesequence" type="Node3D" parent="." unique_id=1315925528 node_paths=PackedStringArray("sequencestart", "sequence_2", "door")]
 script = ExtResource("2_nevsn")
@@ -712,6 +719,24 @@ collision_mask = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="door/passageway/doorframes/playeroutsideportalnotifier" unique_id=379754460]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.102790594, -0.09408593, -0.78175926)
 shape = SubResource("BoxShape3D_8xryq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="door/passageway" unique_id=1285936424]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/passageway/StaticBody3D" unique_id=1875745576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0822754, -0.007995367, 3.6187468)
+shape = SubResource("BoxShape3D_fgovh")
+debug_color = Color(0, 0.6431373, 0.2784314, 1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="door/passageway/StaticBody3D" unique_id=292200393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0822754, -0.007995367, -0.8133412)
+shape = SubResource("BoxShape3D_fgovh")
+debug_color = Color(0, 0.6431373, 0.2784314, 1)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="door/passageway/StaticBody3D" unique_id=77163014]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.1073303, -0.007995367, 1.3952255)
+shape = SubResource("BoxShape3D_2jinp")
+debug_color = Color(0, 0.6431373, 0.2784314, 1)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="door" unique_id=586363562]
 transform = Transform3D(1, -9.8680165e-14, -4.3134472e-21, 0, -4.371139e-08, 1, -9.8680165e-14, -1, -4.371139e-08, 0.5404711, 9.480106, 1.2998751)

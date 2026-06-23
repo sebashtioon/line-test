@@ -9,6 +9,7 @@ var DOOR_STATE : DOOR_STATES = DOOR_STATES.CLOSED
 @export var STARTING_DOOR_STATE : DOOR_STATES
 @export var debounce: Timer
 
+
 var can_use_door : bool = true
 
 func _ready() -> void:
