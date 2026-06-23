@@ -749,7 +749,7 @@ transform = Transform3D(0.03307319, 0, -0.33164334, 0, 0.33328834, 0, 0.33164334
 texture = SubResource("ViewportTexture_hmxxs")
 
 [node name="door" type="Node3D" parent="." unique_id=791941259 node_paths=PackedStringArray("DoorAnimation", "HingePivot", "debounce", "mesh")]
-transform = Transform3D(0.49600005, 0, 3.1532227e-08, 0, 0.49600005, 0, -3.1532227e-08, 0, 0.49600005, -9.121008, 1.7903446, 0.336277)
+transform = Transform3D(0.49600005, 0, 3.1532227e-08, 0, 0.49600005, 0, -3.1532227e-08, 0, 0.49600005, -3.5395045, 1.7903446, 0.336277)
 script = ExtResource("15_hmxxs")
 DoorAnimation = NodePath("door_animation")
 HingePivot = NodePath("HingePivot")
@@ -859,7 +859,7 @@ collision_layer = 4
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="door/passageway/doorframes/portalswitchnotifier" unique_id=90457760]
-transform = Transform3D(3.1763736e-22, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377535, 1.9073486e-06, 0.7368202)
+transform = Transform3D(5.293956e-22, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377533, 1.9073486e-06, 1.1023998)
 shape = SubResource("ConcavePolygonShape3D_nqfqj")
 debug_color = Color(0.9771114, 0, 0.41031632, 0.41960785)
 
@@ -886,7 +886,7 @@ shape = SubResource("BoxShape3D_fgovh")
 debug_color = Color(0, 0.6431373, 0.2784314, 1)
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="door/passageway/StaticBody3D" unique_id=292200393]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0822754, -0.007995367, -0.8133412)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0822754, -0.007995367, -0.7221344)
 shape = SubResource("BoxShape3D_fgovh")
 debug_color = Color(0, 0.6431373, 0.2784314, 1)
 
