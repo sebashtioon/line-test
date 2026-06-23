@@ -24,10 +24,11 @@ func _door_triggered() -> void:
 	if can_use_door:
 		if DOOR_STATE == DOOR_STATES.CLOSED:
 			DOOR_STATE = DOOR_STATES.OPEN
-			DoorAnimation.play(&"main", -1, -1, true)
+			DoorAnimation.play(&"open")
 		else:
 			DOOR_STATE = DOOR_STATES.CLOSED
-			DoorAnimation.play(&"main")
+			DoorAnimation.play(&"close")
+			
 		start_debounce()
 
 func start_debounce() -> void:
