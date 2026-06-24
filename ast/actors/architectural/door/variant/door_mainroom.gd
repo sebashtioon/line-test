@@ -19,6 +19,10 @@ var can_interact_with_door : bool = true
 
 var played_door_close_voiceline : bool = false
 
+var player_in_portal_room : bool = false:
+	set(value):
+		player_in_portal_room = value
+
 func _ready() -> void:
 	DOOR_STATE = STARTING_DOOR_STATE
 	if DOOR_STATE == DOOR_STATES.CLOSED:
