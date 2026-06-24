@@ -8,9 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://bsvx7uhvigx7t" path="res://ast/actors/furniture/vintage_table.tscn" id="3_ab7mr"]
 [ext_resource type="FontFile" uid="uid://kmy63pqbn44x" path="res://res/fonts/inter/Inter_18pt-Medium.ttf" id="3_jqarl"]
 [ext_resource type="PackedScene" uid="uid://bmcsua0jmiucp" path="res://ast/actors/architectural/room lighting/ceiling_light.tscn" id="4_djufw"]
-[ext_resource type="AnimationLibrary" uid="uid://cmf6g0yyluke4" path="res://res/anim lib/sequencestart.res" id="4_hc2u7"]
-[ext_resource type="AnimationLibrary" uid="uid://w72ysy7l6ed2" path="res://res/anim lib/sequence_2.res" id="5_4tqcc"]
+[ext_resource type="AnimationLibrary" uid="uid://cmf6g0yyluke4" path="res://res/anim lib/sequence/sequencestart.res" id="4_hc2u7"]
+[ext_resource type="AnimationLibrary" uid="uid://w72ysy7l6ed2" path="res://res/anim lib/sequence/sequence_2.res" id="5_4tqcc"]
 [ext_resource type="Material" uid="uid://dfxc85kabcrgj" path="res://res/shad mat/buckshoteffect.tres" id="5_jkpqq"]
+[ext_resource type="AnimationLibrary" uid="uid://bvxcxw1jkcv6b" path="res://res/anim lib/sequence/sequence_3.res" id="6_2jinp"]
 [ext_resource type="PackedScene" uid="uid://bvlu7083perrc" path="res://ast/actors/props/phone/phone.tscn" id="8_frqgp"]
 [ext_resource type="Shader" uid="uid://cmxv0c12li22s" path="res://res/shad/chromeabb.gdshader" id="10_2jinp"]
 [ext_resource type="FontFile" uid="uid://b7gfys1o8ewi" path="res://res/fonts/vhs/VCR_OSD_MONO_1.001.ttf" id="10_6iek0"]
@@ -36,6 +37,26 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nqfqj"]
 _data = {
 &"RESET": SubResource("Animation_4tqcc")
+}
+
+[sub_resource type="Animation" id="Animation_v0ijp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gamesequence/voicelinesubtitles/main/subtitles:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nevsn"]
+_data = {
+&"RESET": SubResource("Animation_v0ijp")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2jinp"]
@@ -508,13 +529,14 @@ size = Vector3(4.7025867, 5.271118, 0.23303223)
 [sub_resource type="BoxShape3D" id="BoxShape3D_sb4vr"]
 size = Vector3(8.530212, 8.448303, 7.463852)
 
-[node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera", "gamemanager", "gamesequence", "hallway", "door_mesh", "door_ui_node", "hallway_collision")]
+[node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera", "gamemanager", "gamesequence", "hallway", "door_mesh", "door", "door_ui_node", "hallway_collision")]
 script = ExtResource("1_3eh75")
 mainmenu_camera = NodePath("mainmenu/mainmenu_camera")
 gamemanager = NodePath("gamemanager")
 gamesequence = NodePath("gamesequence")
 hallway = NodePath("door/passageway/doorframes/hallway")
 door_mesh = NodePath("door/HingePivot/mesh")
+door = NodePath("door")
 door_ui_node = NodePath("door/HingePivot/InteractableComponent/Contents/UI")
 hallway_collision = NodePath("door/passageway/StaticBody3D")
 
@@ -558,6 +580,11 @@ root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_nqfqj")
 libraries/sequence_2 = ExtResource("5_4tqcc")
 
+[node name="sequence_3" type="AnimationPlayer" parent="gamesequence/sequence" unique_id=411482229]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_nevsn")
+libraries/sequence_3 = ExtResource("6_2jinp")
+
 [node name="voicelinesubtitles" type="CanvasLayer" parent="gamesequence" unique_id=2117418948]
 layer = 21
 
@@ -587,7 +614,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("10_6iek0")
 theme_override_font_sizes/font_size = 25
-text = "this is a line test."
+text = "close the door behind you."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -754,14 +781,15 @@ transform = Transform3D(0.03307319, 0, -0.33164334, 0, 0.33328834, 0, 0.33164334
 [node name="UI" parent="phone/interactablecomponent/Contents" parent_id_path=PackedInt32Array(966887196, 2114968064) index="0" unique_id=897521712]
 texture = SubResource("ViewportTexture_hmxxs")
 
-[node name="door" type="Node3D" parent="." unique_id=791941259 node_paths=PackedStringArray("DoorAnimation", "HingePivot", "debounce", "mesh")]
+[node name="door" type="Node3D" parent="." unique_id=791941259 node_paths=PackedStringArray("DoorAnimation", "HingePivot", "debounce", "mesh", "key", "doorclosevoiceline")]
 transform = Transform3D(0.49600005, 0, 3.1532227e-08, 0, 0.49600005, 0, -3.1532227e-08, 0, 0.49600005, -32.720993, 1.7903446, 0.336277)
-visible = false
 script = ExtResource("15_hmxxs")
 DoorAnimation = NodePath("door_animation")
 HingePivot = NodePath("HingePivot")
 debounce = NodePath("debounce")
 mesh = NodePath("HingePivot/mesh")
+key = NodePath("HingePivot/InteractableComponent/Contents/UI/SubViewport/Key")
+doorclosevoiceline = NodePath("../gamesequence/timer/doorclosevoiceline")
 
 [node name="debounce" type="Timer" parent="door" unique_id=1606770625]
 wait_time = 0.81

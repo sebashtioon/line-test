@@ -6,16 +6,15 @@ extends Node3D
 
 @export var hallway: MeshInstance3D
 @export var door_mesh: MeshInstance3D
-
+@export var door: Node3D
 @export var door_ui_node: Node3D
-var can_interact_with_door_portal : bool = false
 
+var can_interact_with_door_portal : bool = false
 var player_in_illegal_door_portal_spot : bool = false
 var player_in_portal_room : bool = false
 var player_in_front_of_portal : bool = false
 
 @export var hallway_collision: StaticBody3D
-
 
 func _ready() -> void:
 	#mainmenu_camera.make_current()
@@ -92,6 +91,9 @@ func _on_playernotoutsideportalnotifier_body_exited(body: Node3D) -> void:
 func _on_playeroutsideportalnotifier_body_entered(body: Node3D) -> void:
 	if body.is_in_group(&"player_body"):
 		player_in_front_of_portal = true
+		door.key.visible = true
+		door.can_interact_with_door = true
+		
 
 func _on_playeroutsideportalnotifier_body_exited(body: Node3D) -> void:
 	if body.is_in_group(&"player_body"):
