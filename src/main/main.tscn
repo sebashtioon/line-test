@@ -520,8 +520,8 @@ hallway_collision = NodePath("door/passageway/StaticBody3D")
 
 [node name="gamesequence" type="Node3D" parent="." unique_id=1315925528 node_paths=PackedStringArray("sequencestart", "sequence_2", "door")]
 script = ExtResource("2_nevsn")
-sequencestart = NodePath("sequencestart")
-sequence_2 = NodePath("sequence_2")
+sequencestart = NodePath("sequence/sequencestart")
+sequence_2 = NodePath("sequence/sequence_2")
 door = NodePath("../door")
 
 [node name="audio" type="Node3D" parent="gamesequence" unique_id=474692527]
@@ -543,12 +543,18 @@ pitch_scale = 1.92
 panning_strength = 1.55
 bus = &"sfx"
 
-[node name="sequencestart" type="AnimationPlayer" parent="gamesequence" unique_id=1263333454]
-root_node = NodePath("../..")
+[node name="timer" type="Node3D" parent="gamesequence" unique_id=1410736497]
+
+[node name="doorclosevoiceline" type="Timer" parent="gamesequence/timer" unique_id=265374083]
+
+[node name="sequence" type="Node3D" parent="gamesequence" unique_id=1825371915]
+
+[node name="sequencestart" type="AnimationPlayer" parent="gamesequence/sequence" unique_id=1263333454]
+root_node = NodePath("../../..")
 libraries/sequencestart = ExtResource("4_hc2u7")
 
-[node name="sequence_2" type="AnimationPlayer" parent="gamesequence" unique_id=143687034]
-root_node = NodePath("../..")
+[node name="sequence_2" type="AnimationPlayer" parent="gamesequence/sequence" unique_id=143687034]
+root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_nqfqj")
 libraries/sequence_2 = ExtResource("5_4tqcc")
 
@@ -581,7 +587,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("10_6iek0")
 theme_override_font_sizes/font_size = 25
-text = "and we shall begin the tests."
+text = "this is a line test."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
