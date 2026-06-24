@@ -568,6 +568,7 @@ bus = &"sfx"
 [node name="timer" type="Node3D" parent="gamesequence" unique_id=1410736497]
 
 [node name="doorclosevoiceline" type="Timer" parent="gamesequence/timer" unique_id=265374083]
+wait_time = 3.0
 
 [node name="sequence" type="Node3D" parent="gamesequence" unique_id=1825371915]
 

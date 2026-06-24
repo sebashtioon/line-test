@@ -77,7 +77,6 @@ func _on_portalswitchnotifier_body_exited(body: Node3D) -> void:
 		door_mat_3.stencil_reference = 1
 
 
-
 func _on_playernotoutsideportalnotifier_body_entered(body: Node3D) -> void:
 	if body.is_in_group(&"player_body") and !player_in_portal_room:
 		hallway.visible = false
@@ -85,7 +84,6 @@ func _on_playernotoutsideportalnotifier_body_entered(body: Node3D) -> void:
 func _on_playernotoutsideportalnotifier_body_exited(body: Node3D) -> void:
 	if body.is_in_group(&"player_body") and !player_in_portal_room:
 		hallway.visible = true
-
 
 
 func _on_playeroutsideportalnotifier_body_entered(body: Node3D) -> void:

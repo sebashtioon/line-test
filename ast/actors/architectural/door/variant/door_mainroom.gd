@@ -17,6 +17,8 @@ var DOOR_STATE : DOOR_STATES = DOOR_STATES.CLOSED
 var can_use_door : bool = true
 var can_interact_with_door : bool = true
 
+var played_door_close_voiceline : bool = false
+
 func _ready() -> void:
 	DOOR_STATE = STARTING_DOOR_STATE
 	if DOOR_STATE == DOOR_STATES.CLOSED:
