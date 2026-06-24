@@ -10,7 +10,7 @@ points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607,
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u6wyx"]
 resource_name = "phone2_color"
-cull_mode = 2
+render_priority = 5
 albedo_color = Color(0.1518921, 0.1518921, 0.1518921, 1)
 roughness = 0.7846154
 
