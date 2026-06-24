@@ -11,7 +11,11 @@ extends Node3D
 
 var can_interact_with_door_portal : bool = false
 var player_in_illegal_door_portal_spot : bool = false
-var player_in_portal_room : bool = false
+var player_in_portal_room : bool = false:
+	set(value):
+		player_in_portal_room = value
+		
+
 var player_in_front_of_portal : bool = false
 
 @export var hallway_collision: StaticBody3D
