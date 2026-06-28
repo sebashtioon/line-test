@@ -16,6 +16,8 @@ var DOOR_STATE : DOOR_STATES = DOOR_STATES.CLOSED
 var doorclosevoiceline_said : bool = false
 @export var sequence_3: AnimationPlayer
 
+@export var mainroomtoswitch: Timer
+
 var can_use_door : bool = true
 var can_interact_with_door : bool = true
 
@@ -49,6 +51,9 @@ func _door_triggered() -> void:
 			if PlayerGlobal.world.player_in_portal_room:
 				key.visible = false
 				can_interact_with_door = false
+				
+				# actually start the next room
+				mainroomtoswitch.start()
 			
 		start_debounce()
 
