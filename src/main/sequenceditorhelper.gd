@@ -1,7 +1,8 @@
 @tool
 extends Node3D
 
-# Syntax: @export_tool_button("Button Text", "OptionalIconName")
+@export var env: Environment
+
 @export_tool_button("toggle hallway", "Node3D") var hallway_toggled_tool_button = _on_hallway_toggled_tool_button_pressed
 
 var hallway_toggled : bool = false
@@ -16,3 +17,4 @@ func _on_hallway_toggled_tool_button_pressed() -> void:
 	$"../../door/SpotLight3D".visible = !hallway_toggled
 	$"../../door/ceiling_light".visible = !hallway_toggled
 	
+	env.glow_enabled = hallway_toggled

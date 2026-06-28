@@ -33,6 +33,8 @@ func goto_hallway() -> void:
 	$"../floor1".visible = false
 	$"../door/SpotLight3D".visible = false
 	$"../door/ceiling_light".visible = false
+	PlayerGlobal.world.env.glow_enabled = true
+	
 	
 
 func _on_mainroomtoswitch_timeout() -> void:

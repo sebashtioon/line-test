@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://dcvidl5nxibmq" path="res://src/main/sequenceditorhelper.gd" id="9_nevsn"]
 [ext_resource type="Shader" uid="uid://cmxv0c12li22s" path="res://res/shad/chromeabb.gdshader" id="10_2jinp"]
 [ext_resource type="FontFile" uid="uid://b7gfys1o8ewi" path="res://res/fonts/vhs/VCR_OSD_MONO_1.001.ttf" id="10_6iek0"]
+[ext_resource type="Environment" uid="uid://vhosa81slraw" path="res://res/env/env.tres" id="13_suhym"]
 [ext_resource type="Script" uid="uid://ba71ih35122vw" path="res://ast/actors/architectural/door/variant/door_mainroom.gd" id="15_hmxxs"]
 [ext_resource type="Script" uid="uid://cq28gveptb3t6" path="res://src/interactable component/variant/interactable_component_mainroom_door.gd" id="16_2jinp"]
 [ext_resource type="Texture2D" uid="uid://cgbh6pbaquvl7" path="res://ast/textures/door/door_color.png" id="16_hmxxs"]
@@ -68,25 +69,6 @@ shader_parameter/r_displacement = Vector2(3, 0)
 shader_parameter/g_displacement = Vector2(0, 0)
 shader_parameter/b_displacement = Vector2(-3, 0)
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3eh75"]
-sky_top_color = Color(0, 0, 0, 1)
-sky_horizon_color = Color(0, 0, 0, 1)
-ground_bottom_color = Color(0, 0, 0, 1)
-ground_horizon_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Sky" id="Sky_3s6yk"]
-sky_material = SubResource("ProceduralSkyMaterial_3eh75")
-
-[sub_resource type="Environment" id="Environment_ab7mr"]
-background_mode = 2
-sky = SubResource("Sky_3s6yk")
-tonemap_mode = 2
-volumetric_fog_enabled = true
-volumetric_fog_density = 0.48
-volumetric_fog_albedo = Color(0.07150052, 0.07150052, 0.07150052, 1)
-volumetric_fog_emission_energy = 49.0
-volumetric_fog_anisotropy = -0.2
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_djufw"]
 albedo_color = Color(0.020174578, 0.020174576, 0.020174574, 1)
 
@@ -96,7 +78,7 @@ material = SubResource("StandardMaterial3D_djufw")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3s6yk"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_nevsn"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_suhym"]
 viewport_path = NodePath("interactablecomponent/Contents/UI/SubViewport")
 
 [sub_resource type="Animation" id="Animation_hmxxs"]
@@ -534,6 +516,7 @@ size = Vector3(8.530212, 8.448303, 7.463852)
 
 [node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera", "gamemanager", "gamesequence", "hallway", "door_mesh", "door", "door_ui_node", "hallway_collision")]
 script = ExtResource("1_3eh75")
+env = ExtResource("13_suhym")
 mainmenu_camera = NodePath("mainmenu/mainmenu_camera")
 gamemanager = NodePath("gamemanager")
 gamesequence = NodePath("gamesequence")
@@ -642,6 +625,7 @@ mouse_filter = 2
 
 [node name="sequenceditorhelper" type="Node3D" parent="gamesequence" unique_id=1097936649]
 script = ExtResource("9_nevsn")
+env = ExtResource("13_suhym")
 
 [node name="gamemanager" type="Node3D" parent="." unique_id=1525698677]
 script = ExtResource("2_frqgp")
@@ -688,7 +672,7 @@ font_size = 26
 [node name="env" type="Node3D" parent="." unique_id=1697233957]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="env" unique_id=1770960716]
-environment = SubResource("Environment_ab7mr")
+environment = ExtResource("13_suhym")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="env" unique_id=1651218042]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
@@ -793,7 +777,7 @@ spot_angle_attenuation = 84.44943
 transform = Transform3D(0.03307319, 0, -0.33164334, 0, 0.33328834, 0, 0.33164334, 0, 0.03307319, 0, 1.75, 0)
 
 [node name="UI" parent="phone/interactablecomponent/Contents" parent_id_path=PackedInt32Array(966887196, 2114968064) index="0" unique_id=897521712]
-texture = SubResource("ViewportTexture_nevsn")
+texture = SubResource("ViewportTexture_suhym")
 
 [node name="door" type="Node3D" parent="." unique_id=791941259 node_paths=PackedStringArray("DoorAnimation", "HingePivot", "debounce", "mesh", "key", "doorclosevoiceline", "sequence_3", "mainroomtoswitch")]
 transform = Transform3D(0.49600005, 0, 3.1532227e-08, 0, 0.49600005, 0, -3.1532227e-08, 0, 0.49600005, -32.720993, 1.7903446, 0.336277)

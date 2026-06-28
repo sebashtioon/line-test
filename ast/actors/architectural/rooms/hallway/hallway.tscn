@@ -11,10 +11,24 @@ emission_energy_multiplier = 11.69
 
 [node name="hallway" unique_id=235834338 instance=ExtResource("1_mrdaw")]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." index="1" unique_id=364585208]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.998457)
+[node name="light1" type="Node3D" parent="." index="1" unique_id=1454049411]
+transform = Transform3D(1, 0, 0, 0, 0.995284, 0.09700386, 0, -0.09700386, 0.995284, 0, 3.4202256, 3.858408)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2" unique_id=1816691064]
-transform = Transform3D(1, 0, 0, 0, 0.995284, 0.09700387, 0, -0.09700387, 0.995284, 0, 3.4202256, 3.858408)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="light1" index="0" unique_id=1816691064]
+transform = Transform3D(1, 0, 0, 0, 1, 7.450581e-09, 0, -7.450581e-09, 1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_mrdaw")
 mesh = SubResource("BoxMesh_sb4vr")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light1" index="1" unique_id=421514806]
+transform = Transform3D(1, 0, 0, 0, 0.995284, -0.09700386, 0, 0.09700386, 0.995284, 0, -2.2521322, -0.122015476)
+
+[node name="light2" type="Node3D" parent="." index="2" unique_id=819399740]
+transform = Transform3D(1, 0, 0, 0, 0.97895837, -0.20405999, 0, 0.20405999, 0.97895837, 0, 3.4276097, 9.728753)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="light2" index="0" unique_id=1039178795]
+transform = Transform3D(1, 0, 0, 0, 1, 7.450581e-09, 0, -7.450581e-09, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_mrdaw")
+mesh = SubResource("BoxMesh_sb4vr")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light2" index="1" unique_id=1331604451]
+transform = Transform3D(1, 0, 0, 0, 0.995284, -0.09700386, 0, 0.09700386, 0.995284, 0, -2.2521322, -0.122015476)

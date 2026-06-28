@@ -1,5 +1,7 @@
 extends Node3D
 
+@export var env: Environment
+
 @export var mainmenu_camera : Camera3D
 @export var gamemanager : Node3D
 @export var gamesequence: Node3D
