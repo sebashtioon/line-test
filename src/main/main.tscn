@@ -808,7 +808,7 @@ one_shot = true
 libraries/ = SubResource("AnimationLibrary_6iek0")
 
 [node name="lightswitch" type="AudioStreamPlayer3D" parent="door" unique_id=1396747570]
-transform = Transform3D(2.0161288, 0, 0, 0, 2.0161288, 0, 0, 0, 2.0161288, 0, 0, 0)
+transform = Transform3D(2.0161288, 0, 0, 0, 2.0161288, 0, 0, 0, 2.0161288, 0.89443207, 0, -0.1447916)
 stream = ExtResource("19_6iek0")
 volume_db = 26.631
 unit_size = 3.0
