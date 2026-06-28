@@ -28,7 +28,9 @@ func _on_door_look(area: Area3D) -> void:
 
 func goto_hallway() -> void:
 	lightswitch.play()
-
+	$"../door/hallway".visible = true
+	$"../door/passageway".visible = false
+	$"../floor1".visible = false
 
 func _on_mainroomtoswitch_timeout() -> void:
 	goto_hallway()
