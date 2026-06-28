@@ -20,7 +20,7 @@
 [ext_resource type="Script" uid="uid://cq28gveptb3t6" path="res://src/interactable component/variant/interactable_component_mainroom_door.gd" id="16_2jinp"]
 [ext_resource type="Texture2D" uid="uid://cgbh6pbaquvl7" path="res://ast/textures/door/door_color.png" id="16_hmxxs"]
 [ext_resource type="AudioStream" uid="uid://deathh6l4l2qv" path="res://ast/audio/sfx/lightswitch/lightswitch.wav" id="19_6iek0"]
-[ext_resource type="PackedScene" uid="uid://dj8t1erqcilyi" path="res://ast/models/architectural/rooms/hallway/hallway.blend" id="20_v0ijp"]
+[ext_resource type="PackedScene" uid="uid://cv8ey2y34c3kr" path="res://ast/actors/architectural/rooms/hallway/hallway.tscn" id="21_nevsn"]
 
 [sub_resource type="Animation" id="Animation_4tqcc"]
 length = 0.001
@@ -624,7 +624,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("10_6iek0")
 theme_override_font_sizes/font_size = 25
-text = "close the door behind you."
+text = "this is a line test."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -974,8 +974,8 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2973871, 0.7241516, 1.2963306)
 shape = SubResource("BoxShape3D_sb4vr")
 
-[node name="hallway" parent="." unique_id=1456828002 instance=ExtResource("20_v0ijp")]
-transform = Transform3D(9.851377e-09, 0, -0.49600005, 0, 0.49600005, 0, 0.49600005, 0, 9.851377e-09, -32.05872, 1.7903446, 0.9988048)
+[node name="hallway" parent="door" unique_id=235834338 instance=ExtResource("21_nevsn")]
+transform = Transform3D(1.1924868e-08, 0, -1, 0, 1, 0, 1, 0, 1.1924868e-08, 1.335228, 0, 1.3357415)
 
 [connection signal="timeout" from="gamesequence/timer/doorclosevoiceline" to="door" method="_on_doorclosevoiceline_timeout"]
 [connection signal="timeout" from="gamesequence/timer/mainroomtoswitch" to="gamesequence" method="_on_mainroomtoswitch_timeout"]

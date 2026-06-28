@@ -2,4 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://dj8t1erqcilyi" path="res://ast/models/architectural/rooms/hallway/hallway.blend" id="1_mrdaw"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_sb4vr"]
+
 [node name="hallway" unique_id=235834338 instance=ExtResource("1_mrdaw")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1" unique_id=364585208]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.998457)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="2" unique_id=1816691064]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1720593, 3.858408)
+mesh = SubResource("BoxMesh_sb4vr")

@@ -36,4 +36,5 @@ func goto_hallway() -> void:
 	
 
 func _on_mainroomtoswitch_timeout() -> void:
-	goto_hallway()
+	if !PlayerGlobal.world.player_in_front_of_portal:
+		goto_hallway()
