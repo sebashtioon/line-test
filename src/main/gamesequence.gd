@@ -27,6 +27,7 @@ func _on_door_look(area: Area3D) -> void:
 		looked_at_door__start = true
 
 func goto_hallway() -> void:
+	PlayerGlobal.player_location = PlayerGlobal.PlayerLoc.HALLWAY
 	lightswitch.play()
 	$"../door/hallway".visible = true
 	$"../door/passageway".visible = false
@@ -34,7 +35,7 @@ func goto_hallway() -> void:
 	$"../door/SpotLight3D".visible = false
 	$"../door/ceiling_light".visible = false
 	PlayerGlobal.world.env.glow_enabled = true
-	
+	$"../door/passageway/StaticBody3D".process_mode = Node.PROCESS_MODE_DISABLED
 	
 
 func _on_mainroomtoswitch_timeout() -> void:
