@@ -18,6 +18,7 @@
 [ext_resource type="Script" uid="uid://ba71ih35122vw" path="res://ast/actors/architectural/door/variant/door_mainroom.gd" id="15_hmxxs"]
 [ext_resource type="Script" uid="uid://cq28gveptb3t6" path="res://src/interactable component/variant/interactable_component_mainroom_door.gd" id="16_2jinp"]
 [ext_resource type="Texture2D" uid="uid://cgbh6pbaquvl7" path="res://ast/textures/door/door_color.png" id="16_hmxxs"]
+[ext_resource type="AudioStream" uid="uid://deathh6l4l2qv" path="res://ast/audio/sfx/lightswitch/lightswitch.wav" id="19_6iek0"]
 
 [sub_resource type="Animation" id="Animation_4tqcc"]
 length = 0.001
@@ -571,6 +572,10 @@ bus = &"sfx"
 wait_time = 5.0
 one_shot = true
 
+[node name="mainroomtoswitch" type="Timer" parent="gamesequence/timer" unique_id=500986921]
+wait_time = 3.4
+one_shot = true
+
 [node name="sequence" type="Node3D" parent="gamesequence" unique_id=1825371915]
 
 [node name="sequencestart" type="AnimationPlayer" parent="gamesequence/sequence" unique_id=1263333454]
@@ -783,7 +788,7 @@ transform = Transform3D(0.03307319, 0, -0.33164334, 0, 0.33328834, 0, 0.33164334
 [node name="UI" parent="phone/interactablecomponent/Contents" parent_id_path=PackedInt32Array(966887196, 2114968064) index="0" unique_id=897521712]
 texture = SubResource("ViewportTexture_2jinp")
 
-[node name="door" type="Node3D" parent="." unique_id=791941259 node_paths=PackedStringArray("DoorAnimation", "HingePivot", "debounce", "mesh", "key", "doorclosevoiceline", "sequence_3")]
+[node name="door" type="Node3D" parent="." unique_id=791941259 node_paths=PackedStringArray("DoorAnimation", "HingePivot", "debounce", "mesh", "key", "doorclosevoiceline", "sequence_3", "mainroomtoswitch")]
 transform = Transform3D(0.49600005, 0, 3.1532227e-08, 0, 0.49600005, 0, -3.1532227e-08, 0, 0.49600005, -32.720993, 1.7903446, 0.336277)
 script = ExtResource("15_hmxxs")
 DoorAnimation = NodePath("door_animation")
@@ -793,6 +798,7 @@ mesh = NodePath("HingePivot/mesh")
 key = NodePath("HingePivot/InteractableComponent/Contents/UI/SubViewport/Key")
 doorclosevoiceline = NodePath("../gamesequence/timer/doorclosevoiceline")
 sequence_3 = NodePath("../gamesequence/sequence/sequence_3")
+mainroomtoswitch = NodePath("../gamesequence/timer/mainroomtoswitch")
 
 [node name="debounce" type="Timer" parent="door" unique_id=1606770625]
 wait_time = 0.81
@@ -800,6 +806,14 @@ one_shot = true
 
 [node name="door_animation" type="AnimationPlayer" parent="door" unique_id=1600128161]
 libraries/ = SubResource("AnimationLibrary_6iek0")
+
+[node name="lightswitch" type="AudioStreamPlayer3D" parent="door" unique_id=1396747570]
+transform = Transform3D(2.0161288, 0, 0, 0, 2.0161288, 0, 0, 0, 2.0161288, 0.89443207, 0, -0.1447916)
+stream = ExtResource("19_6iek0")
+volume_db = 26.631
+unit_size = 3.0
+max_db = 6.0
+bus = &"sfx"
 
 [node name="HingePivot" type="Node3D" parent="door" unique_id=1188546004]
 transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, 1.3348999, 0, 3.5762787e-07)

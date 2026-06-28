@@ -21,6 +21,9 @@ var player_in_front_of_portal : bool = false
 @export var hallway_collision: StaticBody3D
 
 func _ready() -> void:
+	PlayerGlobal.player_location = PlayerGlobal.PlayerLoc.MAINROOM
+	
+	
 	#mainmenu_camera.make_current()
 	PlayerGlobal.world = $"."
 
