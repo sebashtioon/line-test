@@ -4,6 +4,7 @@ extends Node3D
 @export var sequence_2: AnimationPlayer
 
 @export var door: Node3D
+@export var lightswitch: AudioStreamPlayer3D
 
 # flags
 var door_spawned__start : bool = false
@@ -24,3 +25,10 @@ func _on_door_look(area: Area3D) -> void:
 	if area.is_in_group(&"raycast_mimic_adjustable") and door_spawned__start and !looked_at_door__start:
 		sequence_2.play(&"sequence_2/main")
 		looked_at_door__start = true
+
+func goto_hallway() -> void:
+	lightswitch.play()
+
+
+func _on_mainroomtoswitch_timeout() -> void:
+	goto_hallway()
