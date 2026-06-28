@@ -568,7 +568,8 @@ bus = &"sfx"
 [node name="timer" type="Node3D" parent="gamesequence" unique_id=1410736497]
 
 [node name="doorclosevoiceline" type="Timer" parent="gamesequence/timer" unique_id=265374083]
-wait_time = 3.0
+wait_time = 5.0
+one_shot = true
 
 [node name="sequence" type="Node3D" parent="gamesequence" unique_id=1825371915]
 
@@ -615,7 +616,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("10_6iek0")
 theme_override_font_sizes/font_size = 25
-text = "this is a line test."
+text = "close the door behind you."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -782,7 +783,7 @@ transform = Transform3D(0.03307319, 0, -0.33164334, 0, 0.33328834, 0, 0.33164334
 [node name="UI" parent="phone/interactablecomponent/Contents" parent_id_path=PackedInt32Array(966887196, 2114968064) index="0" unique_id=897521712]
 texture = SubResource("ViewportTexture_2jinp")
 
-[node name="door" type="Node3D" parent="." unique_id=791941259 node_paths=PackedStringArray("DoorAnimation", "HingePivot", "debounce", "mesh", "key", "doorclosevoiceline")]
+[node name="door" type="Node3D" parent="." unique_id=791941259 node_paths=PackedStringArray("DoorAnimation", "HingePivot", "debounce", "mesh", "key", "doorclosevoiceline", "sequence_3")]
 transform = Transform3D(0.49600005, 0, 3.1532227e-08, 0, 0.49600005, 0, -3.1532227e-08, 0, 0.49600005, -32.720993, 1.7903446, 0.336277)
 script = ExtResource("15_hmxxs")
 DoorAnimation = NodePath("door_animation")
@@ -791,6 +792,7 @@ debounce = NodePath("debounce")
 mesh = NodePath("HingePivot/mesh")
 key = NodePath("HingePivot/InteractableComponent/Contents/UI/SubViewport/Key")
 doorclosevoiceline = NodePath("../gamesequence/timer/doorclosevoiceline")
+sequence_3 = NodePath("../gamesequence/sequence/sequence_3")
 
 [node name="debounce" type="Timer" parent="door" unique_id=1606770625]
 wait_time = 0.81
@@ -948,6 +950,7 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2973871, 0.7241516, 1.2963306)
 shape = SubResource("BoxShape3D_sb4vr")
 
+[connection signal="timeout" from="gamesequence/timer/doorclosevoiceline" to="door" method="_on_doorclosevoiceline_timeout"]
 [connection signal="timeout" from="door/debounce" to="door" method="_on_debounce_timeout"]
 [connection signal="action_triggered" from="door/HingePivot/InteractableComponent" to="door" method="_door_triggered"]
 [connection signal="body_entered" from="door/HingePivot/InteractableComponent/Contents/PlayerAreaBox" to="door/HingePivot/InteractableComponent" method="_on_player_area_box_body_entered"]

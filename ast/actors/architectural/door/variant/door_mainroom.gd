@@ -13,6 +13,8 @@ var DOOR_STATE : DOOR_STATES = DOOR_STATES.CLOSED
 @export var key: Label
 
 @export var doorclosevoiceline: Timer
+var doorclosevoiceline_said : bool = false
+@export var sequence_3: AnimationPlayer
 
 var can_use_door : bool = true
 var can_interact_with_door : bool = true
@@ -22,6 +24,11 @@ var played_door_close_voiceline : bool = false
 var player_in_portal_room : bool = false:
 	set(value):
 		player_in_portal_room = value
+		
+		if value:
+			doorclosevoiceline.start()
+		else:
+			doorclosevoiceline.stop()
 
 func _ready() -> void:
 	DOOR_STATE = STARTING_DOOR_STATE
@@ -51,3 +58,9 @@ func start_debounce() -> void:
 
 func _on_debounce_timeout() -> void:
 	can_use_door = true
+
+
+func _on_doorclosevoiceline_timeout() -> void:
+	if DOOR_STATE != DOOR_STATES.CLOSED and player_in_portal_room and !doorclosevoiceline_said:
+		sequence_3.play(&"sequence_3/main")
+		doorclosevoiceline_said = true

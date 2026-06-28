@@ -16,5 +16,5 @@ func _on_phone_pickup() -> void:
 	ringanimation.stop()
 	
 	await get_tree().create_timer(1.0).timeout
-	PlayerGlobal.world.gamesequence.sequencestart.play(&"sequencestart/main")
+	#PlayerGlobal.world.gamesequence.sequencestart.play(&"sequencestart/main")
 	PlayerGlobal.world.gamesequence.spawn_door() # TEST
