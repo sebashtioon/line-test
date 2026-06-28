@@ -541,11 +541,12 @@ door = NodePath("door")
 door_ui_node = NodePath("door/HingePivot/InteractableComponent/Contents/UI")
 hallway_collision = NodePath("door/passageway/StaticBody3D")
 
-[node name="gamesequence" type="Node3D" parent="." unique_id=1315925528 node_paths=PackedStringArray("sequencestart", "sequence_2", "door")]
+[node name="gamesequence" type="Node3D" parent="." unique_id=1315925528 node_paths=PackedStringArray("sequencestart", "sequence_2", "door", "lightswitch")]
 script = ExtResource("2_nevsn")
 sequencestart = NodePath("sequence/sequencestart")
 sequence_2 = NodePath("sequence/sequence_2")
 door = NodePath("../door")
+lightswitch = NodePath("../door/lightswitch")
 
 [node name="audio" type="Node3D" parent="gamesequence" unique_id=474692527]
 
@@ -965,6 +966,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2973871, 0.7241516, 1.29633
 shape = SubResource("BoxShape3D_sb4vr")
 
 [connection signal="timeout" from="gamesequence/timer/doorclosevoiceline" to="door" method="_on_doorclosevoiceline_timeout"]
+[connection signal="timeout" from="gamesequence/timer/mainroomtoswitch" to="gamesequence" method="_on_mainroomtoswitch_timeout"]
 [connection signal="timeout" from="door/debounce" to="door" method="_on_debounce_timeout"]
 [connection signal="action_triggered" from="door/HingePivot/InteractableComponent" to="door" method="_door_triggered"]
 [connection signal="body_entered" from="door/HingePivot/InteractableComponent/Contents/PlayerAreaBox" to="door/HingePivot/InteractableComponent" method="_on_player_area_box_body_entered"]
