@@ -31,6 +31,9 @@ func goto_hallway() -> void:
 	$"../door/hallway".visible = true
 	$"../door/passageway".visible = false
 	$"../floor1".visible = false
+	$"../door/SpotLight3D".visible = false
+	$"../door/ceiling_light".visible = false
+	
 
 func _on_mainroomtoswitch_timeout() -> void:
 	goto_hallway()

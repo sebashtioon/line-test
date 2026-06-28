@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://cv8ey2y34c3kr"]
+
+[ext_resource type="PackedScene" uid="uid://dj8t1erqcilyi" path="res://ast/models/architectural/rooms/hallway/hallway.blend" id="1_mrdaw"]
+
+[node name="hallway" unique_id=235834338 instance=ExtResource("1_mrdaw")]
