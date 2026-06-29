@@ -1,8 +1,82 @@
 [gd_scene format=3 uid="uid://coxbfnd7vunxq"]
 
 [ext_resource type="PackedScene" uid="uid://cmb7cueqx4sed" path="res://ast/models/architectural/rooms/hallway_new/hallway_new.blend" id="1_k2kek"]
+[ext_resource type="Texture2D" uid="uid://cdsrhfpbnpd58" path="res://ast/textures/rooms/hallway/wall/hallway-wall-texture.png" id="2_i4wpn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jbcq"]
+albedo_texture = ExtResource("2_i4wpn")
+uv1_scale = Vector3(0.635, 0.635, 0.635)
+uv1_triplanar = true
+uv1_triplanar_sharpness = 0.0032628768
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i4wpn"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 2.88
+
+[sub_resource type="BoxMesh" id="BoxMesh_uaeo6"]
 
 [node name="hallway_new" unique_id=1216619298 instance=ExtResource("1_k2kek")]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="." index="1" unique_id=544152184]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.3759995)
+[node name="hallway" parent="." index="0" unique_id=1481941117]
+material_override = SubResource("StandardMaterial3D_0jbcq")
+
+[node name="light1" type="Node3D" parent="." index="1" unique_id=864846969]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.4847226, 0, 2.9903562, 2.9729402)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="light1" index="0" unique_id=177135110]
+material_override = SubResource("StandardMaterial3D_i4wpn")
+mesh = SubResource("BoxMesh_uaeo6")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light1" index="1" unique_id=1857679320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1553183, 0)
+
+[node name="light2" type="Node3D" parent="." index="2" unique_id=1520266369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.4847226, 0, 2.9903562, 12.911831)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="light2" index="0" unique_id=1902411008]
+material_override = SubResource("StandardMaterial3D_i4wpn")
+mesh = SubResource("BoxMesh_uaeo6")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light2" index="1" unique_id=230828042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1553183, 0)
+
+[node name="light3" type="Node3D" parent="." index="3" unique_id=763555839]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.4847226, 0, 2.9903562, 22.850721)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="light3" index="0" unique_id=940665381]
+material_override = SubResource("StandardMaterial3D_i4wpn")
+mesh = SubResource("BoxMesh_uaeo6")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light3" index="1" unique_id=1911542922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1553183, 0)
+
+[node name="light4" type="Node3D" parent="." index="4" unique_id=852030353]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.4847226, 0, 2.9903562, 32.78961)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="light4" index="0" unique_id=1804675044]
+material_override = SubResource("StandardMaterial3D_i4wpn")
+mesh = SubResource("BoxMesh_uaeo6")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light4" index="1" unique_id=733902649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1553183, 0)
+
+[node name="light5" type="Node3D" parent="." index="5" unique_id=347647456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.4847226, 0, 2.9903562, 42.7285)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="light5" index="0" unique_id=2107718926]
+material_override = SubResource("StandardMaterial3D_i4wpn")
+mesh = SubResource("BoxMesh_uaeo6")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light5" index="1" unique_id=1577015412]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1553183, 0)
+
+[node name="light6" type="Node3D" parent="." index="6" unique_id=1587747684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 2.4847226, 0, 2.9903562, 50.182667)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="light6" index="0" unique_id=131034549]
+material_override = SubResource("StandardMaterial3D_i4wpn")
+mesh = SubResource("BoxMesh_uaeo6")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="light6" index="1" unique_id=958823609]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1553183, 0)
