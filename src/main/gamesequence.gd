@@ -35,6 +35,7 @@ func goto_hallway() -> void:
 	$"../door/SpotLight3D".visible = false
 	$"../door/ceiling_light".visible = false
 	PlayerGlobal.world.env.glow_enabled = true
+	PlayerGlobal.world.env.volumetric_fog_enabled = false
 	$"../door/passageway/StaticBody3D".process_mode = Node.PROCESS_MODE_DISABLED
 	
 

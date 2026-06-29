@@ -18,7 +18,7 @@ emission_energy_multiplier = 2.88
 
 [node name="hallway_new" unique_id=1216619298 instance=ExtResource("1_k2kek")]
 
-[node name="hallway" parent="." index="0" unique_id=1481941117]
+[node name="hallway" parent="." index="0" unique_id=289090626]
 material_override = SubResource("StandardMaterial3D_0jbcq")
 
 [node name="light1" type="Node3D" parent="." index="1" unique_id=864846969]

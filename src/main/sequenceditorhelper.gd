@@ -18,3 +18,4 @@ func _on_hallway_toggled_tool_button_pressed() -> void:
 	$"../../door/ceiling_light".visible = !hallway_toggled
 	
 	env.glow_enabled = hallway_toggled
+	env.volumetric_fog_enabled = !hallway_toggled
