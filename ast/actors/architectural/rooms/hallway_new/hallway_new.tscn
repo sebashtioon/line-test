@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://coxbfnd7vunxq"]
+
+[ext_resource type="PackedScene" uid="uid://cmb7cueqx4sed" path="res://ast/models/architectural/rooms/hallway_new/hallway_new.blend" id="1_k2kek"]
+
+[node name="hallway_new" unique_id=1216619298 instance=ExtResource("1_k2kek")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1" unique_id=544152184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.3759995)
