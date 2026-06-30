@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bsvx7uhvigx7t"]
 
-[ext_resource type="Texture2D" uid="uid://b11s3bp8l5rvk" path="res://ast/models/furniture/vintage-table.jpg" id="1_ehv76"]
+[ext_resource type="Texture2D" uid="uid://b11s3bp8l5rvk" path="res://ast/models/furniture/vintage table/vintage-table.jpg" id="1_ehv76"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4de8"]
 resource_name = "wood"
