@@ -1,6 +1,8 @@
 [gd_scene format=4 uid="uid://coxbfnd7vunxq"]
 
 [ext_resource type="Texture2D" uid="uid://cdsrhfpbnpd58" path="res://ast/textures/rooms/hallway/wall/hallway-wall-texture.png" id="2_i4wpn"]
+[ext_resource type="PackedScene" uid="uid://5jqrffaeu21m" path="res://ast/actors/props/picture frame/pictureframe.tscn" id="2_uaeo6"]
+[ext_resource type="Texture2D" uid="uid://bl7xpbjjwh2n2" path="res://ast/textures/picframe pictures/picture4.png" id="3_uaeo6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jbcq"]
 cull_mode = 2
@@ -395,6 +397,16 @@ mesh = SubResource("BoxMesh_uaeo6")
 [node name="OmniLight3D" type="OmniLight3D" parent="1/lights/light19" unique_id=863384564]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1553183, 0)
 
+[node name="pictureframes" type="Node3D" parent="1" unique_id=2028085466]
+
+[node name="pictureframe" parent="1/pictureframes" unique_id=334175035 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2875092, 0.4857074, 4.6495037)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe" unique_id=1125010236]
+transform = Transform3D(0.845, 0, 0, 0, 0.735, 0, 0, 0, 0.695, 0, 0, -0.14599228)
+modulate = Color(0.74837965, 0.7483797, 0.74837947, 1)
+texture = ExtResource("3_uaeo6")
+
 [node name="2" type="Node3D" parent="." unique_id=1474765175]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.366, 6.49, 1.148)
 
@@ -687,3 +699,5 @@ mesh = SubResource("BoxMesh_uaeo6")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="2/lights/light19" unique_id=2133246285]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1553183, 0)
+
+[editable path="1/pictureframes/pictureframe"]
