@@ -1,5 +1,7 @@
 extends Node3D
 
+@export var env: Environment
+
 @export var mainmenu_camera : Camera3D
 @export var gamemanager : Node3D
 @export var gamesequence: Node3D
@@ -28,14 +30,15 @@ func _ready() -> void:
 	PlayerGlobal.world = $"."
 
 func _physics_process(_delta: float) -> void:
-	if (player_in_front_of_portal or player_in_portal_room):
-		can_interact_with_door_portal = true
-		door_ui_node.visible = true
-		hallway_collision.process_mode = Node.ProcessMode.PROCESS_MODE_INHERIT
-	else:
-		can_interact_with_door_portal = false
-		door_ui_node.visible = false
-		hallway_collision.process_mode = Node.ProcessMode.PROCESS_MODE_DISABLED
+	if PlayerGlobal.player_location == PlayerGlobal.PlayerLoc.MAINROOM:
+		if (player_in_front_of_portal or player_in_portal_room):
+			can_interact_with_door_portal = true
+			door_ui_node.visible = true
+			hallway_collision.process_mode = Node.ProcessMode.PROCESS_MODE_INHERIT
+		else:
+			can_interact_with_door_portal = false
+			door_ui_node.visible = false
+			hallway_collision.process_mode = Node.ProcessMode.PROCESS_MODE_DISABLED
 
 
 func _on_portalswitchnotifier_body_entered(body: Node3D) -> void:
