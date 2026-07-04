@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://cdsrhfpbnpd58" path="res://ast/textures/rooms/hallway/wall/hallway-wall-texture.png" id="2_i4wpn"]
 [ext_resource type="PackedScene" uid="uid://5jqrffaeu21m" path="res://ast/actors/props/picture frame/pictureframe.tscn" id="2_uaeo6"]
 [ext_resource type="Texture2D" uid="uid://bl7xpbjjwh2n2" path="res://ast/textures/picframe pictures/picture4.png" id="3_uaeo6"]
+[ext_resource type="Texture2D" uid="uid://qybfvigh1e8y" path="res://ast/textures/picframe pictures/picture1.png" id="4_j2sij"]
+[ext_resource type="Texture2D" uid="uid://bruov4dcpa7jh" path="res://ast/textures/picframe pictures/picture2.png" id="5_54f6f"]
+[ext_resource type="Texture2D" uid="uid://bhfwhboqj41b4" path="res://ast/textures/picframe pictures/picture3.png" id="6_54f6f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jbcq"]
 cull_mode = 2
@@ -400,12 +403,238 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1553183, 0)
 [node name="pictureframes" type="Node3D" parent="1" unique_id=2028085466]
 
 [node name="pictureframe" parent="1/pictureframes" unique_id=334175035 instance=ExtResource("2_uaeo6")]
-transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2875092, 0.4857074, 4.6495037)
+transform = Transform3D(-0.23, 0, -2.0107237e-08, 0, 0.23, 0, 2.0107237e-08, 0, -0.23, 7.307863, 5.9719257, 72.35059)
 
 [node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe" unique_id=1125010236]
 transform = Transform3D(0.845, 0, 0, 0, 0.735, 0, 0, 0, 0.695, 0, 0, -0.14599228)
-modulate = Color(0.74837965, 0.7483797, 0.74837947, 1)
+shaded = true
 texture = ExtResource("3_uaeo6")
+
+[node name="pictureframe2" parent="1/pictureframes" unique_id=2032242754 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(0.23, 0, -8.881784e-16, 0, 0.23, 0, 8.881784e-16, 0, 0.23, 4.712491, 0.4857074, 50.653008)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe2" unique_id=819533759]
+transform = Transform3D(0.175, 0, 0, 0, 0.127, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+modulate = Color(0.59987336, 0.5998733, 0.5998736, 1)
+shaded = true
+texture = ExtResource("4_j2sij")
+
+[node name="pictureframe22" parent="1/pictureframes" unique_id=28847162 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(0.23, 0, -8.881784e-16, 0, 0.23, 0, 8.881784e-16, 0, 0.23, 9.712491, 0.4857074, 50.653008)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe22" unique_id=106591203]
+transform = Transform3D(0.175, 0, 0, 0, 0.127, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+modulate = Color(0.59987336, 0.5998733, 0.5998736, 1)
+shaded = true
+texture = ExtResource("4_j2sij")
+
+[node name="pictureframe23" parent="1/pictureframes" unique_id=1090619324 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(0.23, 0, -8.881784e-16, 0, 0.23, 0, 8.881784e-16, 0, 0.23, 14.712491, 0.4857074, 50.653008)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe23" unique_id=1294049669]
+transform = Transform3D(0.175, 0, 0, 0, 0.127, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+modulate = Color(0.59987336, 0.5998733, 0.5998736, 1)
+shaded = true
+texture = ExtResource("4_j2sij")
+
+[node name="pictureframe24" parent="1/pictureframes" unique_id=198001581 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(0.23, 0, -8.881784e-16, 0, 0.23, 0, 8.881784e-16, 0, 0.23, 19.71249, 0.4857074, 50.653008)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe24" unique_id=2095785860]
+transform = Transform3D(0.175, 0, 0, 0, 0.127, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+modulate = Color(0.59987336, 0.5998733, 0.5998736, 1)
+shaded = true
+texture = ExtResource("4_j2sij")
+
+[node name="pictureframe25" parent="1/pictureframes" unique_id=1662082211 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(0.23, 0, -8.881784e-16, 0, 0.23, 0, 8.881784e-16, 0, 0.23, 24.71249, 0.4857074, 50.653008)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe25" unique_id=1489465174]
+transform = Transform3D(0.175, 0, 0, 0, 0.127, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+modulate = Color(0.59987336, 0.5998733, 0.5998736, 1)
+shaded = true
+texture = ExtResource("4_j2sij")
+
+[node name="pictureframe26" parent="1/pictureframes" unique_id=2045116888 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(0.23, 0, -8.881784e-16, 0, 0.23, 0, 8.881784e-16, 0, 0.23, 29.71249, 0.4857074, 50.653008)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe26" unique_id=1811492879]
+transform = Transform3D(0.175, 0, 0, 0, 0.127, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+modulate = Color(0.59987336, 0.5998733, 0.5998736, 1)
+shaded = true
+texture = ExtResource("4_j2sij")
+
+[node name="pictureframe27" parent="1/pictureframes" unique_id=350610304 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(0.23, 0, -8.881784e-16, 0, 0.23, 0, 8.881784e-16, 0, 0.23, 34.71249, 0.4857074, 50.653008)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe27" unique_id=1045750460]
+transform = Transform3D(0.175, 0, 0, 0, 0.127, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+modulate = Color(0.59987336, 0.5998733, 0.5998736, 1)
+shaded = true
+texture = ExtResource("4_j2sij")
+
+[node name="pictureframe3" parent="1/pictureframes" unique_id=1787226757 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2875092, 0.4857074, 6.3584933)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe3" unique_id=309881413]
+transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+shaded = true
+texture = ExtResource("5_54f6f")
+
+[node name="pictureframe5" parent="1/pictureframes" unique_id=934592264 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2875092, 0.4857074, 11.358494)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe5" unique_id=527199400]
+transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+shaded = true
+texture = ExtResource("5_54f6f")
+
+[node name="pictureframe6" parent="1/pictureframes" unique_id=2080125103 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2875092, 0.4857074, 16.358494)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe6" unique_id=1242957216]
+transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+shaded = true
+texture = ExtResource("5_54f6f")
+
+[node name="pictureframe7" parent="1/pictureframes" unique_id=471290 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2875092, 0.4857074, 21.358494)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe7" unique_id=620581077]
+transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+shaded = true
+texture = ExtResource("5_54f6f")
+
+[node name="pictureframe8" parent="1/pictureframes" unique_id=670017792 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2875092, 0.4857074, 26.358494)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe8" unique_id=1411547579]
+transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+shaded = true
+texture = ExtResource("5_54f6f")
+
+[node name="pictureframe9" parent="1/pictureframes" unique_id=1122976613 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2875092, 0.4857074, 31.358494)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe9" unique_id=456348263]
+transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+shaded = true
+texture = ExtResource("5_54f6f")
+
+[node name="pictureframe10" parent="1/pictureframes" unique_id=991155787 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2875092, 0.4857074, 36.358494)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe10" unique_id=1868358145]
+transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+shaded = true
+texture = ExtResource("5_54f6f")
+
+[node name="pictureframe11" parent="1/pictureframes" unique_id=1996124110 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2875092, 0.4857074, 41.358494)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe11" unique_id=922425352]
+transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+shaded = true
+texture = ExtResource("5_54f6f")
+
+[node name="pictureframe4" parent="1/pictureframes" unique_id=932685045 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2253587, 6.6378126, 6.7135067)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe4" unique_id=1317241995]
+transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+modulate = Color(0.43647724, 0.4364773, 0.43647727, 1)
+shaded = true
+texture = ExtResource("6_54f6f")
+
+[node name="pictureframe12" parent="1/pictureframes" unique_id=312654242 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2253587, 6.6378126, 11.713507)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe12" unique_id=1357803951]
+transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+modulate = Color(0.43647724, 0.4364773, 0.43647727, 1)
+shaded = true
+texture = ExtResource("6_54f6f")
+
+[node name="pictureframe13" parent="1/pictureframes" unique_id=548221046 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2253587, 6.6378126, 16.713507)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe13" unique_id=1669675647]
+transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+modulate = Color(0.43647724, 0.4364773, 0.43647727, 1)
+shaded = true
+texture = ExtResource("6_54f6f")
+
+[node name="pictureframe14" parent="1/pictureframes" unique_id=1514704150 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2253587, 6.6378126, 21.713507)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe14" unique_id=32202653]
+transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+modulate = Color(0.43647724, 0.4364773, 0.43647727, 1)
+shaded = true
+texture = ExtResource("6_54f6f")
+
+[node name="pictureframe15" parent="1/pictureframes" unique_id=1041697215 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2253587, 6.6378126, 26.713507)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe15" unique_id=2018224307]
+transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+modulate = Color(0.43647724, 0.4364773, 0.43647727, 1)
+shaded = true
+texture = ExtResource("6_54f6f")
+
+[node name="pictureframe16" parent="1/pictureframes" unique_id=110860762 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2253587, 6.6378126, 31.713507)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe16" unique_id=405383552]
+transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+modulate = Color(0.43647724, 0.4364773, 0.43647727, 1)
+shaded = true
+texture = ExtResource("6_54f6f")
+
+[node name="pictureframe17" parent="1/pictureframes" unique_id=1860656069 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2253587, 6.6378126, 36.71351)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe17" unique_id=1162619826]
+transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+modulate = Color(0.43647724, 0.4364773, 0.43647727, 1)
+shaded = true
+texture = ExtResource("6_54f6f")
+
+[node name="pictureframe18" parent="1/pictureframes" unique_id=612772488 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2253587, 6.6378126, 41.71351)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe18" unique_id=841815033]
+transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+modulate = Color(0.43647724, 0.4364773, 0.43647727, 1)
+shaded = true
+texture = ExtResource("6_54f6f")
+
+[node name="pictureframe19" parent="1/pictureframes" unique_id=1923969036 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2253587, 6.6378126, 46.71351)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe19" unique_id=1257636315]
+transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+modulate = Color(0.43647724, 0.4364773, 0.43647727, 1)
+shaded = true
+texture = ExtResource("6_54f6f")
+
+[node name="pictureframe20" parent="1/pictureframes" unique_id=1582442371 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2253587, 6.6378126, 51.71351)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe20" unique_id=1510810055]
+transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+modulate = Color(0.43647724, 0.4364773, 0.43647727, 1)
+shaded = true
+texture = ExtResource("6_54f6f")
+
+[node name="pictureframe21" parent="1/pictureframes" unique_id=766766516 instance=ExtResource("2_uaeo6")]
+transform = Transform3D(-1.0053619e-08, 0, 0.23, 0, 0.23, 0, -0.23, 0, -1.0053619e-08, -1.2253587, 6.6378126, 56.71351)
+
+[node name="Sprite3D" type="Sprite3D" parent="1/pictureframes/pictureframe21" unique_id=1916374892]
+transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
+modulate = Color(0.43647724, 0.4364773, 0.43647727, 1)
+shaded = true
+texture = ExtResource("6_54f6f")
 
 [node name="2" type="Node3D" parent="." unique_id=1474765175]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.366, 6.49, 1.148)
@@ -701,3 +930,29 @@ mesh = SubResource("BoxMesh_uaeo6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1553183, 0)
 
 [editable path="1/pictureframes/pictureframe"]
+[editable path="1/pictureframes/pictureframe2"]
+[editable path="1/pictureframes/pictureframe22"]
+[editable path="1/pictureframes/pictureframe23"]
+[editable path="1/pictureframes/pictureframe24"]
+[editable path="1/pictureframes/pictureframe25"]
+[editable path="1/pictureframes/pictureframe26"]
+[editable path="1/pictureframes/pictureframe27"]
+[editable path="1/pictureframes/pictureframe3"]
+[editable path="1/pictureframes/pictureframe5"]
+[editable path="1/pictureframes/pictureframe6"]
+[editable path="1/pictureframes/pictureframe7"]
+[editable path="1/pictureframes/pictureframe8"]
+[editable path="1/pictureframes/pictureframe9"]
+[editable path="1/pictureframes/pictureframe10"]
+[editable path="1/pictureframes/pictureframe11"]
+[editable path="1/pictureframes/pictureframe4"]
+[editable path="1/pictureframes/pictureframe12"]
+[editable path="1/pictureframes/pictureframe13"]
+[editable path="1/pictureframes/pictureframe14"]
+[editable path="1/pictureframes/pictureframe15"]
+[editable path="1/pictureframes/pictureframe16"]
+[editable path="1/pictureframes/pictureframe17"]
+[editable path="1/pictureframes/pictureframe18"]
+[editable path="1/pictureframes/pictureframe19"]
+[editable path="1/pictureframes/pictureframe20"]
+[editable path="1/pictureframes/pictureframe21"]

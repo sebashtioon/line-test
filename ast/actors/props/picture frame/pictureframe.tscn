@@ -1,5 +1,14 @@
 [gd_scene format=4 uid="uid://5jqrffaeu21m"]
 
+[ext_resource type="Texture2D" uid="uid://dexfr6rxskg0g" path="res://ast/models/furniture/couch/textures/wood.png" id="1_rtqav"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54f6f"]
+albedo_texture = ExtResource("1_rtqav")
+emission_enabled = true
+uv1_scale = Vector3(0.87, 0.87, 0.87)
+uv1_offset = Vector3(1.035, 0, 0)
+uv1_triplanar = true
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nyrw6"]
 resource_name = "color"
 cull_mode = 2
@@ -42,4 +51,5 @@ shadow_mesh = SubResource("ArrayMesh_cil1c")
 
 [node name="mesh" type="MeshInstance3D" parent="." unique_id=1614233216]
 transform = Transform3D(1.896823, 0, 0, 0, 2.9126956, 0, 0, 0, 1.284766, 0, 0, -1.284766)
+material_override = SubResource("StandardMaterial3D_54f6f")
 mesh = SubResource("ArrayMesh_jrhpa")
