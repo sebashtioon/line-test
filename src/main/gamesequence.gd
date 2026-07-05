@@ -38,6 +38,9 @@ func goto_hallway() -> void:
 	PlayerGlobal.world.env.volumetric_fog_enabled = false
 	$"../door/passageway/StaticBody3D".process_mode = Node.PROCESS_MODE_DISABLED
 	
+	await get_tree().create_timer(2.4).timeout
+	$sequence/sequence_preset001.play("sequence_preset001/main")
+	
 
 func _on_mainroomtoswitch_timeout() -> void:
 	if !PlayerGlobal.world.player_in_front_of_portal:
