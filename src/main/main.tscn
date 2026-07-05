@@ -11,7 +11,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://cmf6g0yyluke4" path="res://res/anim lib/sequence/sequencestart.res" id="4_hc2u7"]
 [ext_resource type="AnimationLibrary" uid="uid://w72ysy7l6ed2" path="res://res/anim lib/sequence/sequence_2.res" id="5_4tqcc"]
 [ext_resource type="Material" uid="uid://dfxc85kabcrgj" path="res://res/shad mat/buckshoteffect.tres" id="5_jkpqq"]
-[ext_resource type="AnimationLibrary" uid="uid://bvxcxw1jkcv6b" path="res://res/anim lib/sequence/sequence_3.res" id="6_2jinp"]
+[ext_resource type="AnimationLibrary" uid="uid://cbv1gpktgxw40" path="res://res/anim lib/sequence/preset/sequence_preset001.res" id="7_suhym"]
 [ext_resource type="PackedScene" uid="uid://bvlu7083perrc" path="res://ast/actors/props/phone/phone.tscn" id="8_frqgp"]
 [ext_resource type="Script" uid="uid://dcvidl5nxibmq" path="res://src/main/sequenceditorhelper.gd" id="9_nevsn"]
 [ext_resource type="Shader" uid="uid://cmxv0c12li22s" path="res://res/shad/chromeabb.gdshader" id="10_2jinp"]
@@ -576,7 +576,12 @@ libraries/sequence_2 = ExtResource("5_4tqcc")
 [node name="sequence_3" type="AnimationPlayer" parent="gamesequence/sequence" unique_id=411482229]
 root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_nevsn")
-libraries/sequence_3 = ExtResource("6_2jinp")
+libraries/sequence_3 = ExtResource("7_suhym")
+
+[node name="sequence_pleasecontinue" type="AnimationPlayer" parent="gamesequence/sequence" unique_id=2124539916]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_nevsn")
+libraries/sequence_preset001 = ExtResource("7_suhym")
 
 [node name="voicelinesubtitles" type="CanvasLayer" parent="gamesequence" unique_id=2117418948]
 layer = 21
@@ -607,7 +612,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("10_6iek0")
 theme_override_font_sizes/font_size = 25
-text = "this is a line test."
+text = "please continue."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
