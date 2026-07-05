@@ -66,7 +66,7 @@ func _on_hallway_end_trigger_body_entered(body: Node3D) -> void:
 
 func _on_hallway_warning_trigger_body_entered(body: Node3D) -> void:
 	if !hallway_warning_triggered and body.is_in_group(&"player_body"):
-		$sequence/sequence_preset002.play("sequence_preset002/main")
+		$sequence/sequence_5.play("sequence_5/1")
 		
 		
 		# TODO go from here
