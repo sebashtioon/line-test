@@ -14,6 +14,7 @@
 [ext_resource type="AnimationLibrary" uid="uid://bvxcxw1jkcv6b" path="res://res/anim lib/sequence/sequence_3.res" id="6_2jinp"]
 [ext_resource type="AnimationLibrary" uid="uid://cbv1gpktgxw40" path="res://res/anim lib/sequence/preset/sequence_preset001.res" id="7_suhym"]
 [ext_resource type="PackedScene" uid="uid://bvlu7083perrc" path="res://ast/actors/props/phone/phone.tscn" id="8_frqgp"]
+[ext_resource type="AnimationLibrary" uid="uid://cibpxle6xyvdj" path="res://res/anim lib/sequence/sequence_4.res" id="8_lpaod"]
 [ext_resource type="Script" uid="uid://dcvidl5nxibmq" path="res://src/main/sequenceditorhelper.gd" id="9_nevsn"]
 [ext_resource type="Shader" uid="uid://cmxv0c12li22s" path="res://res/shad/chromeabb.gdshader" id="10_2jinp"]
 [ext_resource type="FontFile" uid="uid://b7gfys1o8ewi" path="res://res/fonts/vhs/VCR_OSD_MONO_1.001.ttf" id="10_6iek0"]
@@ -58,6 +59,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gamesequence/voicelinesubtitles/main/subtitles:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["often produces discomfort."]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nevsn"]
 _data = {
@@ -69,6 +82,9 @@ shader = ExtResource("10_2jinp")
 shader_parameter/r_displacement = Vector2(3, 0)
 shader_parameter/g_displacement = Vector2(0, 0)
 shader_parameter/b_displacement = Vector2(-3, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lpaod"]
+size = Vector3(1.5356445, 1.3964844, 0.7578125)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_djufw"]
 albedo_color = Color(0.020174578, 0.020174576, 0.020174574, 1)
@@ -579,6 +595,11 @@ root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_nevsn")
 libraries/sequence_3 = ExtResource("6_2jinp")
 
+[node name="sequence_4" type="AnimationPlayer" parent="gamesequence/sequence" unique_id=311245327]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_nevsn")
+libraries/sequence_4 = ExtResource("8_lpaod")
+
 [node name="sequence_preset001" type="AnimationPlayer" parent="gamesequence/sequence" unique_id=2124539916]
 root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_nevsn")
@@ -613,7 +634,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("10_6iek0")
 theme_override_font_sizes/font_size = 25
-text = "this is a line test."
+text = "often produces discomfort."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -632,6 +653,14 @@ mouse_filter = 2
 [node name="sequenceditorhelper" type="Node3D" parent="gamesequence" unique_id=1097936649]
 script = ExtResource("9_nevsn")
 env = ExtResource("13_suhym")
+
+[node name="sequence_4_trigger" type="Area3D" parent="gamesequence" unique_id=340093569]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="gamesequence/sequence_4_trigger" unique_id=2057972015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.426712, 7.4902334, -4.752363)
+shape = SubResource("BoxShape3D_lpaod")
+debug_color = Color(0, 1, 0.69803923, 1)
 
 [node name="gamemanager" type="Node3D" parent="." unique_id=1525698677]
 script = ExtResource("2_frqgp")
@@ -966,6 +995,7 @@ visible = false
 
 [connection signal="timeout" from="gamesequence/timer/doorclosevoiceline" to="door" method="_on_doorclosevoiceline_timeout"]
 [connection signal="timeout" from="gamesequence/timer/mainroomtoswitch" to="gamesequence" method="_on_mainroomtoswitch_timeout"]
+[connection signal="body_entered" from="gamesequence/sequence_4_trigger" to="gamesequence" method="_on_sequence_4_trigger_body_entered"]
 [connection signal="timeout" from="door/debounce" to="door" method="_on_debounce_timeout"]
 [connection signal="action_triggered" from="door/HingePivot/InteractableComponent" to="door" method="_door_triggered"]
 [connection signal="body_entered" from="door/HingePivot/InteractableComponent/Contents/PlayerAreaBox" to="door/HingePivot/InteractableComponent" method="_on_player_area_box_body_entered"]
