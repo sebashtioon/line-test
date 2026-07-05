@@ -11,6 +11,7 @@ var door_spawned__start : bool = false
 var looked_at_door__start : bool = false
 
 var sequence_4_triggered : bool = false
+var hallway_end_triggered : bool = false
 
 func reset_flags(to_start : bool = true) -> void:
 	if to_start:
@@ -52,3 +53,8 @@ func _on_sequence_4_trigger_body_entered(body: Node3D) -> void:
 	if !sequence_4_triggered and body.is_in_group(&"player_body"):
 		$sequence/sequence_4.play("sequence_4/main")
 		sequence_4_triggered = true
+
+func _on_sequence_5_trigger_body_entered(body: Node3D) -> void:
+	if !hallway_end_triggered and body.is_in_group(&"player_body"):
+		$sequence/sequence_preset002.play("sequence_preset002/main")
+		hallway_end_triggered = true
