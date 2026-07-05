@@ -54,7 +54,10 @@ func _on_sequence_4_trigger_body_entered(body: Node3D) -> void:
 		$sequence/sequence_4.play("sequence_4/main")
 		sequence_4_triggered = true
 
-func _on_sequence_5_trigger_body_entered(body: Node3D) -> void:
+func _on_hallway_end_trigger_body_entered(body: Node3D) -> void:
 	if !hallway_end_triggered and body.is_in_group(&"player_body"):
 		$sequence/sequence_preset002.play("sequence_preset002/main")
+		
+		
+		# TODO go from here
 		hallway_end_triggered = true
