@@ -48,9 +48,7 @@ func _on_mainroomtoswitch_timeout() -> void:
 	if !PlayerGlobal.world.player_in_front_of_portal:
 		goto_hallway()
 
-
 func _on_sequence_4_trigger_body_entered(body: Node3D) -> void:
-	print("yay")
 	if !sequence_4_triggered and body.is_in_group(&"player_body"):
 		$sequence/sequence_4.play("sequence_4/main")
 		sequence_4_triggered = true

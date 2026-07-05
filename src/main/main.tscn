@@ -83,9 +83,6 @@ shader_parameter/r_displacement = Vector2(3, 0)
 shader_parameter/g_displacement = Vector2(0, 0)
 shader_parameter/b_displacement = Vector2(-3, 0)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_lpaod"]
-size = Vector3(1.5356445, 1.3964844, 0.7578125)
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_djufw"]
 albedo_color = Color(0.020174578, 0.020174576, 0.020174574, 1)
 
@@ -531,6 +528,9 @@ size = Vector3(4.7025867, 5.271118, 0.23303223)
 [sub_resource type="BoxShape3D" id="BoxShape3D_sb4vr"]
 size = Vector3(8.530212, 8.448303, 7.463852)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_lpaod"]
+size = Vector3(0.6335449, 2.215332, 1.4400635)
+
 [node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera", "gamemanager", "gamesequence", "hallway", "door_mesh", "door", "door_ui_node", "hallway_collision")]
 script = ExtResource("1_3eh75")
 env = ExtResource("13_suhym")
@@ -654,14 +654,6 @@ mouse_filter = 2
 script = ExtResource("9_nevsn")
 env = ExtResource("13_suhym")
 
-[node name="sequence_4_trigger" type="Area3D" parent="gamesequence" unique_id=340093569]
-collision_mask = 2
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="gamesequence/sequence_4_trigger" unique_id=2057972015]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.426712, 7.4902334, -4.752363)
-shape = SubResource("BoxShape3D_lpaod")
-debug_color = Color(0, 1, 0.69803923, 1)
-
 [node name="gamemanager" type="Node3D" parent="." unique_id=1525698677]
 script = ExtResource("2_frqgp")
 
@@ -715,6 +707,7 @@ light_color = Color(0, 0, 0, 1)
 
 [node name="floor1" type="MeshInstance3D" parent="." unique_id=1270133708]
 transform = Transform3D(1244.0197, 0, 0, 0, 1, 0, 0, 0, 1532.0901, 0, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_3eh75")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="floor1" unique_id=560058693]
@@ -781,6 +774,7 @@ shape = SubResource("ConcavePolygonShape3D_3s6yk")
 
 [node name="player" parent="." unique_id=838546913 instance=ExtResource("2_3s6yk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4598112, 0.68530583, 8.601427)
+WALK_SPEED = 20.0
 
 [node name="vintage_table" parent="." unique_id=405293067 instance=ExtResource("3_ab7mr")]
 transform = Transform3D(0.4498767, 0, 0, 0, 0.4498767, 0, 0, 0, 0.4498767, 0, 0.625074, 0)
@@ -909,6 +903,7 @@ shape = SubResource("BoxShape3D_uboid")
 
 [node name="ceiling_light" parent="door" unique_id=1176889810 instance=ExtResource("4_djufw")]
 transform = Transform3D(0.8515111, 0, -1.0658141e-14, 0, 1.0000001, 0, 1.0658141e-14, 0, 0.8515111, 2.7268062, 5.0324726, 1.3047497)
+visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="door/ceiling_light" unique_id=1688464250]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02861798, -0.6947758, 0.02307153)
@@ -918,6 +913,7 @@ light_volumetric_fog_energy = 12.321
 omni_attenuation = 2.045
 
 [node name="passageway" type="Node3D" parent="door" unique_id=1614667180]
+visible = false
 
 [node name="doorframes" type="Node3D" parent="door/passageway" unique_id=1622723435]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.335228, 0, 1.3357415)
@@ -974,6 +970,7 @@ debug_color = Color(0, 0.6431373, 0.2784314, 1)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="door" unique_id=586363562]
 transform = Transform3D(1, -9.8680165e-14, -4.3134472e-21, 0, -4.371139e-08, 1, -9.8680165e-14, -1, -4.371139e-08, 0.5404711, 9.480106, 1.2998751)
+visible = false
 light_energy = 1.345
 light_indirect_energy = 0.342
 light_volumetric_fog_energy = 2.365
@@ -991,11 +988,18 @@ shape = SubResource("BoxShape3D_sb4vr")
 
 [node name="hallway" parent="door" unique_id=1216619298 instance=ExtResource("23_g523h")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.335228, 0, 1.3357415)
-visible = false
+
+[node name="sequence_4_trigger" type="Area3D" parent="door" unique_id=340093569]
+transform = Transform3D(2.0161288, 0, -1.2817142e-07, 0, 2.0161288, 0, 1.2817142e-07, 0, 2.0161288, 65.969734, -3.6095653, -0.67797357)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/sequence_4_trigger" unique_id=2057972015]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.83966, 4.660375, -27.39806)
+shape = SubResource("BoxShape3D_lpaod")
+debug_color = Color(1.92523e-07, 0.97408015, 0.9330663, 1)
 
 [connection signal="timeout" from="gamesequence/timer/doorclosevoiceline" to="door" method="_on_doorclosevoiceline_timeout"]
 [connection signal="timeout" from="gamesequence/timer/mainroomtoswitch" to="gamesequence" method="_on_mainroomtoswitch_timeout"]
-[connection signal="body_entered" from="gamesequence/sequence_4_trigger" to="gamesequence" method="_on_sequence_4_trigger_body_entered"]
 [connection signal="timeout" from="door/debounce" to="door" method="_on_debounce_timeout"]
 [connection signal="action_triggered" from="door/HingePivot/InteractableComponent" to="door" method="_door_triggered"]
 [connection signal="body_entered" from="door/HingePivot/InteractableComponent/Contents/PlayerAreaBox" to="door/HingePivot/InteractableComponent" method="_on_player_area_box_body_entered"]
@@ -1009,6 +1013,7 @@ visible = false
 [connection signal="body_entered" from="door/passageway/doorframes/playeroutsideportalnotifier" to="." method="_on_playeroutsideportalnotifier_body_entered"]
 [connection signal="body_exited" from="door/passageway/doorframes/playeroutsideportalnotifier" to="." method="_on_playeroutsideportalnotifier_body_exited"]
 [connection signal="area_entered" from="door/playerlook_notifier" to="gamesequence" method="_on_door_look"]
+[connection signal="body_entered" from="door/sequence_4_trigger" to="gamesequence" method="_on_sequence_4_trigger_body_entered"]
 
 [editable path="phone"]
 [editable path="door/ceiling_light"]
