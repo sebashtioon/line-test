@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://cgbh6pbaquvl7" path="res://ast/textures/door/door_color.png" id="16_hmxxs"]
 [ext_resource type="AudioStream" uid="uid://deathh6l4l2qv" path="res://ast/audio/sfx/lightswitch/lightswitch.wav" id="19_6iek0"]
 [ext_resource type="PackedScene" uid="uid://coxbfnd7vunxq" path="res://ast/actors/architectural/rooms/hallway_new/hallway_new.tscn" id="23_g523h"]
+[ext_resource type="Script" uid="uid://bbrin7tdxbsqs" path="res://ast/actors/architectural/door/variant/door_chamber.gd" id="27_4e4bf"]
 
 [sub_resource type="Animation" id="Animation_4tqcc"]
 length = 0.001
@@ -734,6 +735,7 @@ light_color = Color(0, 0, 0, 1)
 
 [node name="floor1" type="MeshInstance3D" parent="." unique_id=1270133708]
 transform = Transform3D(1244.0197, 0, 0, 0, 1, 0, 0, 0, 1532.0901, 0, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_3eh75")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="floor1" unique_id=560058693]
@@ -929,6 +931,7 @@ shape = SubResource("BoxShape3D_uboid")
 
 [node name="ceiling_light" parent="door" unique_id=1176889810 instance=ExtResource("4_djufw")]
 transform = Transform3D(0.8515111, 0, -1.0658141e-14, 0, 1.0000001, 0, 1.0658141e-14, 0, 0.8515111, 2.7268062, 5.0324726, 1.3047497)
+visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="door/ceiling_light" unique_id=1688464250]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.02861798, -0.6947758, 0.02307153)
@@ -938,6 +941,7 @@ light_volumetric_fog_energy = 12.321
 omni_attenuation = 2.045
 
 [node name="passageway" type="Node3D" parent="door" unique_id=1614667180]
+visible = false
 
 [node name="doorframes" type="Node3D" parent="door/passageway" unique_id=1622723435]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.335228, 0, 1.3357415)
@@ -994,6 +998,7 @@ debug_color = Color(0, 0.6431373, 0.2784314, 1)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="door" unique_id=586363562]
 transform = Transform3D(1, -9.8680165e-14, -4.3134472e-21, 0, -4.371139e-08, 1, -9.8680165e-14, -1, -4.371139e-08, 0.5404711, 9.480106, 1.2998751)
+visible = false
 light_energy = 1.345
 light_indirect_energy = 0.342
 light_volumetric_fog_energy = 2.365
@@ -1011,40 +1016,189 @@ shape = SubResource("BoxShape3D_sb4vr")
 
 [node name="hallway" parent="door" unique_id=1216619298 instance=ExtResource("23_g523h")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.335228, 0, 1.3357415)
-visible = false
 
-[node name="sequence_4_trigger" type="Area3D" parent="door" unique_id=340093569]
-transform = Transform3D(2.0161288, 0, -1.2817142e-07, 0, 2.0161288, 0, 1.2817142e-07, 0, 2.0161288, 65.969734, -3.6095653, -0.67797357)
+[node name="door_chamber" type="Node3D" parent="door" unique_id=1160866947 node_paths=PackedStringArray("DoorAnimation", "HingePivot", "debounce", "mesh", "key")]
+transform = Transform3D(-1, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1, 59.78743, 12.932772, -39.663857)
+script = ExtResource("27_4e4bf")
+DoorAnimation = NodePath("door_animation")
+HingePivot = NodePath("HingePivot")
+debounce = NodePath("debounce")
+mesh = NodePath("HingePivot/mesh")
+key = NodePath("HingePivot/InteractableComponent/Contents/UI/SubViewport/Key")
+
+[node name="debounce" type="Timer" parent="door/door_chamber" unique_id=2054618594]
+wait_time = 0.81
+one_shot = true
+
+[node name="door_animation" type="AnimationPlayer" parent="door/door_chamber" unique_id=707805024]
+libraries/ = SubResource("AnimationLibrary_6iek0")
+
+[node name="lightswitch" type="AudioStreamPlayer3D" parent="door/door_chamber" unique_id=1259196218]
+transform = Transform3D(2.0161288, 0, 0, 0, 2.0161288, 0, 0, 0, 2.0161288, 0.89443207, 0, -0.1447916)
+stream = ExtResource("19_6iek0")
+volume_db = 26.631
+unit_size = 3.0
+max_db = 6.0
+bus = &"sfx"
+
+[node name="HingePivot" type="Node3D" parent="door/door_chamber" unique_id=1460356256]
+transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, 1.3348999, 0, 3.5762787e-07)
+
+[node name="InteractableComponent" type="Node3D" parent="door/door_chamber/HingePivot" unique_id=655036225 node_paths=PackedStringArray("world", "Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3349, 0, 0)
+script = ExtResource("16_2jinp")
+world = NodePath("../../../..")
+Contents_Node = NodePath("Contents")
+UI_Sprite_Node = NodePath("Contents/UI")
+SubViewport_Node = NodePath("Contents/UI/SubViewport")
+ActionToPress = SubResource("InputEventAction_75gw0")
+
+[node name="Contents" type="Node3D" parent="door/door_chamber/HingePivot/InteractableComponent" unique_id=1750342760]
+
+[node name="UI" type="Sprite3D" parent="door/door_chamber/HingePivot/InteractableComponent/Contents" unique_id=1333892725]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+billboard = 1
+no_depth_test = true
+render_priority = 4
+texture = SubResource("ViewportTexture_rxibo")
+
+[node name="SubViewport" type="SubViewport" parent="door/door_chamber/HingePivot/InteractableComponent/Contents/UI" unique_id=359352774]
+transparent_bg = true
+gui_disable_input = true
+size = Vector2i(1150, 1150)
+render_target_update_mode = 4
+
+[node name="Key" type="Label" parent="door/door_chamber/HingePivot/InteractableComponent/Contents/UI/SubViewport" unique_id=1183582424]
+offset_left = 407.695
+offset_top = 500.0
+offset_right = 776.6953
+offset_bottom = 685.0
+scale = Vector2(0.71, 0.71)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("10_6iek0")
+theme_override_font_sizes/font_size = 210
+text = "[E]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerAreaBox" type="Area3D" parent="door/door_chamber/HingePivot/InteractableComponent/Contents" unique_id=603758528]
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="door/sequence_4_trigger" unique_id=2057972015]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/door_chamber/HingePivot/InteractableComponent/Contents/PlayerAreaBox" unique_id=124911013]
+shape = SubResource("BoxShape3D_igycb")
+
+[node name="MimicRaycastBox" type="Area3D" parent="door/door_chamber/HingePivot/InteractableComponent/Contents" unique_id=601451800]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/door_chamber/HingePivot/InteractableComponent/Contents/MimicRaycastBox" unique_id=490544285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00362378, 0.0137178, 0)
+shape = SubResource("BoxShape3D_lutt7")
+
+[node name="mesh" type="MeshInstance3D" parent="door/door_chamber/HingePivot" unique_id=1833869880]
+transform = Transform3D(1.3349999, 0, 0, 0, -4.371138e-09, -2.5850005, 0, 0.09999999, -1.1299396e-07, 9.924173e-05, 0, 0)
+mesh = SubResource("ArrayMesh_suhym")
+
+[node name="dummymesh" type="MeshInstance3D" parent="door/door_chamber/HingePivot" unique_id=1939592274]
+transform = Transform3D(1.3349997, 1.7763568e-15, -2.5410988e-21, -5.4739515e-22, -4.371138e-09, -2.5850005, -1.4210855e-14, 0.09999998, -1.1299396e-07, 9.930134e-05, 0, 0)
+mesh = SubResource("ArrayMesh_lpaod")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="door/door_chamber/HingePivot" unique_id=445794896]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/door_chamber/HingePivot/StaticBody3D" unique_id=925585171]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34296, 0.0108337, 0.00708008)
+shape = SubResource("BoxShape3D_uboid")
+
+[node name="passageway" type="Node3D" parent="door/door_chamber" unique_id=1789937561]
+visible = false
+
+[node name="doorframes" type="Node3D" parent="door/door_chamber/passageway" unique_id=848282151]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.335228, 0, 1.3357415)
+
+[node name="hallway" type="MeshInstance3D" parent="door/door_chamber/passageway/doorframes" unique_id=706340105]
+transform = Transform3D(0, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377534, 2.026558e-06, 0.45000088)
+mesh = SubResource("ArrayMesh_v0ijp")
+
+[node name="stencil_portal" type="MeshInstance3D" parent="door/door_chamber/passageway/doorframes" unique_id=2132169474]
+transform = Transform3D(0, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 0.00033926964, 0.0004940215, -0.09999782)
+transparency = 1.0
+mesh = SubResource("ArrayMesh_2jinp")
+
+[node name="portalswitchnotifier" type="Area3D" parent="door/door_chamber/passageway/doorframes" unique_id=2093669126]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/door_chamber/passageway/doorframes/portalswitchnotifier" unique_id=380409038]
+transform = Transform3D(5.293956e-22, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377533, 1.9073486e-06, 1.1023998)
+shape = SubResource("ConcavePolygonShape3D_nqfqj")
+debug_color = Color(0.9771114, 0, 0.41031632, 0.41960785)
+
+[node name="playernotoutsideportalnotifier" type="Area3D" parent="door/door_chamber/passageway/doorframes" unique_id=1410218335]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/door_chamber/passageway/doorframes/playernotoutsideportalnotifier" unique_id=1286578187]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4173559, -0.09408593, 3.8520813)
+shape = SubResource("BoxShape3D_hmxxs")
+
+[node name="playeroutsideportalnotifier" type="Area3D" parent="door/door_chamber/passageway/doorframes" unique_id=95605745]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/door_chamber/passageway/doorframes/playeroutsideportalnotifier" unique_id=898837533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16240096, -0.09408593, -0.78175926)
+shape = SubResource("BoxShape3D_8xryq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="door/door_chamber/passageway" unique_id=964666687]
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/door_chamber/passageway/StaticBody3D" unique_id=577143954]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0822754, -0.007995367, 3.6187468)
+shape = SubResource("BoxShape3D_fgovh")
+debug_color = Color(0, 0.6431373, 0.2784314, 1)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="door/door_chamber/passageway/StaticBody3D" unique_id=1317235441]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0822754, -0.007995367, -0.7221344)
+shape = SubResource("BoxShape3D_fgovh")
+debug_color = Color(0, 0.6431373, 0.2784314, 1)
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="door/door_chamber/passageway/StaticBody3D" unique_id=2017541249]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.1073303, -0.007995367, 1.3952255)
+shape = SubResource("BoxShape3D_2jinp")
+debug_color = Color(0, 0.6431373, 0.2784314, 1)
+
+[node name="sequence_triggers" type="Node3D" parent="door" unique_id=1132786876]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3841858e-07, -3.8146973e-06)
+
+[node name="sequence_4_trigger" type="Area3D" parent="door/sequence_triggers" unique_id=340093569]
+transform = Transform3D(2.0161288, 0, -1.2817142e-07, 0, 2.0161288, 0, 1.2817142e-07, 0, 2.0161288, 65.969734, -3.6095655, -0.6779698)
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/sequence_triggers/sequence_4_trigger" unique_id=2057972015]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.83966, 4.660375, -27.39806)
 shape = SubResource("BoxShape3D_lpaod")
 debug_color = Color(1.92523e-07, 0.97408015, 0.9330663, 1)
 
-[node name="hallway_end_trigger" type="Area3D" parent="door" unique_id=1776084776]
-transform = Transform3D(2.0161288, 0, -1.2817142e-07, 0, 2.0161288, 0, 1.2817142e-07, 0, 2.0161288, 65.969734, -3.6095653, -0.67797357)
+[node name="hallway_end_trigger" type="Area3D" parent="door/sequence_triggers" unique_id=1776084776]
+transform = Transform3D(2.0161288, 0, -1.2817142e-07, 0, 2.0161288, 0, 1.2817142e-07, 0, 2.0161288, 65.969734, -3.6095655, -0.6779698)
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="door/hallway_end_trigger" unique_id=1685585621]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/sequence_triggers/hallway_end_trigger" unique_id=1685585621]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5772171, 7.4566045, -23.221333)
 shape = SubResource("BoxShape3D_lpaod")
 debug_color = Color(1.92523e-07, 0.97408015, 0.9330663, 1)
 
-[node name="hallway_warning_trigger" type="Area3D" parent="door" unique_id=1786176711]
-transform = Transform3D(2.0161288, 0, -1.2817142e-07, 0, 2.0161288, 0, 1.2817142e-07, 0, 2.0161288, 65.969734, -3.6095653, -0.67797357)
+[node name="hallway_warning_trigger" type="Area3D" parent="door/sequence_triggers" unique_id=1786176711]
+transform = Transform3D(2.0161288, 0, -1.2817142e-07, 0, 2.0161288, 0, 1.2817142e-07, 0, 2.0161288, 65.969734, -3.6095655, -0.6779698)
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="door/hallway_warning_trigger" unique_id=926450615]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/sequence_triggers/hallway_warning_trigger" unique_id=926450615]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.041405, 12.496658, 34.99441)
 shape = SubResource("BoxShape3D_lpaod")
 debug_color = Color(1.92523e-07, 0.97408015, 0.9330663, 1)
 
-[node name="hallway_warning2_trigger" type="Area3D" parent="door" unique_id=696842857]
-transform = Transform3D(2.0161288, 0, -1.2817142e-07, 0, 2.0161288, 0, 1.2817142e-07, 0, 2.0161288, 65.969734, -3.6095653, -0.67797357)
+[node name="hallway_warning2_trigger" type="Area3D" parent="door/sequence_triggers" unique_id=696842857]
+transform = Transform3D(2.0161288, 0, -1.2817142e-07, 0, 2.0161288, 0, 1.2817142e-07, 0, 2.0161288, 65.969734, -3.6095655, -0.6779698)
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="door/hallway_warning2_trigger" unique_id=1467981536]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/sequence_triggers/hallway_warning2_trigger" unique_id=1467981536]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.665464, 14.202261, 0.4342506)
 shape = SubResource("BoxShape3D_w0ps7")
 debug_color = Color(1.92523e-07, 0.97408015, 0.9330663, 1)
@@ -1064,10 +1218,22 @@ debug_color = Color(1.92523e-07, 0.97408015, 0.9330663, 1)
 [connection signal="body_entered" from="door/passageway/doorframes/playeroutsideportalnotifier" to="." method="_on_playeroutsideportalnotifier_body_entered"]
 [connection signal="body_exited" from="door/passageway/doorframes/playeroutsideportalnotifier" to="." method="_on_playeroutsideportalnotifier_body_exited"]
 [connection signal="area_entered" from="door/playerlook_notifier" to="gamesequence" method="_on_door_look"]
-[connection signal="body_entered" from="door/sequence_4_trigger" to="gamesequence" method="_on_sequence_4_trigger_body_entered"]
-[connection signal="body_entered" from="door/hallway_end_trigger" to="gamesequence" method="_on_hallway_end_trigger_body_entered"]
-[connection signal="body_entered" from="door/hallway_warning_trigger" to="gamesequence" method="_on_hallway_warning_trigger_body_entered"]
-[connection signal="body_entered" from="door/hallway_warning2_trigger" to="gamesequence" method="_on_hallway_warning_2_trigger_body_entered"]
+[connection signal="timeout" from="door/door_chamber/debounce" to="door/door_chamber" method="_on_debounce_timeout"]
+[connection signal="action_triggered" from="door/door_chamber/HingePivot/InteractableComponent" to="door/door_chamber" method="_door_triggered"]
+[connection signal="body_entered" from="door/door_chamber/HingePivot/InteractableComponent/Contents/PlayerAreaBox" to="door/door_chamber/HingePivot/InteractableComponent" method="_on_player_area_box_body_entered"]
+[connection signal="body_exited" from="door/door_chamber/HingePivot/InteractableComponent/Contents/PlayerAreaBox" to="door/door_chamber/HingePivot/InteractableComponent" method="_on_player_area_box_body_exited"]
+[connection signal="area_entered" from="door/door_chamber/HingePivot/InteractableComponent/Contents/MimicRaycastBox" to="door/door_chamber/HingePivot/InteractableComponent" method="_on_mimic_raycast_box_area_entered"]
+[connection signal="area_exited" from="door/door_chamber/HingePivot/InteractableComponent/Contents/MimicRaycastBox" to="door/door_chamber/HingePivot/InteractableComponent" method="_on_mimic_raycast_box_area_exited"]
+[connection signal="body_entered" from="door/door_chamber/passageway/doorframes/portalswitchnotifier" to="." method="_on_portalswitchnotifier_body_entered"]
+[connection signal="body_exited" from="door/door_chamber/passageway/doorframes/portalswitchnotifier" to="." method="_on_portalswitchnotifier_body_exited"]
+[connection signal="body_entered" from="door/door_chamber/passageway/doorframes/playernotoutsideportalnotifier" to="." method="_on_playernotoutsideportalnotifier_body_entered"]
+[connection signal="body_exited" from="door/door_chamber/passageway/doorframes/playernotoutsideportalnotifier" to="." method="_on_playernotoutsideportalnotifier_body_exited"]
+[connection signal="body_entered" from="door/door_chamber/passageway/doorframes/playeroutsideportalnotifier" to="." method="_on_playeroutsideportalnotifier_body_entered"]
+[connection signal="body_exited" from="door/door_chamber/passageway/doorframes/playeroutsideportalnotifier" to="." method="_on_playeroutsideportalnotifier_body_exited"]
+[connection signal="body_entered" from="door/sequence_triggers/sequence_4_trigger" to="gamesequence" method="_on_sequence_4_trigger_body_entered"]
+[connection signal="body_entered" from="door/sequence_triggers/hallway_end_trigger" to="gamesequence" method="_on_hallway_end_trigger_body_entered"]
+[connection signal="body_entered" from="door/sequence_triggers/hallway_warning_trigger" to="gamesequence" method="_on_hallway_warning_trigger_body_entered"]
+[connection signal="body_entered" from="door/sequence_triggers/hallway_warning2_trigger" to="gamesequence" method="_on_hallway_warning_2_trigger_body_entered"]
 
 [editable path="phone"]
 [editable path="door/ceiling_light"]
