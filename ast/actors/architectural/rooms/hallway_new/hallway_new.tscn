@@ -106,6 +106,42 @@ emission_energy_multiplier = 2.88
 
 [sub_resource type="BoxMesh" id="BoxMesh_uaeo6"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54f6f"]
+resource_name = "void"
+cull_mode = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_2tybi"]
+_surfaces = [{
+"aabb": AABB(-9.075833, 6.6717253, -2.0361056, 5.1699934, 1e-05, 2.6745555),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwABAAAAAwABAAMAAwADAAAA"),
+"name": "void",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("//8AAP//AAAAAAAAAAAAAAAAAAD//wAA//8AAAAAAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_q5q41"]
+resource_name = "hallway_new_Plane_002"
+_surfaces = [{
+"aabb": AABB(-9.075833, 6.6717253, -2.0361056, 5.1699934, 1e-05, 2.6745555),
+"attribute_data": PackedByteArray("AAD//wAA//8AAP//AAD//wAA//8AAP//"),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAwABAAAABAABAAMABAADAAUA"),
+"material": SubResource("StandardMaterial3D_54f6f"),
+"name": "void",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 6,
+"vertex_data": PackedByteArray("//8AAP///78AAAAAAAD/vwAAAAD///+///8AAAAA/7///wAAAAD/v///AAD///+/AAD/fwAA/38AAP9/AAD/fwAA/38AAP9/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_2tybi")
+
 [node name="hallway_new" type="Node3D" unique_id=1216619298]
 
 [node name="1" type="Node3D" parent="." unique_id=1317200915]
@@ -2198,6 +2234,10 @@ transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
 modulate = Color(0.43647724, 0.4364773, 0.43647727, 1)
 shaded = true
 texture = ExtResource("6_54f6f")
+
+[node name="hallway_001" type="MeshInstance3D" parent="4" unique_id=898863937]
+transform = Transform3D(0, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377534, 2.026558e-06, 0.45000088)
+mesh = SubResource("ArrayMesh_q5q41")
 
 [editable path="1/pictureframes/pictureframe2"]
 [editable path="1/pictureframes/pictureframe22"]

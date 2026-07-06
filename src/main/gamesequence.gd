@@ -13,6 +13,7 @@ var looked_at_door__start : bool = false
 var sequence_4_triggered : bool = false
 var hallway_end_triggered : bool = false
 var hallway_warning_triggered : bool = false
+var hallway_warning2_triggered : bool = false
 
 func reset_flags(to_start : bool = true) -> void:
 	if to_start:
@@ -67,7 +68,10 @@ func _on_hallway_end_trigger_body_entered(body: Node3D) -> void:
 func _on_hallway_warning_trigger_body_entered(body: Node3D) -> void:
 	if !hallway_warning_triggered and body.is_in_group(&"player_body"):
 		$sequence/sequence_5.play("sequence_5/1")
-		
-		
-		# TODO go from here
 		hallway_warning_triggered = true
+
+
+func _on_hallway_warning_2_trigger_body_entered(body: Node3D) -> void:
+	if !hallway_warning2_triggered and body.is_in_group(&"player_body"):
+		$sequence/sequence_5.play("sequence_5/2")
+		hallway_warning2_triggered = true
