@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://hq7gf5jf7kq2"]
+
+[ext_resource type="Texture2D" uid="uid://cdsrhfpbnpd58" path="res://ast/textures/rooms/hallway/wall/hallway-wall-texture.png" id="1_tpck8"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_tpck8")
+uv1_scale = Vector3(0.635, 0.635, 0.635)
+uv1_triplanar = true

@@ -1,17 +1,11 @@
 [gd_scene format=4 uid="uid://coxbfnd7vunxq"]
 
-[ext_resource type="Texture2D" uid="uid://cdsrhfpbnpd58" path="res://ast/textures/rooms/hallway/wall/hallway-wall-texture.png" id="2_i4wpn"]
+[ext_resource type="Material" uid="uid://hq7gf5jf7kq2" path="res://res/mat/hallwaywall.tres" id="1_54f6f"]
 [ext_resource type="PackedScene" uid="uid://5jqrffaeu21m" path="res://ast/actors/props/picture frame/pictureframe.tscn" id="2_uaeo6"]
 [ext_resource type="Texture2D" uid="uid://bl7xpbjjwh2n2" path="res://ast/textures/picframe pictures/picture4.png" id="3_uaeo6"]
 [ext_resource type="Texture2D" uid="uid://qybfvigh1e8y" path="res://ast/textures/picframe pictures/picture1.png" id="4_j2sij"]
 [ext_resource type="Texture2D" uid="uid://bruov4dcpa7jh" path="res://ast/textures/picframe pictures/picture2.png" id="5_54f6f"]
 [ext_resource type="Texture2D" uid="uid://bhfwhboqj41b4" path="res://ast/textures/picframe pictures/picture3.png" id="6_54f6f"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0jbcq"]
-cull_mode = 2
-albedo_texture = ExtResource("2_i4wpn")
-uv1_scale = Vector3(0.635, 0.635, 0.635)
-uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kjm6o"]
 resource_name = "void"
@@ -148,7 +142,7 @@ shadow_mesh = SubResource("ArrayMesh_2tybi")
 
 [node name="hallway" type="MeshInstance3D" parent="1" unique_id=1277146163]
 transform = Transform3D(0, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377534, 2.026558e-06, 0.45000088)
-material_override = SubResource("StandardMaterial3D_0jbcq")
+material_override = ExtResource("1_54f6f")
 mesh = SubResource("ArrayMesh_asrtj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="1/hallway" unique_id=12230758]
@@ -669,7 +663,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -5.3
 
 [node name="hallway" type="MeshInstance3D" parent="2" unique_id=1882162329]
 transform = Transform3D(0, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377534, 2.026558e-06, 0.45000088)
-material_override = SubResource("StandardMaterial3D_0jbcq")
+material_override = ExtResource("1_54f6f")
 mesh = SubResource("ArrayMesh_asrtj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="2/hallway" unique_id=563836176]
@@ -1198,7 +1192,7 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -6.5
 
 [node name="hallway" type="MeshInstance3D" parent="3" unique_id=1092744876]
 transform = Transform3D(0, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377534, 2.026558e-06, 0.45000088)
-material_override = SubResource("StandardMaterial3D_0jbcq")
+material_override = ExtResource("1_54f6f")
 mesh = SubResource("ArrayMesh_asrtj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="3/hallway" unique_id=1596630488]
@@ -1719,7 +1713,7 @@ transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -2.3
 
 [node name="hallway" type="MeshInstance3D" parent="4" unique_id=352646975]
 transform = Transform3D(0, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377534, 2.026558e-06, 0.45000088)
-material_override = SubResource("StandardMaterial3D_0jbcq")
+material_override = ExtResource("1_54f6f")
 mesh = SubResource("ArrayMesh_asrtj")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="4/hallway" unique_id=1203033295]
@@ -1762,6 +1756,11 @@ debug_color = Color(0.91764706, 1, 0.7137255, 1)
 
 [node name="CollisionShape3D18" type="CollisionShape3D" parent="4/hallway/StaticBody3D" unique_id=683711532]
 transform = Transform3D(1, 7.55036e-08, 3.1786527e-08, 7.549224e-08, -1, 4.371138e-08, 3.1786527e-08, -4.3711385e-08, -1, -3.747579, 4.5908833, -0.6811187)
+shape = SubResource("BoxShape3D_h1wap")
+debug_color = Color(0.91764706, 1, 0.7137255, 1)
+
+[node name="CollisionShape3D19" type="CollisionShape3D" parent="4/hallway/StaticBody3D" unique_id=47982795]
+transform = Transform3D(-1.1920363e-07, 1, -2.3849715e-08, 1, 1.1921499e-07, -9.934763e-08, -9.934762e-08, -2.3849722e-08, -1, -6.467087, 6.5233936, -0.6811191)
 shape = SubResource("BoxShape3D_h1wap")
 debug_color = Color(0.91764706, 1, 0.7137255, 1)
 
@@ -2235,8 +2234,9 @@ modulate = Color(0.43647724, 0.4364773, 0.43647727, 1)
 shaded = true
 texture = ExtResource("6_54f6f")
 
-[node name="hallway_001" type="MeshInstance3D" parent="4" unique_id=898863937]
+[node name="wallend" type="MeshInstance3D" parent="4" unique_id=898863937]
 transform = Transform3D(0, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377534, 2.026558e-06, 0.45000088)
+material_override = ExtResource("1_54f6f")
 mesh = SubResource("ArrayMesh_q5q41")
 
 [editable path="1/pictureframes/pictureframe2"]
