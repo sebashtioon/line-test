@@ -3,7 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://cdsrhfpbnpd58" path="res://ast/textures/rooms/hallway/wall/hallway-wall-texture.png" id="1_tpck8"]
 
 [resource]
+render_priority = 2
+transparency = 1
 cull_mode = 2
+depth_draw_mode = 1
 albedo_texture = ExtResource("1_tpck8")
 uv1_scale = Vector3(0.635, 0.635, 0.635)
 uv1_triplanar = true
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+stencil_reference = 2

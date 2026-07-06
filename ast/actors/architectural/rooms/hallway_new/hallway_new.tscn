@@ -100,6 +100,9 @@ emission_energy_multiplier = 2.88
 
 [sub_resource type="BoxMesh" id="BoxMesh_uaeo6"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_akmn7"]
+size = Vector3(5.2111816, 0.5336914, 32.610054)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54f6f"]
 resource_name = "void"
 cull_mode = 2
@@ -1259,8 +1262,8 @@ shape = SubResource("BoxShape3D_k3o06")
 debug_color = Color(0.91764706, 1, 0.7137255, 1)
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="3/hallway/StaticBody3D" unique_id=841110078]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.006471778, -17.85037, -53.06321)
-shape = SubResource("BoxShape3D_uaeo6")
+transform = Transform3D(1, 0, -2.1175824e-22, -1.0587912e-22, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.0064764023, -13.138412, -53.06321)
+shape = SubResource("BoxShape3D_akmn7")
 debug_color = Color(0.91764706, 1, 0.7137255, 1)
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="3/hallway/StaticBody3D" unique_id=1750675755]
