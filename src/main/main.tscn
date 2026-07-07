@@ -1042,17 +1042,6 @@ transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2973871, 0.7241516, 1.2963306)
 shape = SubResource("BoxShape3D_sb4vr")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="door" unique_id=586363562]
-transform = Transform3D(2.0161288, -1.9895197e-13, -8.893846e-21, 0, -8.812779e-08, 2.0161288, -1.9895197e-13, -2.0161288, -8.812779e-08, 0.54047394, 9.480106, 1.299875)
-visible = false
-light_energy = 1.345
-light_indirect_energy = 0.342
-light_volumetric_fog_energy = 2.365
-spot_range = 6.5
-spot_attenuation = -2.05
-spot_angle = 24.66
-spot_angle_attenuation = 1.1486968
-
 [node name="HingePivot" type="Node3D" parent="door" unique_id=1188546004]
 transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, 1.3348999, 0, 3.5762787e-07)
 
@@ -1187,6 +1176,17 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.1
 shape = SubResource("BoxShape3D_2jinp")
 debug_color = Color(0, 0.6431373, 0.2784314, 1)
 
+[node name="SpotLight3D" type="SpotLight3D" parent="door" unique_id=586363562]
+transform = Transform3D(1, -9.8680165e-14, -4.3134472e-21, 0, -4.371139e-08, 1, -9.8680165e-14, -1, -4.371139e-08, 0.5404711, 9.480106, 1.2998751)
+visible = false
+light_energy = 1.345
+light_indirect_energy = 0.342
+light_volumetric_fog_energy = 2.365
+spot_range = 6.5
+spot_attenuation = -2.05
+spot_angle = 24.66
+spot_angle_attenuation = 1.1486968
+
 [node name="hallway" parent="door" unique_id=1216619298 instance=ExtResource("23_g523h")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.335228, 0, 1.3357415)
 
@@ -1231,6 +1231,7 @@ debug_color = Color(1.92523e-07, 0.97408015, 0.9330663, 1)
 
 [node name="door_chamber" type="Node3D" parent="door" unique_id=1160866947 node_paths=PackedStringArray("DoorAnimation", "HingePivot", "debounce", "mesh", "key")]
 transform = Transform3D(-1, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1, 59.783844, 12.932772, -40.037945)
+visible = false
 script = ExtResource("27_4e4bf")
 DoorAnimation = NodePath("door_animation")
 HingePivot = NodePath("HingePivot")

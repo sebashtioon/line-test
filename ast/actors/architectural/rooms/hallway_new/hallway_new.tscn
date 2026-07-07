@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://coxbfnd7vunxq"]
 
 [ext_resource type="Material" uid="uid://hq7gf5jf7kq2" path="res://res/mat/hallwaywall.tres" id="1_54f6f"]
+[ext_resource type="Script" uid="uid://b2mfluh7tgbli" path="res://ast/actors/architectural/rooms/hallway_new/hallway_new.gd" id="1_itq6v"]
 [ext_resource type="PackedScene" uid="uid://5jqrffaeu21m" path="res://ast/actors/props/picture frame/pictureframe.tscn" id="2_uaeo6"]
 [ext_resource type="Texture2D" uid="uid://bl7xpbjjwh2n2" path="res://ast/textures/picframe pictures/picture4.png" id="3_uaeo6"]
 [ext_resource type="Texture2D" uid="uid://qybfvigh1e8y" path="res://ast/textures/picframe pictures/picture1.png" id="4_j2sij"]
@@ -213,7 +214,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_2tybi")
 
-[node name="hallway_new" type="Node3D" unique_id=1216619298]
+[node name="hallway_new" type="Node3D" unique_id=1216619298 node_paths=PackedStringArray("walldoor")]
+script = ExtResource("1_itq6v")
+walldoor = NodePath("3/walldoor")
 
 [node name="1" type="Node3D" parent="." unique_id=1317200915]
 
@@ -1787,6 +1790,7 @@ texture = ExtResource("6_54f6f")
 
 [node name="walldoor" type="MeshInstance3D" parent="3" unique_id=1262729386]
 transform = Transform3D(0, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377534, 2.026558e-06, 0.45000088)
+material_override = ExtResource("1_54f6f")
 mesh = SubResource("ArrayMesh_yvnke")
 
 [node name="4" type="Node3D" parent="." unique_id=750608009]

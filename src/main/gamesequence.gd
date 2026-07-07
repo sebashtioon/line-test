@@ -45,7 +45,7 @@ func goto_hallway() -> void:
 	
 	await get_tree().create_timer(2.4).timeout
 	$sequence/sequence_preset001.play("sequence_preset001/main")
-	
+
 
 func _on_mainroomtoswitch_timeout() -> void:
 	if !PlayerGlobal.world.player_in_front_of_portal:
@@ -60,8 +60,8 @@ func _on_hallway_end_trigger_body_entered(body: Node3D) -> void:
 	if !hallway_end_triggered and body.is_in_group(&"player_body"):
 		$sequence/sequence_preset002.play("sequence_preset002/main")
 		
-		
-		# TODO go from here
+		$"../door/door_chamber".visible = true
+		$"../door/hallway".walldoor.visible = false
 		hallway_end_triggered = true
 
 
