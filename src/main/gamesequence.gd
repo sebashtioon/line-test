@@ -15,6 +15,8 @@ var hallway_end_triggered : bool = false
 var hallway_warning_triggered : bool = false
 var hallway_warning2_triggered : bool = false
 
+var in_chamberdoor_hallway : bool = false
+
 func reset_flags(to_start : bool = true) -> void:
 	if to_start:
 		door_spawned__start = false
@@ -75,3 +77,14 @@ func _on_hallway_warning_2_trigger_body_entered(body: Node3D) -> void:
 	if !hallway_warning2_triggered and body.is_in_group(&"player_body"):
 		$sequence/sequence_5.play("sequence_5/2")
 		hallway_warning2_triggered = true
+
+
+
+
+func _on_chamberdoor_portalswitchnotifier_body_entered(body: Node3D) -> void:
+	if body.is_in_group(&"player_body"):
+		in_chamberdoor_hallway = true
+
+func _on_chamberdoor_portalswitchnotifier_body_exited(body: Node3D) -> void:
+	if body.is_in_group(&"player_body"):
+		in_chamberdoor_hallway = false

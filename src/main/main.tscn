@@ -1231,7 +1231,6 @@ debug_color = Color(1.92523e-07, 0.97408015, 0.9330663, 1)
 
 [node name="door_chamber" type="Node3D" parent="door" unique_id=1160866947 node_paths=PackedStringArray("DoorAnimation", "HingePivot", "debounce", "mesh", "key")]
 transform = Transform3D(-1, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1, 59.783844, 12.932772, -40.037945)
-visible = false
 script = ExtResource("27_4e4bf")
 DoorAnimation = NodePath("door_animation")
 HingePivot = NodePath("HingePivot")
@@ -1402,6 +1401,8 @@ debug_color = Color(0, 0.6431373, 0.2784314, 1)
 [connection signal="body_exited" from="door/door_chamber/HingePivot/InteractableComponent/Contents/PlayerAreaBox" to="door/door_chamber/HingePivot/InteractableComponent" method="_on_player_area_box_body_exited"]
 [connection signal="area_entered" from="door/door_chamber/HingePivot/InteractableComponent/Contents/MimicRaycastBox" to="door/door_chamber/HingePivot/InteractableComponent" method="_on_mimic_raycast_box_area_entered"]
 [connection signal="area_exited" from="door/door_chamber/HingePivot/InteractableComponent/Contents/MimicRaycastBox" to="door/door_chamber/HingePivot/InteractableComponent" method="_on_mimic_raycast_box_area_exited"]
+[connection signal="body_entered" from="door/door_chamber/passageway/doorframes/portalswitchnotifier" to="gamesequence" method="_on_chamberdoor_portalswitchnotifier_body_entered"]
+[connection signal="body_exited" from="door/door_chamber/passageway/doorframes/portalswitchnotifier" to="gamesequence" method="_on_chamberdoor_portalswitchnotifier_body_exited"]
 [connection signal="body_entered" from="door/door_chamber/passageway/doorframes/playernotoutsideportalnotifier" to="." method="_on_playernotoutsideportalnotifier_body_entered"]
 [connection signal="body_exited" from="door/door_chamber/passageway/doorframes/playernotoutsideportalnotifier" to="." method="_on_playernotoutsideportalnotifier_body_exited"]
 [connection signal="body_entered" from="door/door_chamber/passageway/doorframes/playeroutsideportalnotifier" to="." method="_on_playeroutsideportalnotifier_body_entered"]
