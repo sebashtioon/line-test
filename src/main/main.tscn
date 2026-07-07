@@ -108,7 +108,7 @@ material = SubResource("StandardMaterial3D_djufw")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3s6yk"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4e4bf"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_4iboa"]
 viewport_path = NodePath("interactablecomponent/Contents/UI/SubViewport")
 
 [sub_resource type="Animation" id="Animation_hmxxs"]
@@ -166,6 +166,9 @@ _data = {
 &"close": SubResource("Animation_6iek0"),
 &"open": SubResource("Animation_2jinp")
 }
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sb4vr"]
+size = Vector3(8.530212, 8.448303, 7.463852)
 
 [sub_resource type="InputEventAction" id="InputEventAction_75gw0"]
 action = &"interact"
@@ -506,9 +509,6 @@ size = Vector3(6.5657806, 5.271118, 0.23303223)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2jinp"]
 size = Vector3(4.7025867, 5.271118, 0.23303223)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_sb4vr"]
-size = Vector3(8.530212, 8.448303, 7.463852)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lpaod"]
 size = Vector3(0.6335449, 2.215332, 1.4400635)
@@ -1006,7 +1006,7 @@ spot_angle_attenuation = 84.44943
 transform = Transform3D(0.03307319, 0, -0.33164334, 0, 0.33328834, 0, 0.33164334, 0, 0.03307319, 0, 1.75, 0)
 
 [node name="UI" parent="phone/interactablecomponent/Contents" parent_id_path=PackedInt32Array(966887196, 2114968064) index="0" unique_id=897521712]
-texture = SubResource("ViewportTexture_4e4bf")
+texture = SubResource("ViewportTexture_4iboa")
 
 [node name="door" type="Node3D" parent="." unique_id=791941259 node_paths=PackedStringArray("DoorAnimation", "HingePivot", "debounce", "mesh", "key", "doorclosevoiceline", "sequence_3", "mainroomtoswitch")]
 transform = Transform3D(0.49600005, 0, 3.1532227e-08, 0, 0.49600005, 0, -3.1532227e-08, 0, 0.49600005, -32.720993, 1.7903446, 0.336277)
@@ -1034,6 +1034,24 @@ volume_db = 26.631
 unit_size = 3.0
 max_db = 6.0
 bus = &"sfx"
+
+[node name="playerlook_notifier" type="Area3D" parent="door" unique_id=457275568]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/playerlook_notifier" unique_id=812114814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2973871, 0.7241516, 1.2963306)
+shape = SubResource("BoxShape3D_sb4vr")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="door" unique_id=586363562]
+transform = Transform3D(2.0161288, -1.9895197e-13, -8.893846e-21, 0, -8.812779e-08, 2.0161288, -1.9895197e-13, -2.0161288, -8.812779e-08, 0.54047394, 9.480106, 1.299875)
+visible = false
+light_energy = 1.345
+light_indirect_energy = 0.342
+light_volumetric_fog_energy = 2.365
+spot_range = 6.5
+spot_attenuation = -2.05
+spot_angle = 24.66
+spot_angle_attenuation = 1.1486968
 
 [node name="HingePivot" type="Node3D" parent="door" unique_id=1188546004]
 transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, 1.3348999, 0, 3.5762787e-07)
@@ -1168,24 +1186,6 @@ debug_color = Color(0, 0.6431373, 0.2784314, 1)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.1073303, -0.007995367, 1.3952255)
 shape = SubResource("BoxShape3D_2jinp")
 debug_color = Color(0, 0.6431373, 0.2784314, 1)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="door" unique_id=586363562]
-transform = Transform3D(1, -9.8680165e-14, -4.3134472e-21, 0, -4.371139e-08, 1, -9.8680165e-14, -1, -4.371139e-08, 0.5404711, 9.480106, 1.2998751)
-visible = false
-light_energy = 1.345
-light_indirect_energy = 0.342
-light_volumetric_fog_energy = 2.365
-spot_range = 6.5
-spot_attenuation = -2.05
-spot_angle = 24.66
-spot_angle_attenuation = 1.1486968
-
-[node name="playerlook_notifier" type="Area3D" parent="door" unique_id=457275568]
-transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="door/playerlook_notifier" unique_id=812114814]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2973871, 0.7241516, 1.2963306)
-shape = SubResource("BoxShape3D_sb4vr")
 
 [node name="hallway" parent="door" unique_id=1216619298 instance=ExtResource("23_g523h")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.335228, 0, 1.3357415)
@@ -1379,6 +1379,7 @@ debug_color = Color(0, 0.6431373, 0.2784314, 1)
 [connection signal="timeout" from="gamesequence/timer/doorclosevoiceline" to="door" method="_on_doorclosevoiceline_timeout"]
 [connection signal="timeout" from="gamesequence/timer/mainroomtoswitch" to="gamesequence" method="_on_mainroomtoswitch_timeout"]
 [connection signal="timeout" from="door/debounce" to="door" method="_on_debounce_timeout"]
+[connection signal="area_entered" from="door/playerlook_notifier" to="gamesequence" method="_on_door_look"]
 [connection signal="action_triggered" from="door/HingePivot/InteractableComponent" to="door" method="_door_triggered"]
 [connection signal="body_entered" from="door/HingePivot/InteractableComponent/Contents/PlayerAreaBox" to="door/HingePivot/InteractableComponent" method="_on_player_area_box_body_entered"]
 [connection signal="body_exited" from="door/HingePivot/InteractableComponent/Contents/PlayerAreaBox" to="door/HingePivot/InteractableComponent" method="_on_player_area_box_body_exited"]
@@ -1390,7 +1391,6 @@ debug_color = Color(0, 0.6431373, 0.2784314, 1)
 [connection signal="body_exited" from="door/passageway/doorframes/playernotoutsideportalnotifier" to="." method="_on_playernotoutsideportalnotifier_body_exited"]
 [connection signal="body_entered" from="door/passageway/doorframes/playeroutsideportalnotifier" to="." method="_on_playeroutsideportalnotifier_body_entered"]
 [connection signal="body_exited" from="door/passageway/doorframes/playeroutsideportalnotifier" to="." method="_on_playeroutsideportalnotifier_body_exited"]
-[connection signal="area_entered" from="door/playerlook_notifier" to="gamesequence" method="_on_door_look"]
 [connection signal="body_entered" from="door/sequence_triggers/sequence_4_trigger" to="gamesequence" method="_on_sequence_4_trigger_body_entered"]
 [connection signal="body_entered" from="door/sequence_triggers/hallway_end_trigger" to="gamesequence" method="_on_hallway_end_trigger_body_entered"]
 [connection signal="body_entered" from="door/sequence_triggers/hallway_warning_trigger" to="gamesequence" method="_on_hallway_warning_trigger_body_entered"]

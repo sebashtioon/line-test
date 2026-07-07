@@ -141,6 +141,42 @@ shadow_mesh = SubResource("ArrayMesh_7h021")
 [sub_resource type="BoxShape3D" id="BoxShape3D_akmn7"]
 size = Vector3(5.2111816, 0.5336914, 32.610054)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_itq6v"]
+resource_name = "void"
+cull_mode = 2
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_naq6e"]
+_surfaces = [{
+"aabb": AABB(-2.5372791, -36.1885, -52.795605, 5.1699934, 2.6727142, 1e-05),
+"format": 34896613377,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"name": "void",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAD//6dhAAD//wAAAAAAAAAAAAAAAAAA/////6dhAAA=")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yvnke"]
+resource_name = "hallway_new_withdoor_Plane_004"
+_surfaces = [{
+"aabb": AABB(-2.5372791, -36.1885, -52.795605, 5.1699934, 2.6727142, 1e-05),
+"attribute_data": PackedByteArray("AAD//wAA//8AAP//AAD//w=="),
+"format": 34896613399,
+"index_count": 6,
+"index_data": PackedByteArray("AAABAAIAAAADAAEA"),
+"material": SubResource("StandardMaterial3D_itq6v"),
+"name": "void",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray("AAD//6dh/n///wAAAAD+fwAAAAAAAP5//////6dh/n//f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_naq6e")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54f6f"]
 resource_name = "void"
 cull_mode = 2
@@ -1748,6 +1784,10 @@ transform = Transform3D(0.2, 0, 0, 0, 0.147, 0, 0, 0, 0.695, 0, 0, -0.050672054)
 modulate = Color(0.43647724, 0.4364773, 0.43647727, 1)
 shaded = true
 texture = ExtResource("6_54f6f")
+
+[node name="walldoor" type="MeshInstance3D" parent="3" unique_id=1262729386]
+transform = Transform3D(0, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377534, 2.026558e-06, 0.45000088)
+mesh = SubResource("ArrayMesh_yvnke")
 
 [node name="4" type="Node3D" parent="." unique_id=750608009]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -2.333612, 19.471, -5)
