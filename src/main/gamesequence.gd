@@ -45,6 +45,12 @@ func goto_hallway() -> void:
 	PlayerGlobal.world.env.volumetric_fog_enabled = false
 	$"../door/passageway/StaticBody3D".process_mode = Node.PROCESS_MODE_DISABLED
 	
+	
+	# wont be needing those
+	$"../vintage_table".queue_free()
+	$"../ceiling_light".queue_free()
+	$"../phone".queue_free()
+	
 	await get_tree().create_timer(2.4).timeout
 	$sequence/sequence_preset001.play("sequence_preset001/main")
 
