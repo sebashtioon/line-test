@@ -27,6 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://deathh6l4l2qv" path="res://ast/audio/sfx/lightswitch/lightswitch.wav" id="19_6iek0"]
 [ext_resource type="PackedScene" uid="uid://coxbfnd7vunxq" path="res://ast/actors/architectural/rooms/hallway_new/hallway_new.tscn" id="23_g523h"]
 [ext_resource type="Script" uid="uid://bbrin7tdxbsqs" path="res://ast/actors/architectural/door/variant/door_chamber.gd" id="27_4e4bf"]
+[ext_resource type="Script" uid="uid://bam7xrarx2wdn" path="res://src/interactable component/variant/interactable_component_hallway_door.gd" id="28_4iboa"]
 
 [sub_resource type="Animation" id="Animation_4tqcc"]
 length = 0.001
@@ -124,18 +125,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 1.5707964, 0)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HingePivot/dummymesh:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_6iek0"]
 resource_name = "close"
@@ -153,18 +142,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HingePivot/dummymesh:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.000765446),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [false, true]
-}
 
 [sub_resource type="Animation" id="Animation_2jinp"]
 resource_name = "main"
@@ -181,18 +158,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 1.5707964, 0), Vector3(0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("HingePivot/dummymesh:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6iek0"]
@@ -427,14 +392,16 @@ size = Vector3(2.71497, 5.22467, 0.307129)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nqfqj"]
 resource_name = "void"
-render_priority = 1
+render_priority = 3
 transparency = 1
 cull_mode = 2
+depth_draw_mode = 1
 shading_mode = 0
 disable_fog = true
 albedo_color = Color(0, 0, 0, 1)
 stencil_mode = 3
 stencil_flags = 1
+stencil_compare = 1
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6iek0"]
 _surfaces = [{
@@ -549,6 +516,62 @@ size = Vector3(0.6335449, 2.215332, 1.4400635)
 [sub_resource type="BoxShape3D" id="BoxShape3D_w0ps7"]
 size = Vector3(2.2247925, 2.215332, 1.4400635)
 
+[sub_resource type="Animation" id="Animation_4e4bf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HingePivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4iboa"]
+resource_name = "close"
+length = 0.8
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HingePivot:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dsb4l"]
+resource_name = "main"
+length = 0.8
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HingePivot:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5707964, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wt2p2"]
+_data = {
+&"RESET": SubResource("Animation_4e4bf"),
+&"close": SubResource("Animation_4iboa"),
+&"open": SubResource("Animation_dsb4l")
+}
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4e4bf"]
 resource_name = "Main_Door_Color"
 render_priority = 3
@@ -655,6 +678,50 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_wt2p2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wt2p2"]
+resource_name = "void"
+render_priority = 3
+transparency = 1
+cull_mode = 2
+depth_draw_mode = 1
+shading_mode = 0
+disable_fog = true
+albedo_color = Color(0, 0, 0, 1)
+stencil_flags = 1
+stencil_compare = 1
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4e4bf"]
+_surfaces = [{
+"aabb": AABB(-2.5859768, -1.1966392e-07, -6.017061, 5.171953, 2.6751013, 6.5716844),
+"format": 34359742465,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAgADAAQAAAAFAAEABQAAAAYAAQAHAAMAAQAFAAcABwAEAAMABQAGAAcABwAGAAQA"),
+"name": "void",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("lnAlwPh8ADS+zAw/lnAlQPFIPTXkZcDAlnAlQPh8ALS+zAw/ooAlQM8wK0D/P8DAZWAlQNs0K0DK+w0/lnAlwG2HfTXkZcDApYAlwOorK0CinQs/Z2AlwN4nK0DEi8DA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_4iboa"]
+resource_name = "doorframes_Plane_001"
+_surfaces = [{
+"aabb": AABB(-2.5859768, -1.1966392e-07, -6.017061, 5.171953, 2.6751013, 6.5716844),
+"attribute_data": PackedByteArray("AAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAAAAAAIA/AACAPwAAgD8AAIA/AACAPwAAgD8AAAAAAACAPwAAAAAAAIA/AAAAAAAAAAAAAIA/AACAPwAAgD8AAAAAAAAAAA=="),
+"format": 34359742487,
+"index_count": 30,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
+"material": SubResource("StandardMaterial3D_wt2p2"),
+"name": "void",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 20,
+"vertex_data": PackedByteArray("lnAlwPh8ADS+zAw/lnAlQPFIPTXkZcDAlnAlQPh8ALS+zAw/lnAlwG2HfTXkZcDAZ2AlwN4nK0DEi8DAZWAlQNs0K0DK+w0/ooAlQM8wK0D/P8DApYAlwOorK0CinQs/lnAlwG2HfTXkZcDApYAlwOorK0CinQs/Z2AlwN4nK0DEi8DAlnAlwPh8ADS+zAw/lnAlQPh8ALS+zAw/ooAlQM8wK0D/P8DAZWAlQNs0K0DK+w0/lnAlQPFIPTXkZcDAlnAlQPFIPTXkZcDAZ2AlwN4nK0DEi8DAooAlQM8wK0D/P8DAlnAlwG2HfTXkZcDA/3///////7//f///////v/9///////+//3///////78CgAMAwP8AwAKAAwDA/wDAAoADAMD/AMACgAMAwP8AwPv//3////8/+///f////z/7//9/////P/v//3////8/AAACgP///z8AAAKA////PwAAAoD///8/AAACgP///z/if/9/3v/+P+J//3/h//8/4n//f97//j/if/9/4f//Pw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_4e4bf")
 
 [node name="world" type="Node3D" unique_id=1303824382 node_paths=PackedStringArray("mainmenu_camera", "gamemanager", "gamesequence", "hallway", "door_mesh", "door", "door_ui_node", "hallway_collision")]
 script = ExtResource("1_3eh75")
@@ -908,7 +975,7 @@ visible = false
 shape = SubResource("ConcavePolygonShape3D_3s6yk")
 
 [node name="player" parent="." unique_id=838546913 instance=ExtResource("2_3s6yk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.386342, 7.381167, -16.458813)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2358556, 6.872223, -18.081928)
 
 [node name="vintage_table" parent="." unique_id=405293067 instance=ExtResource("3_ab7mr")]
 transform = Transform3D(0.4498767, 0, 0, 0, 0.4498767, 0, 0, 0, 0.4498767, 0, 0.625074, 0)
@@ -1050,7 +1117,7 @@ omni_attenuation = 2.045
 visible = false
 
 [node name="doorframes" type="Node3D" parent="door/passageway" unique_id=1622723435]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.335228, 0, 1.3357415)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.2266167, 0, 1.3357415)
 
 [node name="hallway" type="MeshInstance3D" parent="door/passageway/doorframes" unique_id=1042418512]
 transform = Transform3D(0, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377534, 2.026558e-06, 0.45000088)
@@ -1163,7 +1230,7 @@ shape = SubResource("BoxShape3D_w0ps7")
 debug_color = Color(1.92523e-07, 0.97408015, 0.9330663, 1)
 
 [node name="door_chamber" type="Node3D" parent="door" unique_id=1160866947 node_paths=PackedStringArray("DoorAnimation", "HingePivot", "debounce", "mesh", "key")]
-transform = Transform3D(-1, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1, 59.78743, 12.932772, -39.663857)
+transform = Transform3D(-1, 0, -8.7422784e-08, 0, 1, 0, 8.7422784e-08, 0, -1, 59.783844, 12.932772, -40.037945)
 script = ExtResource("27_4e4bf")
 DoorAnimation = NodePath("door_animation")
 HingePivot = NodePath("HingePivot")
@@ -1176,7 +1243,7 @@ wait_time = 0.81
 one_shot = true
 
 [node name="door_animation" type="AnimationPlayer" parent="door/door_chamber" unique_id=707805024]
-libraries/ = SubResource("AnimationLibrary_6iek0")
+libraries/ = SubResource("AnimationLibrary_wt2p2")
 
 [node name="lightswitch" type="AudioStreamPlayer3D" parent="door/door_chamber" unique_id=1259196218]
 transform = Transform3D(2.0161288, 0, 0, 0, 2.0161288, 0, 0, 0, 2.0161288, 0.89443207, 0, -0.1447916)
@@ -1191,7 +1258,7 @@ transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4
 
 [node name="InteractableComponent" type="Node3D" parent="door/door_chamber/HingePivot" unique_id=655036225 node_paths=PackedStringArray("world", "Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3349, 0, 0)
-script = ExtResource("16_2jinp")
+script = ExtResource("28_4iboa")
 world = NodePath("../../../..")
 Contents_Node = NodePath("Contents")
 UI_Sprite_Node = NodePath("Contents/UI")
@@ -1254,18 +1321,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34296, 0.0108337, 0.007080
 shape = SubResource("BoxShape3D_uboid")
 
 [node name="passageway" type="Node3D" parent="door/door_chamber" unique_id=1789937561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005962385, 0, 0)
 
 [node name="doorframes" type="Node3D" parent="door/door_chamber/passageway" unique_id=848282151]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.335228, 0, 1.3357415)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.2563744, 0, 1.3357415)
 
 [node name="hallway" type="MeshInstance3D" parent="door/door_chamber/passageway/doorframes" unique_id=706340105]
 transform = Transform3D(0, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377534, 2.026558e-06, 0.45000088)
-mesh = SubResource("ArrayMesh_v0ijp")
-
-[node name="stencil_portal" type="MeshInstance3D" parent="door/door_chamber/passageway/doorframes" unique_id=2132169474]
-transform = Transform3D(0, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 0.00033926964, 0.0004940215, -0.09999782)
-transparency = 1.0
-mesh = SubResource("ArrayMesh_2jinp")
+mesh = SubResource("ArrayMesh_4iboa")
 
 [node name="portalswitchnotifier" type="Area3D" parent="door/door_chamber/passageway/doorframes" unique_id=2093669126]
 collision_layer = 4
@@ -1295,6 +1358,11 @@ collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="door/door_chamber/passageway/StaticBody3D" unique_id=577143954]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0822754, -0.007995367, 3.6187468)
+shape = SubResource("BoxShape3D_fgovh")
+debug_color = Color(0, 0.6431373, 0.2784314, 1)
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="door/door_chamber/passageway/StaticBody3D" unique_id=938873262]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -1.9495152, -2.7122154, 1.1964875)
 shape = SubResource("BoxShape3D_fgovh")
 debug_color = Color(0, 0.6431373, 0.2784314, 1)
 
@@ -1333,8 +1401,6 @@ debug_color = Color(0, 0.6431373, 0.2784314, 1)
 [connection signal="body_exited" from="door/door_chamber/HingePivot/InteractableComponent/Contents/PlayerAreaBox" to="door/door_chamber/HingePivot/InteractableComponent" method="_on_player_area_box_body_exited"]
 [connection signal="area_entered" from="door/door_chamber/HingePivot/InteractableComponent/Contents/MimicRaycastBox" to="door/door_chamber/HingePivot/InteractableComponent" method="_on_mimic_raycast_box_area_entered"]
 [connection signal="area_exited" from="door/door_chamber/HingePivot/InteractableComponent/Contents/MimicRaycastBox" to="door/door_chamber/HingePivot/InteractableComponent" method="_on_mimic_raycast_box_area_exited"]
-[connection signal="body_entered" from="door/door_chamber/passageway/doorframes/portalswitchnotifier" to="." method="_on_portalswitchnotifier_body_entered"]
-[connection signal="body_exited" from="door/door_chamber/passageway/doorframes/portalswitchnotifier" to="." method="_on_portalswitchnotifier_body_exited"]
 [connection signal="body_entered" from="door/door_chamber/passageway/doorframes/playernotoutsideportalnotifier" to="." method="_on_playernotoutsideportalnotifier_body_entered"]
 [connection signal="body_exited" from="door/door_chamber/passageway/doorframes/playernotoutsideportalnotifier" to="." method="_on_playernotoutsideportalnotifier_body_exited"]
 [connection signal="body_entered" from="door/door_chamber/passageway/doorframes/playeroutsideportalnotifier" to="." method="_on_playeroutsideportalnotifier_body_entered"]
