@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bfgklkyhhw8tr"
 path.s3tc="res://.godot/imported/cheese_pizza.png-1ffb4fd9c84bb212bac08c83abfa82c1.s3tc.ctex"
+path.etc2="res://.godot/imported/cheese_pizza.png-1ffb4fd9c84bb212bac08c83abfa82c1.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://ast/models/textures/cheese_pizza.png"
-dest_files=["res://.godot/imported/cheese_pizza.png-1ffb4fd9c84bb212bac08c83abfa82c1.s3tc.ctex"]
+dest_files=["res://.godot/imported/cheese_pizza.png-1ffb4fd9c84bb212bac08c83abfa82c1.s3tc.ctex", "res://.godot/imported/cheese_pizza.png-1ffb4fd9c84bb212bac08c83abfa82c1.etc2.ctex"]
 
 [params]
 
