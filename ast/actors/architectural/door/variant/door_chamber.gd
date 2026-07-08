@@ -50,4 +50,12 @@ func _on_door_animation_animation_finished(anim_name: StringName) -> void:
 		
 		await get_tree().create_timer(3.9).timeout
 		
-		print("end")
+		$"../../gamemanager/fadelayer/fade".modulate = Color(1, 1, 1, 0)
+		$"../../gamemanager/fadelayer/fade".visible = true
+		
+		var tween = get_tree().create_tween()
+		tween.connect("finished", goto_end)
+		tween.tween_property($"../../gamemanager/fadelayer/fade", "modulate:a", 1, 3)
+
+func goto_end() -> void:
+	pass
