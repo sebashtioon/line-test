@@ -48,11 +48,12 @@ func _door_triggered() -> void:
 			DOOR_STATE = DOOR_STATES.CLOSED
 			DoorAnimation.play(&"close")
 			
-			if PlayerGlobal.world.player_in_portal_room:
+			if PlayerGlobal.world.player_in_portal_room and can_interact_with_door:
 				key.visible = false
 				can_interact_with_door = false
 				
 				# actually start the next room
+				print("go")
 				mainroomtoswitch.start()
 			
 		start_debounce()

@@ -34,25 +34,26 @@ func _on_door_look(area: Area3D) -> void:
 		looked_at_door__start = true
 
 func goto_hallway() -> void:
-	PlayerGlobal.player_location = PlayerGlobal.PlayerLoc.HALLWAY
-	lightswitch.play()
-	$"../door/hallway".visible = true
-	$"../door/passageway".visible = false
-	$"../floor1".visible = false
-	$"../door/SpotLight3D".visible = false
-	$"../door/ceiling_light".visible = false
-	PlayerGlobal.world.env.glow_enabled = true
-	PlayerGlobal.world.env.volumetric_fog_enabled = false
-	$"../door/passageway/StaticBody3D".process_mode = Node.PROCESS_MODE_DISABLED
-	
-	
-	# wont be needing those
-	$"../vintage_table".queue_free()
-	$"../ceiling_light".queue_free()
-	$"../phone".queue_free()
-	
-	await get_tree().create_timer(2.4).timeout
-	$sequence/sequence_preset001.play("sequence_preset001/main")
+	if PlayerGlobal.world.player_in_portal_room:
+		PlayerGlobal.player_location = PlayerGlobal.PlayerLoc.HALLWAY
+		$"../door/hallway".process_mode = Node.PROCESS_MODE_INHERIT
+		lightswitch.play()
+		$"../door/hallway".visible = true
+		$"../door/passageway".visible = false
+		$"../floor1".visible = false
+		$"../door/SpotLight3D".visible = false
+		$"../door/ceiling_light".visible = false
+		PlayerGlobal.world.env.glow_enabled = true
+		PlayerGlobal.world.env.volumetric_fog_enabled = false
+		$"../door/passageway/StaticBody3D".process_mode = Node.PROCESS_MODE_DISABLED
+		
+		# wont be needing those
+		$"../vintage_table".queue_free()
+		$"../ceiling_light".queue_free()
+		$"../phone".queue_free()
+		
+		await get_tree().create_timer(2.4).timeout
+		$sequence/sequence_preset001.play("sequence_preset001/main")
 
 
 func _on_mainroomtoswitch_timeout() -> void:
