@@ -140,7 +140,10 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7h021")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_akmn7"]
-size = Vector3(5.2111816, 0.5336914, 32.610054)
+size = Vector3(5.2111816, 0.5336914, 36.71053)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gx83i"]
+size = Vector3(5.2111816, 0.5336914, 2.9404168)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_itq6v"]
 resource_name = "void"
@@ -1339,8 +1342,18 @@ shape = SubResource("BoxShape3D_k3o06")
 debug_color = Color(0.91764706, 1, 0.7137255, 1)
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="3/hallway/StaticBody3D" unique_id=841110078]
-transform = Transform3D(1, 0, -2.1175824e-22, -1.0587912e-22, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.0064764023, -13.138412, -53.06321)
+transform = Transform3D(1, 0, -2.1175824e-22, -1.0587912e-22, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.0064811707, -14.02829, -53.06321)
 shape = SubResource("BoxShape3D_akmn7")
+debug_color = Color(0.91764706, 1, 0.7137255, 1)
+
+[node name="thing" type="CollisionShape3D" parent="3/hallway/StaticBody3D" unique_id=849965794]
+transform = Transform3D(1, 0, -2.1175824e-22, -1.0587912e-22, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.0064935684, -15.188637, -52.96603)
+shape = SubResource("BoxShape3D_akmn7")
+debug_color = Color(0.91764706, 1, 0.7137255, 1)
+
+[node name="thing2" type="CollisionShape3D" parent="3/hallway/StaticBody3D" unique_id=189684165]
+transform = Transform3D(1, 0, -2.1175824e-22, -1.0587912e-22, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.006503105, -37.639095, -52.96603)
+shape = SubResource("BoxShape3D_gx83i")
 debug_color = Color(0.91764706, 1, 0.7137255, 1)
 
 [node name="CollisionShape3D5" type="CollisionShape3D" parent="3/hallway/StaticBody3D" unique_id=1750675755]
@@ -1366,6 +1379,14 @@ debug_color = Color(0.91764706, 1, 0.7137255, 1)
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="3/hallway/StaticBody3D" unique_id=520910612]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.0064715366, -21.28557, -49.866203)
 shape = SubResource("BoxShape3D_uaeo6")
+debug_color = Color(0.91764706, 1, 0.7137255, 1)
+
+[node name="walldoorcollision" type="StaticBody3D" parent="3/hallway" unique_id=1443446962]
+collision_mask = 2
+
+[node name="thing3" type="CollisionShape3D" parent="3/hallway/walldoorcollision" unique_id=438455546]
+transform = Transform3D(1, 0, -2.1175824e-22, -1.0587912e-22, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.006504059, -34.843693, -52.96603)
+shape = SubResource("BoxShape3D_gx83i")
 debug_color = Color(0.91764706, 1, 0.7137255, 1)
 
 [node name="lights" type="Node3D" parent="3" unique_id=1644690907]
@@ -1789,7 +1810,7 @@ shaded = true
 texture = ExtResource("6_54f6f")
 
 [node name="walldoor" type="MeshInstance3D" parent="3" unique_id=1262729386]
-transform = Transform3D(0, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377534, 2.026558e-06, 0.45000088)
+transform = Transform3D(0, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377535, 2.1775538e-06, 2.4500008)
 material_override = ExtResource("1_54f6f")
 mesh = SubResource("ArrayMesh_yvnke")
 
