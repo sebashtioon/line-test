@@ -7,8 +7,3 @@ for hackclub horizons :)
 
 
 ---
-
-
-# todo
-- make "look behind you" voice and door only spawn if the player is within bounds of the table
-
