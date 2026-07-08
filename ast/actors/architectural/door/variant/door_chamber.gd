@@ -47,3 +47,7 @@ func _on_door_animation_animation_finished(anim_name: StringName) -> void:
 	if anim_name == &"close" and PlayerGlobal.world.gamesequence.in_chamberdoor_hallway:
 		can_interact_with_door = false
 		ui.visible = false
+		
+		await get_tree().create_timer(3.9).timeout
+		
+		print("end")
