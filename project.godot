@@ -12,8 +12,10 @@ config_version=5
 
 config/name="line test"
 config/version="1.0"
-run/main_scene="uid://dc16kvdwom4wc"
+run/main_scene="uid://b8m0l4jv2pi3a"
 config/features=PackedStringArray("4.7", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [audio]
@@ -27,6 +29,8 @@ Debug="*uid://d267jijitqcah"
 
 [display]
 
+window/size/mode=4
+window/size/resizable=false
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
