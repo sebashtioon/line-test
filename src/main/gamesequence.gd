@@ -40,7 +40,7 @@ func goto_hallway() -> void:
 		lightswitch.play()
 		$"../door/hallway".visible = true
 		$"../door/passageway".visible = false
-		$"../floor1".visible = false
+		$"../floor".visible = false
 		$"../door/SpotLight3D".visible = false
 		$"../door/ceiling_light".visible = false
 		PlayerGlobal.world.env.glow_enabled = true
@@ -72,6 +72,7 @@ func _on_hallway_end_trigger_body_entered(body: Node3D) -> void:
 		$"../door/door_chamber".visible = true
 		$"../door/hallway".walldoor.visible = false
 		hallway_end_triggered = true
+		$"../door/hallway/3/hallway/walldoorcollision".process_mode = Node.PROCESS_MODE_DISABLED 
 
 
 func _on_hallway_warning_trigger_body_entered(body: Node3D) -> void:
