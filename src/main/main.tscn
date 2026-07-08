@@ -29,6 +29,39 @@
 [ext_resource type="Script" uid="uid://bbrin7tdxbsqs" path="res://ast/actors/architectural/door/variant/door_chamber.gd" id="27_4e4bf"]
 [ext_resource type="Script" uid="uid://bam7xrarx2wdn" path="res://src/interactable component/variant/interactable_component_hallway_door.gd" id="28_4iboa"]
 
+[sub_resource type="Animation" id="Animation_wt2p2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gamesequence/voicelinesubtitles/main/subtitles:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["the floor, the table,
+the light and the phone"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("gamesequence/voicelinesubtitles/main/subtitles:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_40g5d"]
+_data = {
+&"RESET": SubResource("Animation_wt2p2")
+}
+
 [sub_resource type="Animation" id="Animation_4tqcc"]
 length = 0.001
 tracks/0/type = "value"
@@ -125,11 +158,23 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 1.5707964, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HingePivot/dummymesh:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_6iek0"]
 resource_name = "close"
 length = 0.8
-step = 0.0333333
+step = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -142,11 +187,23 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HingePivot/dummymesh:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
 
 [sub_resource type="Animation" id="Animation_2jinp"]
 resource_name = "main"
 length = 0.8
-step = 0.0333333
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -158,6 +215,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 1.5707964, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HingePivot/dummymesh:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.001, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6iek0"]
@@ -184,30 +253,30 @@ size = Vector3(2.69585, 5.22647, 0.463135)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2jinp"]
 resource_name = "Main_Door_Color"
-render_priority = 2
+render_priority = 4
 transparency = 1
 shading_mode = 0
 albedo_color = Color(0.461128, 0.329684, 0.209564, 1)
 stencil_mode = 3
 stencil_flags = 1
-stencil_compare = 2
+stencil_compare = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6iek0"]
 resource_name = "Door_Front"
-render_priority = 2
+render_priority = 4
 transparency = 1
 shading_mode = 0
 albedo_texture = ExtResource("16_hmxxs")
 stencil_mode = 3
 stencil_flags = 1
-stencil_compare = 2
+stencil_compare = 1
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hmxxs"]
 load_path = "res://.godot/imported/door_color.png-08094d8f5e3490a44f8fcdb26e303448.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v0ijp"]
 resource_name = "Door_Back"
-render_priority = 2
+render_priority = 4
 transparency = 1
 cull_mode = 2
 shading_mode = 0
@@ -775,6 +844,7 @@ one_shot = true
 
 [node name="sequencestart" type="AnimationPlayer" parent="gamesequence/sequence" unique_id=1263333454]
 root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_40g5d")
 libraries/sequencestart = ExtResource("4_hc2u7")
 
 [node name="sequence_2" type="AnimationPlayer" parent="gamesequence/sequence" unique_id=143687034]
@@ -907,74 +977,75 @@ environment = ExtResource("13_suhym")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 light_color = Color(0, 0, 0, 1)
 
-[node name="floor1" type="MeshInstance3D" parent="." unique_id=1270133708]
+[node name="floor" type="MeshInstance3D" parent="." unique_id=1270133708]
 transform = Transform3D(1244.0197, 0, 0, 0, 1, 0, 0, 0, 1532.0901, 0, 0, 0)
 mesh = SubResource("BoxMesh_3eh75")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="floor1" unique_id=560058693]
+[node name="StaticBody3D" type="StaticBody3D" parent="floor" unique_id=560058693]
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor1/StaticBody3D" unique_id=1700358122]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor/StaticBody3D" unique_id=1700358122]
 visible = false
 shape = SubResource("ConcavePolygonShape3D_3s6yk")
 
-[node name="floor6" type="MeshInstance3D" parent="." unique_id=2073751737]
+[node name="roof" type="MeshInstance3D" parent="." unique_id=2073751737]
 transform = Transform3D(1244.0197, 0, 0, 0, 1, 0, 0, 0, 1532.0901, 0, 748.75775, 0)
 mesh = SubResource("BoxMesh_3eh75")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="floor6" unique_id=1794924645]
+[node name="StaticBody3D" type="StaticBody3D" parent="roof" unique_id=1794924645]
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor6/StaticBody3D" unique_id=210011936]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="roof/StaticBody3D" unique_id=210011936]
 visible = false
 shape = SubResource("ConcavePolygonShape3D_3s6yk")
 
-[node name="floor2" type="MeshInstance3D" parent="." unique_id=1923949307]
+[node name="wall" type="MeshInstance3D" parent="." unique_id=1923949307]
 transform = Transform3D(1244.0198, 0, 0, 0, -4.371139e-08, 1532.0901, 0, -1, -6.6969784e-05, 0, 0, -563.67316)
 mesh = SubResource("BoxMesh_3eh75")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="floor2" unique_id=536761133]
+[node name="StaticBody3D" type="StaticBody3D" parent="wall" unique_id=536761133]
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor2/StaticBody3D" unique_id=1496356713]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall/StaticBody3D" unique_id=1496356713]
 visible = false
 shape = SubResource("ConcavePolygonShape3D_3s6yk")
 
-[node name="floor3" type="MeshInstance3D" parent="." unique_id=508517544]
+[node name="wall2" type="MeshInstance3D" parent="." unique_id=508517544]
 transform = Transform3D(1244.0198, 0, 0, 0, -4.371139e-08, 1532.0901, 0, -1, -6.6969784e-05, 0, 0, 430.1952)
 mesh = SubResource("BoxMesh_3eh75")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="floor3" unique_id=88408312]
+[node name="StaticBody3D" type="StaticBody3D" parent="wall2" unique_id=88408312]
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor3/StaticBody3D" unique_id=438317319]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall2/StaticBody3D" unique_id=438317319]
 visible = false
 shape = SubResource("ConcavePolygonShape3D_3s6yk")
 
-[node name="floor4" type="MeshInstance3D" parent="." unique_id=1806485907]
+[node name="wall3" type="MeshInstance3D" parent="." unique_id=1806485907]
 transform = Transform3D(-5.437783e-05, 1, 6.6969784e-05, 0, -4.371139e-08, 1532.0901, 1244.0198, 4.371139e-08, 8.37042e-12, 496.93417, 0, -66.73896)
 mesh = SubResource("BoxMesh_3eh75")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="floor4" unique_id=143649816]
+[node name="StaticBody3D" type="StaticBody3D" parent="wall3" unique_id=143649816]
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor4/StaticBody3D" unique_id=1210010790]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall3/StaticBody3D" unique_id=1210010790]
 visible = false
 shape = SubResource("ConcavePolygonShape3D_3s6yk")
 
-[node name="floor5" type="MeshInstance3D" parent="." unique_id=1263489437]
+[node name="wall4" type="MeshInstance3D" parent="." unique_id=1263489437]
 transform = Transform3D(-5.437783e-05, 1, 6.6969784e-05, 0, -4.371139e-08, 1532.0901, 1244.0198, 4.371139e-08, 8.37042e-12, -496.93417, 0, -66.739006)
 mesh = SubResource("BoxMesh_3eh75")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="floor5" unique_id=2078609890]
+[node name="StaticBody3D" type="StaticBody3D" parent="wall4" unique_id=2078609890]
 collision_mask = 2
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="floor5/StaticBody3D" unique_id=1472270191]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="wall4/StaticBody3D" unique_id=1472270191]
 visible = false
 shape = SubResource("ConcavePolygonShape3D_3s6yk")
 
 [node name="player" parent="." unique_id=838546913 instance=ExtResource("2_3s6yk")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.695002)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.476458, 9.695002)
+WALK_SPEED = 20.0
 
 [node name="vintage_table" parent="." unique_id=405293067 instance=ExtResource("3_ab7mr")]
 transform = Transform3D(0.4498767, 0, 0, 0, 0.4498767, 0, 0, 0, 0.4498767, 0, 0.625074, 0)
@@ -1042,7 +1113,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2973871, 0.7241516, 1.29633
 shape = SubResource("BoxShape3D_sb4vr")
 
 [node name="HingePivot" type="Node3D" parent="door" unique_id=1188546004]
-transform = Transform3D(-4.3711385e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -4.3711385e-08, 1.3348999, 0, 3.5762787e-07)
+transform = Transform3D(-4.371138e-08, 0, 0.9999998, 0, 1, 0, -0.9999998, 0, -4.371138e-08, 1.3348999, 0, 3.5762787e-07)
 
 [node name="InteractableComponent" type="Node3D" parent="door/HingePivot" unique_id=1211877947 node_paths=PackedStringArray("world", "Contents_Node", "UI_Sprite_Node", "SubViewport_Node")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3349, 0, 0)
@@ -1059,7 +1130,7 @@ ActionToPress = SubResource("InputEventAction_75gw0")
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 billboard = 1
 no_depth_test = true
-render_priority = 4
+render_priority = 5
 texture = SubResource("ViewportTexture_rxibo")
 
 [node name="SubViewport" type="SubViewport" parent="door/HingePivot/InteractableComponent/Contents/UI" unique_id=1753739830]
@@ -1152,7 +1223,7 @@ shape = SubResource("BoxShape3D_hmxxs")
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="door/passageway/doorframes/playeroutsideportalnotifier" unique_id=379754460]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16240096, -0.09408593, -0.78175926)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16240096, -0.09408593, -1.662785)
 shape = SubResource("BoxShape3D_8xryq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="door/passageway" unique_id=1285936424]
@@ -1184,6 +1255,7 @@ spot_angle = 24.66
 spot_angle_attenuation = 1.1486968
 
 [node name="hallway" parent="door" unique_id=1216619298 instance=ExtResource("23_g523h")]
+process_mode = 4
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.335228, 0, 1.3357415)
 visible = false
 
@@ -1410,3 +1482,109 @@ debug_color = Color(0, 0.6431373, 0.2784314, 1)
 
 [editable path="phone"]
 [editable path="door/ceiling_light"]
+[editable path="door/hallway"]
+[editable path="door/hallway/1/pictureframes/pictureframe2"]
+[editable path="door/hallway/1/pictureframes/pictureframe22"]
+[editable path="door/hallway/1/pictureframes/pictureframe23"]
+[editable path="door/hallway/1/pictureframes/pictureframe24"]
+[editable path="door/hallway/1/pictureframes/pictureframe25"]
+[editable path="door/hallway/1/pictureframes/pictureframe26"]
+[editable path="door/hallway/1/pictureframes/pictureframe27"]
+[editable path="door/hallway/1/pictureframes/pictureframe3"]
+[editable path="door/hallway/1/pictureframes/pictureframe5"]
+[editable path="door/hallway/1/pictureframes/pictureframe6"]
+[editable path="door/hallway/1/pictureframes/pictureframe7"]
+[editable path="door/hallway/1/pictureframes/pictureframe8"]
+[editable path="door/hallway/1/pictureframes/pictureframe9"]
+[editable path="door/hallway/1/pictureframes/pictureframe10"]
+[editable path="door/hallway/1/pictureframes/pictureframe11"]
+[editable path="door/hallway/1/pictureframes/pictureframe4"]
+[editable path="door/hallway/1/pictureframes/pictureframe12"]
+[editable path="door/hallway/1/pictureframes/pictureframe13"]
+[editable path="door/hallway/1/pictureframes/pictureframe14"]
+[editable path="door/hallway/1/pictureframes/pictureframe15"]
+[editable path="door/hallway/1/pictureframes/pictureframe16"]
+[editable path="door/hallway/1/pictureframes/pictureframe17"]
+[editable path="door/hallway/1/pictureframes/pictureframe18"]
+[editable path="door/hallway/1/pictureframes/pictureframe19"]
+[editable path="door/hallway/1/pictureframes/pictureframe20"]
+[editable path="door/hallway/1/pictureframes/pictureframe21"]
+[editable path="door/hallway/2/pictureframes/skrillex"]
+[editable path="door/hallway/2/pictureframes/pictureframe2"]
+[editable path="door/hallway/2/pictureframes/pictureframe22"]
+[editable path="door/hallway/2/pictureframes/pictureframe23"]
+[editable path="door/hallway/2/pictureframes/pictureframe24"]
+[editable path="door/hallway/2/pictureframes/pictureframe25"]
+[editable path="door/hallway/2/pictureframes/pictureframe26"]
+[editable path="door/hallway/2/pictureframes/pictureframe27"]
+[editable path="door/hallway/2/pictureframes/pictureframe3"]
+[editable path="door/hallway/2/pictureframes/pictureframe5"]
+[editable path="door/hallway/2/pictureframes/pictureframe6"]
+[editable path="door/hallway/2/pictureframes/pictureframe7"]
+[editable path="door/hallway/2/pictureframes/pictureframe8"]
+[editable path="door/hallway/2/pictureframes/pictureframe9"]
+[editable path="door/hallway/2/pictureframes/pictureframe10"]
+[editable path="door/hallway/2/pictureframes/pictureframe11"]
+[editable path="door/hallway/2/pictureframes/pictureframe4"]
+[editable path="door/hallway/2/pictureframes/pictureframe12"]
+[editable path="door/hallway/2/pictureframes/pictureframe13"]
+[editable path="door/hallway/2/pictureframes/pictureframe14"]
+[editable path="door/hallway/2/pictureframes/pictureframe15"]
+[editable path="door/hallway/2/pictureframes/pictureframe16"]
+[editable path="door/hallway/2/pictureframes/pictureframe17"]
+[editable path="door/hallway/2/pictureframes/pictureframe18"]
+[editable path="door/hallway/2/pictureframes/pictureframe19"]
+[editable path="door/hallway/2/pictureframes/pictureframe20"]
+[editable path="door/hallway/2/pictureframes/pictureframe21"]
+[editable path="door/hallway/3/pictureframes/pictureframe2"]
+[editable path="door/hallway/3/pictureframes/pictureframe22"]
+[editable path="door/hallway/3/pictureframes/pictureframe23"]
+[editable path="door/hallway/3/pictureframes/pictureframe24"]
+[editable path="door/hallway/3/pictureframes/pictureframe25"]
+[editable path="door/hallway/3/pictureframes/pictureframe26"]
+[editable path="door/hallway/3/pictureframes/pictureframe27"]
+[editable path="door/hallway/3/pictureframes/pictureframe3"]
+[editable path="door/hallway/3/pictureframes/pictureframe5"]
+[editable path="door/hallway/3/pictureframes/pictureframe6"]
+[editable path="door/hallway/3/pictureframes/pictureframe7"]
+[editable path="door/hallway/3/pictureframes/pictureframe8"]
+[editable path="door/hallway/3/pictureframes/pictureframe9"]
+[editable path="door/hallway/3/pictureframes/pictureframe10"]
+[editable path="door/hallway/3/pictureframes/pictureframe11"]
+[editable path="door/hallway/3/pictureframes/pictureframe4"]
+[editable path="door/hallway/3/pictureframes/pictureframe12"]
+[editable path="door/hallway/3/pictureframes/pictureframe13"]
+[editable path="door/hallway/3/pictureframes/pictureframe14"]
+[editable path="door/hallway/3/pictureframes/pictureframe15"]
+[editable path="door/hallway/3/pictureframes/pictureframe16"]
+[editable path="door/hallway/3/pictureframes/pictureframe17"]
+[editable path="door/hallway/3/pictureframes/pictureframe18"]
+[editable path="door/hallway/3/pictureframes/pictureframe19"]
+[editable path="door/hallway/3/pictureframes/pictureframe20"]
+[editable path="door/hallway/3/pictureframes/pictureframe21"]
+[editable path="door/hallway/4/pictureframes/pictureframe2"]
+[editable path="door/hallway/4/pictureframes/pictureframe22"]
+[editable path="door/hallway/4/pictureframes/pictureframe23"]
+[editable path="door/hallway/4/pictureframes/pictureframe24"]
+[editable path="door/hallway/4/pictureframes/pictureframe25"]
+[editable path="door/hallway/4/pictureframes/pictureframe26"]
+[editable path="door/hallway/4/pictureframes/pictureframe27"]
+[editable path="door/hallway/4/pictureframes/pictureframe3"]
+[editable path="door/hallway/4/pictureframes/pictureframe5"]
+[editable path="door/hallway/4/pictureframes/pictureframe6"]
+[editable path="door/hallway/4/pictureframes/pictureframe7"]
+[editable path="door/hallway/4/pictureframes/pictureframe8"]
+[editable path="door/hallway/4/pictureframes/pictureframe9"]
+[editable path="door/hallway/4/pictureframes/pictureframe10"]
+[editable path="door/hallway/4/pictureframes/pictureframe11"]
+[editable path="door/hallway/4/pictureframes/pictureframe4"]
+[editable path="door/hallway/4/pictureframes/pictureframe12"]
+[editable path="door/hallway/4/pictureframes/pictureframe13"]
+[editable path="door/hallway/4/pictureframes/pictureframe14"]
+[editable path="door/hallway/4/pictureframes/pictureframe15"]
+[editable path="door/hallway/4/pictureframes/pictureframe16"]
+[editable path="door/hallway/4/pictureframes/pictureframe17"]
+[editable path="door/hallway/4/pictureframes/pictureframe18"]
+[editable path="door/hallway/4/pictureframes/pictureframe19"]
+[editable path="door/hallway/4/pictureframes/pictureframe20"]
+[editable path="door/hallway/4/pictureframes/pictureframe21"]

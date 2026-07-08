@@ -34,25 +34,26 @@ func _on_door_look(area: Area3D) -> void:
 		looked_at_door__start = true
 
 func goto_hallway() -> void:
-	PlayerGlobal.player_location = PlayerGlobal.PlayerLoc.HALLWAY
-	lightswitch.play()
-	$"../door/hallway".visible = true
-	$"../door/passageway".visible = false
-	$"../floor1".visible = false
-	$"../door/SpotLight3D".visible = false
-	$"../door/ceiling_light".visible = false
-	PlayerGlobal.world.env.glow_enabled = true
-	PlayerGlobal.world.env.volumetric_fog_enabled = false
-	$"../door/passageway/StaticBody3D".process_mode = Node.PROCESS_MODE_DISABLED
-	
-	
-	# wont be needing those
-	$"../vintage_table".queue_free()
-	$"../ceiling_light".queue_free()
-	$"../phone".queue_free()
-	
-	await get_tree().create_timer(2.4).timeout
-	$sequence/sequence_preset001.play("sequence_preset001/main")
+	if PlayerGlobal.world.player_in_portal_room and door.DOOR_STATE == door.DOOR_STATES.CLOSED:
+		PlayerGlobal.player_location = PlayerGlobal.PlayerLoc.HALLWAY
+		$"../door/hallway".process_mode = Node.PROCESS_MODE_INHERIT
+		lightswitch.play()
+		$"../door/hallway".visible = true
+		$"../door/passageway".visible = false
+		$"../floor".visible = false
+		$"../door/SpotLight3D".visible = false
+		$"../door/ceiling_light".visible = false
+		PlayerGlobal.world.env.glow_enabled = true
+		PlayerGlobal.world.env.volumetric_fog_enabled = false
+		$"../door/passageway/StaticBody3D".process_mode = Node.PROCESS_MODE_DISABLED
+		
+		# wont be needing those
+		$"../vintage_table".queue_free()
+		$"../ceiling_light".queue_free()
+		$"../phone".queue_free()
+		
+		await get_tree().create_timer(2.4).timeout
+		$sequence/sequence_preset001.play("sequence_preset001/main")
 
 
 func _on_mainroomtoswitch_timeout() -> void:
@@ -71,6 +72,7 @@ func _on_hallway_end_trigger_body_entered(body: Node3D) -> void:
 		$"../door/door_chamber".visible = true
 		$"../door/hallway".walldoor.visible = false
 		hallway_end_triggered = true
+		$"../door/hallway/3/hallway/walldoorcollision".process_mode = Node.PROCESS_MODE_DISABLED 
 
 
 func _on_hallway_warning_trigger_body_entered(body: Node3D) -> void:

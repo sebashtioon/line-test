@@ -13,7 +13,7 @@ func _on_hallway_toggled_tool_button_pressed() -> void:
 	
 	$"../../door/hallway".visible = hallway_toggled
 	$"../../door/passageway".visible = !hallway_toggled
-	$"../../floor1".visible = !hallway_toggled
+	$"../../floor".visible = !hallway_toggled
 	$"../../door/SpotLight3D".visible = !hallway_toggled
 	$"../../door/ceiling_light".visible = !hallway_toggled
 	

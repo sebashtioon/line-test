@@ -45,6 +45,7 @@ func _on_portalswitchnotifier_body_entered(body: Node3D) -> void:
 	if body.is_in_group(&"player_body") and player_in_front_of_portal:
 		player_in_portal_room = true
 		print("player in room")
+		
 		var mat_hallway = hallway.mesh.surface_get_material(0)
 		mat_hallway.stencil_mode = BaseMaterial3D.StencilMode.STENCIL_MODE_DISABLED
 		
@@ -64,36 +65,42 @@ func _on_portalswitchnotifier_body_exited(body: Node3D) -> void:
 		var mat_hallway = hallway.mesh.surface_get_material(0)
 		mat_hallway.stencil_mode = BaseMaterial3D.StencilMode.STENCIL_MODE_CUSTOM
 		mat_hallway.stencil_flags = 1
-		mat_hallway.stencil_compare = BaseMaterial3D.StencilCompare.STENCIL_COMPARE_EQUAL
+		mat_hallway.stencil_compare = BaseMaterial3D.StencilCompare.STENCIL_COMPARE_LESS
 		mat_hallway.stencil_reference = 1
-		
 		
 		var door_mat_1 = door_mesh.mesh.surface_get_material(0)
 		door_mat_1.stencil_mode = BaseMaterial3D.StencilMode.STENCIL_MODE_CUSTOM
 		door_mat_1.stencil_flags = 1
-		door_mat_1.stencil_compare = BaseMaterial3D.StencilCompare.STENCIL_COMPARE_EQUAL
+		door_mat_1.stencil_compare = BaseMaterial3D.StencilCompare.STENCIL_COMPARE_LESS
 		door_mat_1.stencil_reference = 1
 		
 		var door_mat_2 = door_mesh.mesh.surface_get_material(1)
 		door_mat_2.stencil_mode = BaseMaterial3D.StencilMode.STENCIL_MODE_CUSTOM
 		door_mat_2.stencil_flags = 1
-		door_mat_2.stencil_compare = BaseMaterial3D.StencilCompare.STENCIL_COMPARE_EQUAL
+		door_mat_2.stencil_compare = BaseMaterial3D.StencilCompare.STENCIL_COMPARE_LESS
 		door_mat_2.stencil_reference = 1
 		
 		var door_mat_3 = door_mesh.mesh.surface_get_material(2)
 		door_mat_3.stencil_mode = BaseMaterial3D.StencilMode.STENCIL_MODE_CUSTOM
 		door_mat_3.stencil_flags = 1
-		door_mat_3.stencil_compare = BaseMaterial3D.StencilCompare.STENCIL_COMPARE_EQUAL
+		door_mat_3.stencil_compare = BaseMaterial3D.StencilCompare.STENCIL_COMPARE_LESS
 		door_mat_3.stencil_reference = 1
 
 
 func _on_playernotoutsideportalnotifier_body_entered(body: Node3D) -> void:
 	if body.is_in_group(&"player_body") and !player_in_portal_room:
 		hallway.visible = false
+		
+		# disable door collision
+		if door.DOOR_STATE == door.DOOR_STATES.OPEN:
+			$door/HingePivot/StaticBody3D.process_mode = Node.PROCESS_MODE_DISABLED
 
 func _on_playernotoutsideportalnotifier_body_exited(body: Node3D) -> void:
 	if body.is_in_group(&"player_body") and !player_in_portal_room:
 		hallway.visible = true
+
+		# enable door collision
+		$door/HingePivot/StaticBody3D.process_mode = Node.PROCESS_MODE_INHERIT
 
 
 func _on_playeroutsideportalnotifier_body_entered(body: Node3D) -> void:
