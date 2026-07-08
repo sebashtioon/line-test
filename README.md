@@ -17,6 +17,6 @@ Made for Hack Club Horizons.
 
 1. Clone the repository
 ```sh
-git clone <repo-url>
+git clone https://github.com/sebashtioon/line-test.git
 ```
 2. open in Godot
