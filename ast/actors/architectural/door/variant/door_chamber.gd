@@ -56,6 +56,7 @@ func _on_door_animation_animation_finished(anim_name: StringName) -> void:
 		var tween = get_tree().create_tween()
 		tween.connect("finished", goto_end)
 		tween.tween_property($"../../gamemanager/fadelayer/fade", "modulate:a", 1, 3)
+		tween.tween_interval(1.4)
 
 func goto_end() -> void:
-	pass
+	get_tree().change_scene_to_file("res://src/demo/end_demo.tscn")
