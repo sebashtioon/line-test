@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://b8m0l4jv2pi3a"]
 
 [ext_resource type="FontFile" uid="uid://b7gfys1o8ewi" path="res://res/fonts/vhs/VCR_OSD_MONO_1.001.ttf" id="1_3gkli"]
+[ext_resource type="Script" uid="uid://b52dc60mhc8f0" path="res://src/demo/mainmenu_demo.gd" id="1_n64na"]
+[ext_resource type="Shader" uid="uid://n3gcbtn25uv" path="res://res/shad/vhs.gdshader" id="2_iq1yg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhlo8"]
 bg_color = Color(0.030933155, 0.030933158, 0.030933138, 1)
@@ -29,6 +31,17 @@ border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 expand_margin_bottom = 3.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sb4vr"]
+shader = ExtResource("2_iq1yg")
+shader_parameter/color_levels = 14.0
+shader_parameter/chromatic_aberration = 0.0
+shader_parameter/blur_amount = 3.386000160835
+shader_parameter/brightness = 2.1200000769500003
+shader_parameter/saturation = 1.0
+shader_parameter/color_offset_multiplier = 0.004
+shader_parameter/black_offset_multiplier = 0.1050000049875
+shader_parameter/color_offset = 0.004000003449879996
+
 [node name="world" type="Control" unique_id=784762348]
 layout_mode = 3
 anchors_preset = 15
@@ -36,6 +49,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_n64na")
 
 [node name="playbtn" type="Button" parent="." unique_id=1106284115]
 layout_mode = 1
@@ -88,6 +102,25 @@ text = "this game is still in a VERY unfinished state
 and I will finish it soon."
 horizontal_alignment = 1
 
+[node name="Label3" type="Label" parent="." unique_id=1608735456]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = -62.0
+offset_right = 82.0
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.84593344, 0, 0.2955854, 1)
+theme_override_fonts/font = ExtResource("1_3gkli")
+theme_override_font_sizes/font_size = 31
+text = "line test"
+horizontal_alignment = 1
+
 [node name="bg" type="ColorRect" parent="." unique_id=257930972]
 visible = false
 layout_mode = 1
@@ -97,3 +130,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+
+[node name="bg2" type="ColorRect" parent="." unique_id=175559842]
+material = SubResource("ShaderMaterial_sb4vr")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="playbtn" to="." method="_on_playbtn_pressed"]
