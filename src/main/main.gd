@@ -45,6 +45,7 @@ func _on_portalswitchnotifier_body_entered(body: Node3D) -> void:
 	if body.is_in_group(&"player_body") and player_in_front_of_portal:
 		player_in_portal_room = true
 		print("player in room")
+		
 		var mat_hallway = hallway.mesh.surface_get_material(0)
 		mat_hallway.stencil_mode = BaseMaterial3D.StencilMode.STENCIL_MODE_DISABLED
 		
@@ -89,10 +90,17 @@ func _on_portalswitchnotifier_body_exited(body: Node3D) -> void:
 func _on_playernotoutsideportalnotifier_body_entered(body: Node3D) -> void:
 	if body.is_in_group(&"player_body") and !player_in_portal_room:
 		hallway.visible = false
+		
+		# disable door collision
+		if door.DOOR_STATE == door.DOOR_STATES.OPEN:
+			$door/HingePivot/StaticBody3D.process_mode = Node.PROCESS_MODE_DISABLED
 
 func _on_playernotoutsideportalnotifier_body_exited(body: Node3D) -> void:
 	if body.is_in_group(&"player_body") and !player_in_portal_room:
 		hallway.visible = true
+
+		# enable door collision
+		$door/HingePivot/StaticBody3D.process_mode = Node.PROCESS_MODE_INHERIT
 
 
 func _on_playeroutsideportalnotifier_body_entered(body: Node3D) -> void:

@@ -34,7 +34,7 @@ func _on_door_look(area: Area3D) -> void:
 		looked_at_door__start = true
 
 func goto_hallway() -> void:
-	if PlayerGlobal.world.player_in_portal_room:
+	if PlayerGlobal.world.player_in_portal_room and door.DOOR_STATE == door.DOOR_STATES.CLOSED:
 		PlayerGlobal.player_location = PlayerGlobal.PlayerLoc.HALLWAY
 		$"../door/hallway".process_mode = Node.PROCESS_MODE_INHERIT
 		lightswitch.play()
