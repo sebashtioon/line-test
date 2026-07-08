@@ -10,6 +10,13 @@ extends Node3D
 var door_spawned__start : bool = false
 var looked_at_door__start : bool = false
 
+var sequence_4_triggered : bool = false
+var hallway_end_triggered : bool = false
+var hallway_warning_triggered : bool = false
+var hallway_warning2_triggered : bool = false
+
+var in_chamberdoor_hallway : bool = false
+
 func reset_flags(to_start : bool = true) -> void:
 	if to_start:
 		door_spawned__start = false
@@ -38,7 +45,52 @@ func goto_hallway() -> void:
 	PlayerGlobal.world.env.volumetric_fog_enabled = false
 	$"../door/passageway/StaticBody3D".process_mode = Node.PROCESS_MODE_DISABLED
 	
+	
+	# wont be needing those
+	$"../vintage_table".queue_free()
+	$"../ceiling_light".queue_free()
+	$"../phone".queue_free()
+	
+	await get_tree().create_timer(2.4).timeout
+	$sequence/sequence_preset001.play("sequence_preset001/main")
+
 
 func _on_mainroomtoswitch_timeout() -> void:
 	if !PlayerGlobal.world.player_in_front_of_portal:
 		goto_hallway()
+
+func _on_sequence_4_trigger_body_entered(body: Node3D) -> void:
+	if !sequence_4_triggered and body.is_in_group(&"player_body"):
+		$sequence/sequence_4.play("sequence_4/main")
+		sequence_4_triggered = true
+
+func _on_hallway_end_trigger_body_entered(body: Node3D) -> void:
+	if !hallway_end_triggered and body.is_in_group(&"player_body"):
+		$sequence/sequence_preset002.play("sequence_preset002/main")
+		
+		$"../door/door_chamber".visible = true
+		$"../door/hallway".walldoor.visible = false
+		hallway_end_triggered = true
+
+
+func _on_hallway_warning_trigger_body_entered(body: Node3D) -> void:
+	if !hallway_warning_triggered and body.is_in_group(&"player_body"):
+		$sequence/sequence_5.play("sequence_5/1")
+		hallway_warning_triggered = true
+
+
+func _on_hallway_warning_2_trigger_body_entered(body: Node3D) -> void:
+	if !hallway_warning2_triggered and body.is_in_group(&"player_body"):
+		$sequence/sequence_5.play("sequence_5/2")
+		hallway_warning2_triggered = true
+
+
+
+
+func _on_chamberdoor_portalswitchnotifier_body_entered(body: Node3D) -> void:
+	if body.is_in_group(&"player_body"):
+		in_chamberdoor_hallway = true
+
+func _on_chamberdoor_portalswitchnotifier_body_exited(body: Node3D) -> void:
+	if body.is_in_group(&"player_body"):
+		in_chamberdoor_hallway = false
