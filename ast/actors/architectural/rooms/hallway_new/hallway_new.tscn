@@ -1810,7 +1810,7 @@ shaded = true
 texture = ExtResource("6_54f6f")
 
 [node name="walldoor" type="MeshInstance3D" parent="3" unique_id=1262729386]
-transform = Transform3D(0, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377535, 2.1775538e-06, 2.4500008)
+transform = Transform3D(0, -1, -7.5497915e-08, -1, 0, -7.5497915e-08, 7.5497915e-08, 7.5497915e-08, -1, 1.3377534, 2.026558e-06, 0.45000076)
 material_override = ExtResource("1_54f6f")
 mesh = SubResource("ArrayMesh_yvnke")
 
