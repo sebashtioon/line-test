@@ -67,23 +67,22 @@ func _on_portalswitchnotifier_body_exited(body: Node3D) -> void:
 		mat_hallway.stencil_compare = BaseMaterial3D.StencilCompare.STENCIL_COMPARE_LESS
 		mat_hallway.stencil_reference = 1
 		
-		
 		var door_mat_1 = door_mesh.mesh.surface_get_material(0)
 		door_mat_1.stencil_mode = BaseMaterial3D.StencilMode.STENCIL_MODE_CUSTOM
 		door_mat_1.stencil_flags = 1
-		door_mat_1.stencil_compare = BaseMaterial3D.StencilCompare.STENCIL_COMPARE_EQUAL
+		door_mat_1.stencil_compare = BaseMaterial3D.StencilCompare.STENCIL_COMPARE_LESS
 		door_mat_1.stencil_reference = 1
 		
 		var door_mat_2 = door_mesh.mesh.surface_get_material(1)
 		door_mat_2.stencil_mode = BaseMaterial3D.StencilMode.STENCIL_MODE_CUSTOM
 		door_mat_2.stencil_flags = 1
-		door_mat_2.stencil_compare = BaseMaterial3D.StencilCompare.STENCIL_COMPARE_EQUAL
+		door_mat_2.stencil_compare = BaseMaterial3D.StencilCompare.STENCIL_COMPARE_LESS
 		door_mat_2.stencil_reference = 1
 		
 		var door_mat_3 = door_mesh.mesh.surface_get_material(2)
 		door_mat_3.stencil_mode = BaseMaterial3D.StencilMode.STENCIL_MODE_CUSTOM
 		door_mat_3.stencil_flags = 1
-		door_mat_3.stencil_compare = BaseMaterial3D.StencilCompare.STENCIL_COMPARE_EQUAL
+		door_mat_3.stencil_compare = BaseMaterial3D.StencilCompare.STENCIL_COMPARE_LESS
 		door_mat_3.stencil_reference = 1
 
 

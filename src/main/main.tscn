@@ -259,7 +259,7 @@ shading_mode = 0
 albedo_color = Color(0.461128, 0.329684, 0.209564, 1)
 stencil_mode = 3
 stencil_flags = 1
-stencil_compare = 2
+stencil_compare = 1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6iek0"]
 resource_name = "Door_Front"
@@ -269,7 +269,7 @@ shading_mode = 0
 albedo_texture = ExtResource("16_hmxxs")
 stencil_mode = 3
 stencil_flags = 1
-stencil_compare = 2
+stencil_compare = 1
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hmxxs"]
 load_path = "res://.godot/imported/door_color.png-08094d8f5e3490a44f8fcdb26e303448.s3tc.ctex"
