@@ -61,11 +61,11 @@ func _on_portalswitchnotifier_body_exited(body: Node3D) -> void:
 	if body.is_in_group(&"player_body") and player_in_front_of_portal:
 		player_in_portal_room = false
 		print("player not in room")
-		var mat_hallway = hallway.mesh.surface_get_material(0)
-		mat_hallway.stencil_mode = BaseMaterial3D.StencilMode.STENCIL_MODE_CUSTOM
-		mat_hallway.stencil_flags = 1
-		mat_hallway.stencil_compare = BaseMaterial3D.StencilCompare.STENCIL_COMPARE_EQUAL
-		mat_hallway.stencil_reference = 1
+		#var mat_hallway = hallway.mesh.surface_get_material(0)
+		#mat_hallway.stencil_mode = BaseMaterial3D.StencilMode.STENCIL_MODE_CUSTOM
+		#mat_hallway.stencil_flags = 1
+		#mat_hallway.stencil_compare = BaseMaterial3D.StencilCompare.STENCIL_COMPARE_EQUAL
+		#mat_hallway.stencil_reference = 1
 		
 		
 		var door_mat_1 = door_mesh.mesh.surface_get_material(0)
